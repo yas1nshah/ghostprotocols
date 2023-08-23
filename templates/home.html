@@ -1,0 +1,69 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghost Protocols</title>
+    {%load static%} <link rel="stylesheet" href="{%static "home.css"%}" />
+  </head>
+  <body>
+    {% comment %}
+    <header>
+      <div class="logobar">
+        <img
+          src="http://127.0.0.1:8000/static/ghostprotocols-logo.png"
+          alt="Ghost Protocols Logo"
+        />
+      </div>
+      <div class="menu"></div>
+    </header>
+    {% endcomment %}
+
+    <div class="main-container">
+      <div class="sidebar">sidebar</div>
+      <div class="main">main</div>
+      <div class="sidebar">sidebar</div>
+    </div>
+  </body>
+</html>
+
+<style>
+  .card {
+    font-family: "Roboto", sans-serif;
+    background-color: grey;
+    border-radius: 20px;
+    width: 250px;
+    position: relative;
+  }
+
+  .image {
+    border-radius: 20px 20px 0px 0px;
+    height: 150px;
+    ratio: 3/4;
+    background-color: blue;
+    background-image: url(https://ghostprotocols.pk/wp-content/uploads/2023/04/logo-2-e1680867613569.png);
+    background-size: 150px; /* Scale the image to fit inside the container */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-position: center center;
+  }
+  .desp {
+    padding: 0px 20px 5px 10px;
+  }
+  .make {
+    margin: 5px 5px 0px 5px;
+  }
+  .model {
+    margin: 0px 5px 5px 5px;
+  }
+  .city {
+    margin: 5px;
+  }
+
+  .price {
+    font-size: 1.3em;
+    margin: 5px;
+  }
+  .price b {
+    margin: 0;
+    margin-left: 5px;
+  }
+</style>

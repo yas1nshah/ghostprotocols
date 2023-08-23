@@ -1,0 +1,58 @@
+<html>
+  <h1>{{data.make}}</h1>
+  {% for i in data %}
+
+  <div class="card">
+    <div class="image"></div>
+    <div class="desp">
+      <h5 class="make">{{i.make}}</h5>
+      <h3 class="model">{{i.model}}</h3>
+
+      <h3 class="price">Rs<b>{{i.price}}</b></h3>
+
+      <h5 class="city">{{i.city}}</h5>
+    </div>
+  </div>
+  {% endfor %}
+</html>
+<style>
+  .card {
+    font-family: "Roboto", sans-serif;
+    background-color: grey;
+    border-radius: 20px;
+    width: 250px;
+    position: relative;
+  }
+
+  .image {
+    border-radius: 20px 20px 0px 0px;
+    height: 150px;
+    ratio: 3/4;
+    background-color: blue;
+    background-image: url(https://ghostprotocols.pk/wp-content/uploads/2023/04/logo-2-e1680867613569.png);
+    background-size: 150px; /* Scale the image to fit inside the container */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-position: center center;
+  }
+  .desp {
+    padding: 0px 20px 5px 10px;
+  }
+  .make {
+    margin: 5px 5px 0px 5px;
+  }
+  .model {
+    margin: 0px 5px 5px 5px;
+  }
+  .city {
+    margin: 5px;
+  }
+
+  .price {
+    font-size: 1.3em;
+    margin: 5px;
+  }
+  .price b {
+    margin: 0;
+    margin-left: 5px;
+  }
+</style>
