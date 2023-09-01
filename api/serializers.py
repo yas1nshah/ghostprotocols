@@ -8,7 +8,7 @@ from base.models import Car, Gallery
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'phone', 'f_name']
+        fields = "__all__"
 
 
 #
@@ -41,6 +41,27 @@ class AddCarSerializer(serializers.ModelSerializer):
 
 
 class GallerySerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Gallery
         fields = '__all__'
+
+
+class GallerySerializerForCar(serializers.ModelSerializer):
+
+    class Meta:
+        model = Gallery
+        fields = ('image',)
+
+
+class CarSerializer(serializers.ModelSerializer):
+    gallery = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Car
+        fields = "__all__"
+
+    def get_gallery(self, obj):
+        gallery_images = obj.gallery_set.all()
+        gallery_urls = [image.image.url for image in gallery_images]
+        return gallery_urls

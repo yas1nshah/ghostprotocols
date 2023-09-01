@@ -62,6 +62,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     # True for Dealer || False for Individual
     acc_type = models.BooleanField(default=False)
     ad_limit = models.IntegerField(default=1)
+    address = models.CharField(default="N/A", max_length=255)
 
     objects = CustomUserManager()
 
@@ -76,7 +77,6 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.f_name
 
     # def __str__(self):
-    #     return self.f_name
 
     # def has_perm(self, perm, obj=None):
     #     return True  # All users have all permissions

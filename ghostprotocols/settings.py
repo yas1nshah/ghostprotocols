@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+from datetime import timedelta
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -58,6 +60,18 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication'
     ]
 
+}
+SIMPLE_JWT = {
+    # Set the access token lifetime to 1 day
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    # Set the sliding token refresh lifetime to 1 day
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+    # Set the sliding token lifetime to 1 day
+    'SLIDING_TOKEN_LIFETIME': timedelta(days=1),
+    # Set the sliding token refresh lifetime grace period to 1 day
+    'SLIDING_TOKEN_REFRESH_LIFETIME_GRACE_PERIOD': timedelta(days=1),
+    # Set the sliding token refresh lifetime allow delta to 1 day
+    'SLIDING_TOKEN_REFRESH_LIFETIME_ALLOW_DELTA': timedelta(days=1),
 }
 
 MIDDLEWARE = [
@@ -137,7 +151,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'images/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

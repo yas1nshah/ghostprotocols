@@ -20,6 +20,8 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
+from ghostprotocols import settings
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('inventory/', include("inventory.urls")),
