@@ -1,4 +1,4 @@
-from datetime import timezone
+from django.utils import timezone
 from django.db import models
 from account.models import User
 
@@ -51,6 +51,23 @@ class Gallery(models.Model):
     image = models.ImageField(upload_to='images')
 
 
+class CarReports(models.Model):
+    car = models.ForeignKey(
+        Car, on_delete=models.CASCADE, null=False, to_field='stockid')
+    reason = models.CharField(max_length=255)
+    date = models.DateTimeField(default=timezone.now)
+
+
 class WeSellYouWin(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.now)
+
+
+class DemandList(models.Model):
+    make = models.CharField(max_length=255)
+    model = models.CharField(max_length=255)
+    demand = models.CharField(max_length=255)
+    budget = models.IntegerField()
+    buyer = models.CharField(max_length=255)
+    date = models.DateTimeField(timezone.now)
+    done = models.BooleanField(default=False)

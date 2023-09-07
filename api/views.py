@@ -1,31 +1,21 @@
-import statistics
-import time
+# ? Modles
+from base.models import Car, DemandList, Gallery
+# ? Seializers
+from api.serializers import CarReportSerializer, CarSerializer, DemandListSerializer, UserProfileSerializer, UserRegistrationSerializer, AddCarSerializer, GallerySerializer, WeSellYouWinSerializer
+# ? Rest Frameworks
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from base.models import Car, Gallery
-#
-# from django.contrib.auth import authenticate, login
-# from django.contrib.auth import get_user_model
-# from rest_framework.permissions import IsAuthenticated
-# # from . import UserSerailizer
-
-#
-from api.serializers import CarSerializer, UserProfileSerializer, UserRegistrationSerializer, AddCarSerializer, GallerySerializer
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import authenticate
-# JWT TOKEN
+from rest_framework.exceptions import AuthenticationFailed
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
+from rest_framework_simplejwt.tokens import AccessToken
 
 
-# @api_view(["GET"])
-# def getData(request):
-#     person = {"hello": 'hi'}
-#     return Response(person)
-
-
+# ? Get Car by Stock ID
 @api_view(['GET'])
 def carDetils(request, stockid):
     try:
@@ -60,30 +50,15 @@ def carDetils(request, stockid):
         return Response({"error": "Car not found"}, status=404)
 
 
-# @api_view(['POST'])
-# def login(request):
-#     # print(request.data['username'])
-#     username = request.data["phone"]
-#     password = request.data["password"]
-#     user = authenticate(request, phone=username, password=password)
-#     if user is not None:
-#         login(request, user)
-#         # Redirect to a success page.
-#         return Response({'hi': 'sucess'})
-#         # ...
-#     else:
-#         # Return an 'invalid login' error message.
-#         # ...
-#         return Response({'hi': 'failed'})
-
-
-# generating token manually
+# ! generating token manually
 def get_tokens_for_user(user):
     refresh = RefreshToken.for_user(user)
     return {
         'refresh': str(refresh),
         'access': str(refresh.access_token),
     }
+
+# ? User Registration
 
 
 class UserRegistrationView(APIView):
@@ -96,6 +71,8 @@ class UserRegistrationView(APIView):
             return Response({'msg': "Registered", "token": token})
         else:
             return Response({'msg': "Registeration Failed"})
+
+# ? User Login
 
 
 class UserLoginView(APIView):
@@ -114,52 +91,80 @@ class UserLoginView(APIView):
             return Response({'error': "The phone and passwords dont match"}, status=status.HTTP_401_UNAUTHORIZED)
 
 
+# ? Check For Login
+class isAuthenticatedView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({"logged_in?": "yes"}, status=status.HTTP_200_OK)
+
+# ? User Profile
+
+
 class UserProfileView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
         serializer = UserProfileSerializer(request.user)
+
         return Response({'data': serializer.data})
 
 
-class SearchPageView(APIView):
-    def get(self, requst, format=None):
-        return Response({'data': requst.data})
+# class SearchPageView(APIView):
+#     def get(self, requst, format=None):
+#         return Response({'data': requst.data})
 
- # gpCars = Car.objects.filter(gpcar=True).order_by('-stockid')[:6]
+#  # gpCars = Car.objects.filter(gpcar=True).order_by('-stockid')[:6]
 
-        # featuredCars = Car.objects.filter(
-        #     featured=True).order_by('-stockid')[:6]
+#         # featuredCars = Car.objects.filter(
+#         #     featured=True).order_by('-stockid')[:6]
 
 
+# ? Home Page View
 class HomePageView(APIView):
+
     def get(self, request, ):
         # Fetch the first 5 Car objects
-        GpCars = Car.objects.filter(gpcar=True, featured=False)[:6]
-        FeaturedCars = Car.objects.filter(gpcar=False, featured=True)[:6]
-        RecentCars = Car.objects.filter(gpcar=False, featured=False)[:6]
+        GpCars = Car.objects.order_by(
+            '-stockid').filter(gpcar=False, featured=False)[:6]
+        FeaturedCars = Car.objects.order_by(
+            '-stockid').filter(gpcar=False, featured=False)[:6]
+        RecentCars = Car.objects.order_by(
+            '-stockid').filter(gpcar=False, featured=False)[:6]
 
         # Serialize the queryset
         gpSerial = CarSerializer(GpCars, many=True)
         featSerial = CarSerializer(FeaturedCars, many=True)
         RecentSerial = CarSerializer(RecentCars, many=True)
 
-        time.sleep(5)
-        return Response({"gpcars": gpSerial.data, "featuredCars": featSerial.data, "recentcars": RecentSerial.data})
+        return Response({"gpcars": gpSerial.data, "featuredCars": featSerial.data, "recentcars": RecentSerial.data}, status=status.HTTP_200_OK)
 
 
+# ? Post Car View
 class PostCarView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request, format=None):
-        print("hi")
-        # print(request.header.get("Authorization"))
+        user = request.user
+
+        # Check if the user has reached their ad limit
+        if user.ad_limit > 0:
+            existing_cars = Car.objects.filter(seller=user).count()
+            if existing_cars >= user.ad_limit:
+                return Response(
+                    {"error": "You have reached your car posting limit."},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+
         data = request.data.copy()  # Create a copy of the request data
-        data["seller"] = request.user.id
+        data["seller"] = user.id
         serializer = AddCarSerializer(data=data)
+
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response({'data': serializer.data})
+
+# ? Gallery Upload View
 
 
 class GalleryUploadView(APIView):
@@ -185,6 +190,34 @@ class GalleryUploadView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# ? Report Car View
+class ReportCarView(APIView):
+    def post(self, request):
+        serializer = CarReportSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"status": "Car Reported"}, status=status.HTTP_200_OK)
+        else:
+            return Response({"status": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
+
+# ? My Cars View
+class MyCarsView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        page = int(request.query_params.get('page', 1))
+        items_per_page = 5
+        starting_index = (page - 1) * items_per_page
+        ending_index = page * items_per_page
+        myCars = Car.objects.order_by(
+            '-stockid').filter(seller=request.user)[starting_index:ending_index]
+        myCarsSerial = CarSerializer(myCars, many=True)
+
+        return Response({"mycars": myCarsSerial.data})
+
+
+# ? Search Result with Filter
 class FilterCarsView(APIView):
     def post(self, request):
         data = request.data
@@ -225,15 +258,49 @@ class FilterCarsView(APIView):
             filter_conditions['price__lte'] = end_price
 
         # print(**filter_conditions)
-        items_per_page = 18
+        items_per_page = 15
         starting_index = (page - 1) * items_per_page
         ending_index = page * items_per_page
 
         # Apply filters and paginate the results
-        cars = Car.objects.filter(
+        cars = Car.objects.order_by('-stockid').filter(
             **filter_conditions)[starting_index:ending_index]
 
         # Serialize the queryset
         serializer = CarSerializer(cars, many=True)
 
         return Response(serializer.data)
+
+
+# ? We Sell You Win
+class WeSellYouWinCreateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        data = {'user': user.id, }
+        serializer = WeSellYouWinSerializer(data=data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# ? Demand List View
+class DemandListView(APIView):
+    def post(self, request):
+        page = int(request.data.get('page', 1))
+        items_per_page = 10
+        starting_index = (page - 1) * items_per_page
+        ending_index = page * items_per_page
+
+        # Apply filters and paginate the results
+        demand_list = DemandList.objects.filter(
+            done=False).order_by('-id')[starting_index:ending_index]
+        print(demand_list)
+
+        # Use many=True for serializing a list of objects
+        serializer = DemandListSerializer(demand_list, many=True)
+        # if serializer.is_valid():
+        return Response({"demandList": serializer.data}, status=status.HTTP_200_OK)

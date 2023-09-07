@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+STATICFILES_DIRS = [
+    BASE_DIR / "images",
+    "/var/www/static/",
+]
 
 INSTALLED_APPS = [
     'inventory.apps.InventoryConfig',
@@ -63,7 +67,7 @@ REST_FRAMEWORK = {
 }
 SIMPLE_JWT = {
     # Set the access token lifetime to 1 day
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     # Set the sliding token refresh lifetime to 1 day
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
     # Set the sliding token lifetime to 1 day

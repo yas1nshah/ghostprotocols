@@ -1,8 +1,10 @@
-# serializers.py
+# ? Packages
 from rest_framework import serializers
-# from django.contrib.auth import get_user_model
+# ? Models
 from account.models import User
-from base.models import Car, Gallery
+from base.models import Car, CarReports, Gallery, WeSellYouWin, DemandList
+
+# ? Users Serializers
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -11,7 +13,12 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-#
+class SellerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["f_name", "phone", "address", "date_joined"]
+
+
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password2 = serializers.CharField(
         style={'input_type': 'password', 'write_only': True})
@@ -34,6 +41,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         return user
 
 
+# ? Posting Car Serializers
 class AddCarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Car
@@ -47,6 +55,7 @@ class GallerySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+# ? add Gallery Field in car responce
 class GallerySerializerForCar(serializers.ModelSerializer):
 
     class Meta:
@@ -55,6 +64,7 @@ class GallerySerializerForCar(serializers.ModelSerializer):
 
 
 class CarSerializer(serializers.ModelSerializer):
+    seller = SellerSerializer()
     gallery = serializers.SerializerMethodField()
 
     class Meta:
@@ -65,3 +75,25 @@ class CarSerializer(serializers.ModelSerializer):
         gallery_images = obj.gallery_set.all()
         gallery_urls = [image.image.url for image in gallery_images]
         return gallery_urls
+
+# ? Reporting Cars
+
+
+class CarReportSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = CarReports
+        fields = "__all__"
+
+
+class WeSellYouWinSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WeSellYouWin
+        fields = '__all__'
+
+
+class DemandListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = DemandList
+        fields = '__all__'

@@ -1,7 +1,9 @@
 from django.contrib import admin
 
-from base.models import Car, Gallery
+from base.models import Car, Gallery, DemandList, WeSellYouWin
 
 # Register your models here.
 admin.site.register(Car)
 admin.site.register(Gallery)
+admin.site.register(DemandList)
+admin.site.register(WeSellYouWin)
