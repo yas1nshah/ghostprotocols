@@ -4,8 +4,6 @@ from django.contrib.auth.models import (
     UserManager, AbstractBaseUser, PermissionsMixin
 )
 
-# Custom User Manager
-
 
 class CustomUserManager(UserManager):
     def _create_user(self, phone=None, password=None, **extra_fields):

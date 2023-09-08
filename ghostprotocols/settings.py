@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 STATICFILES_DIRS = [
-    BASE_DIR / "images",
+    BASE_DIR / "static",
     "/var/www/static/",
 ]
 
@@ -67,7 +67,7 @@ REST_FRAMEWORK = {
 }
 SIMPLE_JWT = {
     # Set the access token lifetime to 1 day
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(weeks=4),
     # Set the sliding token refresh lifetime to 1 day
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
     # Set the sliding token lifetime to 1 day
@@ -155,7 +155,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'images/'
+STATIC_URL = 'static/'
 
 
 # Default primary key field type
