@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Outfit&display=swap"
+    />
+  </head>
+
+  <body
+    style="
+      background-color: rgb(22, 22, 22);
+      margin: 0;
+      font-family: 'Outfit';
+      color: rgb(241, 241, 241);
+    "
+  >
+    <header>
+      <div
+        class="h-top"
+        style="
+          height: 60px;
+          background-color: black;
+          text-align: center;
+          margin: 0;
+        "
+      >
+        <img
+          src="logo.png"
+          style="display: block; margin: 0 auto; height: 100%; width: auto"
+          alt="Centered Image"
+        />
+      </div>
+
+      <div
+        class="h-main"
+        style="
+          background-color: rgb(44, 188, 54);
+          text-align: center;
+          height: 20px;
+          margin: 0;
+          font-size: 15px;
+          padding: 3px;
+        "
+      >
+        <ul style="list-style-type: none; margin-top: 0">
+          <style>
+            .h-main ul li {
+              display: inline;
+              margin: 0 20px;
+              position: relative;
+            }
+
+            .h-main a {
+              text-decoration: none;
+              color: #fff;
+            }
+            .h-main a.active {
+              text-decoration: none;
+              color: #ffffff;
+              background: linear-gradient(
+                to bottom left,
+                rgba(36, 37, 38, 1),
+                rgba(36, 37, 38, 0.487)
+              );
+              padding: 1px 15px;
+              border-radius: 20px;
+              font-weight: bold;
+            }
+
+            .inner-menu {
+              display: none;
+              position: absolute;
+              background-color: rgb(36, 37, 38);
+              border-radius: 10px;
+              min-width: 200px;
+              text-align: left;
+
+              left: 0;
+            }
+
+            .inner-menu a {
+              display: block;
+              padding: 10px;
+              color: #fff;
+              text-decoration: none;
+              border-radius: 10px;
+            }
+
+            .inner-menu a:hover {
+              background-color: #555;
+              border-radius: 10px;
+            }
+
+            .h-main li:hover .inner-menu {
+              display: block;
+            }
+          </style>
+          <li><a href="#">Home</a></li>
+          <li><a class="active" href="#">Inventory</a></li>
+          <li><a href="#">GP Cars</a></li>
+          <li><a href="#">Add Car</a></li>
+          <li>
+            <a href="#">Services</a>
+            <div class="inner-menu">
+              <a href="#">Detailing</a>
+              <a href="#">Insurance</a>
+            </div>
+          </li>
+          <li><a href="#">Demand List</a></li>
+          <li>
+            <a href="#">Account</a>
+            <div class="inner-menu">
+              <a href="#">Login</a>
+              <a href="#">Sign Up</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <section
+      class="content"
+      style="
+        max-width: 1200px;
+        overflow: hidden;
+        max-width: 1200px;
+        margin: 0 auto;
+      "
+    >
+      <h1 style="font-size: 500px">HELOOOOOO</h1>
+      <section class="sidebar"></section>
+    </section>
+
+    <footer style="background-color: black; padding: 50px 0">
+      <style>
+        .f-head::after {
+          content: "";
+          display: block;
+          width: 50px;
+          margin: 10px 0;
+          border-bottom: 3px solid rgb(44, 188, 54);
+        }
+        .f-menu {
+          text-decoration: none;
+          color: rgb(241, 241, 241);
+          font-size: 18px;
+          font-weight: 300px;
+          opacity: 0.7;
+        }
+
+        .icon-row a {
+          display: inline-block;
+          height: 40px;
+          width: 40px;
+          background-color: rgba(255, 255, 255, 0.2);
+          margin: 0 10px 10px 0;
+          text-align: center;
+          line-height: 40px;
+          border-radius: 50%;
+          color: #ffffff;
+          transition: all 0.5s ease;
+        }
+      </style>
+
+      <div
+        class="content"
+        style="
+          width: 100%;
+          max-width: 1300px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+        "
+      >
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <img
+            style="width: 60%; height: auto"
+            src="logo.png"
+            alt=""
+            srcset=""
+          />
+          <hr />
+          <p>
+            Providing you the Ghostly experience with Ghost Protocols. Don't
+            miss out, Get your Ghostly car now.
+          </p>
+          <p>
+            Powered by
+            <a style="color: rgb(44, 188, 54)" href="https://tixy.pk"
+              >Tixy.pk</a
+            >
+          </p>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Menu</h3>
+          <ul>
+            <li>
+              <a class="f-menu" href="">Inventory</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Ghost Yard</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Demand List</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Services</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">About Us</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Contact Us</h3>
+          <div class="icon-row">
+            <a href="#"><i class=""></i></a>
+            <a href="#"><i class=""></i></a>
+            <a href="#"><i class=""></i></a>
+            <a href="#"><i class=""></i></a>
+          </div>
+
+          <h3 class="f-head">News Letter</h3>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Socials</h3>
+          <div class="icon-row">
+            <a href="#"><i class=""></i></a>
+            <a href="#"><i class=""></i></a>
+            <a href="#"><i class=""></i></a>
+            <a href="#"><i class=""></i></a>
+          </div>
+
+          <h3 class="f-head">Ghost App</h3>
+        </div>
+      </div>
+      <h4
+        style="
+          height: 20px;
+          text-align: center;
+          background-color: rgb(44, 188, 54);
+        "
+      >
+        Copyright © 2022 - 2023 Ghost Protocols
+      </h4>
+    </footer>
+  </body>
+</html>

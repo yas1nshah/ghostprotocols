@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- START -->
+    <div class="carousel">
+        <div class="wrapper">
+          <img src="http://placehold.it/1200x600/040004/C8FF00?text=item1" class="item">
+          <img src="http://placehold.it/1200x600/C8FF00/040004?text=meow" class="item">
+          <img src="http://placehold.it/1200x600/FA023C/040004?text=item3" class="item">
+          <img src="http://placehold.it/1200x600/040004/FA023C?text=meow meow" class="item">
+          <img src="https://placekitten.com/g/1200/600" class="item">
+        </div>
+        <div class="control">
+          <div class="prew">
+            <i class="material-icons">keyboard_arrow_left</i>
+          </div>
+          <div class="next">
+            <i class="material-icons">keyboard_arrow_right</i>
+          </div>
+        </div>
+      </div>
+      <!-- END -->
+
+<style>
+    .carousel {
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  display:none;
+  
+  .wrapper {
+    left: 0px;
+    display: block;
+    transform: translate3d(0, 0, 0);
+    transition: all 400ms ease;
+    
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+      visibility: hidden;
+      line-height: 0;
+      height: 0;
+    }
+    
+    .item {
+      float: left;
+      display: block;
+      height: auto;
+      backface-visibility: hidden;
+      transform: translate3d(0,0,0);
+    }
+  }
+  
+  .control {
+    .next, .prew {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 10%;
+      min-width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      cursor: pointer;
+    }
+    
+    .prew {
+      left: 0;
+    }
+    
+    .next {
+      right: 0;
+    }
+    
+    .buletts {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      
+      li {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        margin: 15px 5px;
+        cursor: pointer;
+        
+        &.active {
+          background: #fff;
+        }
+      }
+    }
+  }
+}
+
+/* off - ez már csak a bemutatóoldalnak kell */
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:700|Roboto:300);
+
+body {
+  font-family: Roboto;
+  background: rgba(0,0,0,.1);
+}
+h1 {
+  font-family: 'Roboto Slab';
+  font-size: 3em;
+  text-align: center;
+  padding: 1em;
+}
+h3 {
+  font-family: 'Roboto Slab';
+  font-size: 2em;
+  padding: 1em 0;
+}
+
+h4 {
+  font-family: 'Roboto Slab';
+  padding: .8em 0 .4em; 
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 0 100px 0 rgba(0,0,0,.5);
+}
+
+.desc {
+  padding: 30px;
+}
+
+pre, code {
+  font-family: mono;
+  background: #f2f2f2;
+  border-radius: 3px;
+  padding: 1em;
+  overflow: auto;
+}
+
+a {
+  color: #8eaa00;
+  text-decoration: none;
+}
+
+small {
+  font-size: 60%;
+  color: #666;
+}
+</style>
+
+<script>
+(function() {
+  // Helper function to add or remove classes
+  function addClass(element, className) {
+    if (element.classList) {
+      element.classList.add(className);
+    } else {
+      element.className += ' ' + className;
+    }
+  }
+
+  function removeClass(element, className) {
+    if (element.classList) {
+      element.classList.remove(className);
+    } else {
+      element.className = element.className.replace(
+        new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'),
+        ' '
+      );
+    }
+  }
+
+  // Carousel Object
+  var Carousel = {
+    init: function(options, element) {
+      this.actualIndex = 0;
+      this.elem = element;
+      this.wrapper = element.querySelector('.wrapper');
+      this.items = this.wrapper.querySelectorAll('.item');
+      this.next = element.querySelector('.next');
+      this.prew = element.querySelector('.prew');
+      this.timer = null;
+
+      this.opts = Object.assign({}, this.defaultOptions, element.dataset, options);
+      this.userOptions = options;
+
+      this.start();
+      this.setEvents();
+    },
+    setEvents: function() {
+      var self = this;
+      window.addEventListener('resize', function() {
+        self.setWrapperWidth();
+        self.step(0);
+      });
+
+      if (this.opts.arrows) {
+        this.next.addEventListener('click', function() {
+          self.nextStep();
+        });
+
+        this.prew.addEventListener('click', function() {
+          self.prewStep();
+        });
+      } else {
+        this.next.style.display = 'none';
+        this.prew.style.display = 'none';
+      }
+
+      if (this.opts.swipe) {
+        this.elem.addEventListener('swipeleft', function() {
+          self.nextStep();
+        });
+
+        this.elem.addEventListener('swiperight', function() {
+          self.prewStep();
+        });
+      }
+
+      if (this.opts.autoplay) {
+        this.autoplay().start();
+
+        if (this.opts.autoplayStopOnHover) {
+          this.elem.addEventListener('mouseenter', function() {
+            self.autoplay().stop();
+          });
+
+          this.elem.addEventListener('mouseleave', function() {
+            self.autoplay().start();
+          });
+        }
+      }
+
+      if (this.opts.keyboardArrows) {
+        this.elem.addEventListener('mouseenter', function() {
+          document.addEventListener('keyup', function(ev) {
+            self.handleKeypress(ev);
+          });
+        });
+
+        this.elem.addEventListener('mouseleave', function() {
+          document.removeEventListener('keyup', self.handleKeypress);
+        });
+      }
+    },
+    start: function() {
+      this.setWrapperWidth();
+      if (this.opts.bullets) {
+        this.generateBullets();
+      }
+    },
+    setWrapperWidth: function() {
+      this.hide();
+      var width = 0;
+      this.items.forEach(function(item) {
+        item.style.width = this.elem.offsetWidth + 'px';
+        width += this.elem.offsetWidth;
+      }, this);
+      this.wrapper.style.width = width + 'px';
+      this.show();
+    },
+    show: function() {
+      this.elem.style.display = 'block';
+    },
+    hide: function() {
+      this.elem.style.display = 'none';
+    },
+    nextStep: function() {
+      this.step(1);
+    },
+    prewStep: function() {
+      this.step(-1);
+    },
+    step: function(dir) {
+      var nextIndex = (this.actualIndex - dir) % this.items.length;
+      nextIndex = nextIndex > 0 ? nextIndex - this.items.length : nextIndex;
+      var pixels = nextIndex * this.elem.offsetWidth;
+      this.wrapper.style.transform = 'translate3d(' + pixels + 'px, 0, 0)';
+      this.actualIndex = nextIndex;
+      this.changeBullet();
+    },
+    changeBullet: function() {
+      if (this.opts.bullets) {
+        this.bullets.forEach(function(bullet, index) {
+          removeClass(bullet, 'active');
+          if (index === -this.actualIndex) {
+            addClass(bullet, 'active');
+          }
+        }, this);
+      }
+    },
+    autoplay: function() {
+      var self = this;
+      return {
+        start: function() {
+          if (self.timer === null) {
+            self.timer = setInterval(function() {
+              self.nextStep();
+            }, self.opts.autoplayTime);
+          }
+        },
+        stop: function() {
+          clearInterval(self.timer);
+          self.timer = null;
+        },
+      };
+    },
+    generateBullets: function() {
+  this.bullets = [];
+  var bulletsContainer = document.createElement('ul');
+  bulletsContainer.className = 'buletts';
+  for (var i = 0; i < this.items.length; i++) {
+    var bullet = document.createElement('li');
+    (function(index) {
+      bullet.addEventListener('click', function() {
+        this.goTo(index);
+      }.bind(this));
+    })(i);
+    bulletsContainer.appendChild(bullet);
+    this.bullets.push(bullet);
+  }
+  this.elem.querySelector('.control').appendChild(bulletsContainer);
+  this.step(0);
+},
+
+    handleKeypress: function(ev) {
+      switch (ev.keyCode) {
+        case 39:
+          this.nextStep();
+          break;
+        case 37:
+          this.prewStep();
+          break;
+      }
+    },
+    defaultOptions: {
+      swipe: true,
+      arrows: true,
+      autoplay: true,
+      autoplayTime: 4000,
+      autoplayStopOnHover: true,
+      bullets: true,
+      keyboardArrows: true,
+    },
+  };
+
+  // Initialize the carousel
+  document.addEventListener('DOMContentLoaded', function() {
+    var carousels = document.querySelectorAll('.carousel');
+    for (var i = 0; i < carousels.length; i++) {
+      var carousel = carousels[i];
+      Carousel.init({}, carousel);
+    }
+  });
+
+  // Swipe detection (Replacing jquery.detectSwipe.js)
+  var touchStartX = 0;
+  var touchStartY = 0;
+
+  document.addEventListener('touchstart', function(event) {
+    touchStartX = event.touches[0].pageX;
+    touchStartY = event.touches[0].pageY;
+  });
+
+  document.addEventListener('touchmove', function(event) {
+    var touchEndX = event.touches[0].pageX;
+    var touchEndY = event.touches[0].pageY;
+    var deltaX = touchStartX - touchEndX;
+    var deltaY = touchStartY - touchEndY;
+    if (Math.abs(deltaX) > 20) {
+      var eventName = deltaX > 0 ? 'swipeleft' : 'swiperight';
+      var swipeEvent = new Event(eventName);
+      document.dispatchEvent(swipeEvent);
+    } else if (Math.abs(deltaY) > 20) {
+      var eventName = deltaY > 0 ? 'swipeup' : 'swipedown';
+      var swipeEvent = new Event(eventName);
+      document.dispatchEvent(swipeEvent);
+    }
+  });
+})();
+
+
+</script>
+
+</body>
+</html>

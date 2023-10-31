@@ -24,5 +24,7 @@ urlpatterns = [
     # ? Manage!
     path('wesellyouwin', views.WeSellYouWinCreateView.as_view(), name='weSellYouWin'),
     path('demand-list', views.DemandListView.as_view(), name='demand-list'),
+    path('images/<str:image_path>',
+         views.ImageView.as_view(), name='image_view'),
 
 ]

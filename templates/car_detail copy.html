@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Outfit&display=swap">
+
+</head>
+
+<body style=" background-color: rgb(22, 22, 22); margin: 0;font-family: 'Outfit'; color: rgb(241, 241, 241);">
+  
+  <header>
+
+    <div class="h-top" style="  height: 60px; background-color: black; text-align: center; margin: 0;">
+      <img src="logo.png" style="display: block; margin: 0 auto; height: 100%; width: auto;" alt="Centered Image">
+    </div>
+
+
+    <div class="h-main" style="  background-color: rgb(44, 188, 54);text-align: center;height: 20px;margin: 0; font-size: 15px;padding: 3px;">
+      
+      <ul style="list-style-type: none; margin-top: 0;">
+        <style>
+        .h-main ul li {
+          display: inline;
+          margin: 0 20px;
+          position: relative;
+        }
+        
+        .h-main a {
+          text-decoration: none;
+          color: #fff;
+        }
+        .h-main a.active {
+            text-decoration: none;
+            color: #ffffff;
+            background: linear-gradient(to bottom left, rgba(36, 37, 38, 1.000), rgba(36, 37, 38, 0.487));
+            padding: 1px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .inner-menu {
+          display: none;
+          position: absolute;
+          background-color: rgb(36, 37, 38);
+          border-radius: 10px;
+          min-width: 200px;
+          text-align: left;
+          
+          left: 0;
+        }
+        
+        .inner-menu a {
+          display: block;
+          padding: 10px;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 10px;
+        }
+        
+        .inner-menu a:hover {
+          background-color: #555;
+          border-radius: 10px;
+        }
+        
+        .h-main li:hover .inner-menu {
+          display: block;
+        }
+        </style>
+          <li><a href="#">Home</a></li>
+          <li><a class="active" href="#">Inventory</a></li>
+          <li><a href="#">GP Cars</a></li>
+          <li><a href="#">Add Car</a></li>
+          <li>
+              <a href="#">Services</a>
+              <div class="inner-menu">
+                  <a href="#">Detailing</a>
+                  <a href="#">Insurance</a>
+              </div>
+          </li>
+          <li><a href="#">Demand List</a></li>
+          <li>
+              <a href="#">Account</a>
+              <div class="inner-menu">
+                  <a href="#">Login</a>
+                  <a href="#">Sign Up</a>
+              </div>
+          </li>
+      </ul>
+    </div>
+
+  </header>
+
+  <section class="canvas" style="max-width: 1100px; margin: 0 auto; ">
+
+    <style>
+      a{
+        color: #fff;
+        text-decoration: none;
+      }
+    </style>
+  <p style="color: rgb(241, 241, 241); text-decoration: none; opacity: 0.8; font-size: 14px;"> <a href="">GhostProtocols</a> > <a href="">Inventory</a> > <a href="">Honda</a> > Car name </p>
+  <hr>
+  <section class="content" style=" max-width: 1200px; overflow: hidden; max-width: 1100px; margin: 0 auto;">
+
+    <style>
+      .content{
+        display: flex;
+      }
+    </style>
+    <!-- ? Content Start -->
+    <section class="main" style="flex: 7;  width: 100%; padding: 10px;">
+
+      <div class="banner" style="display: flex; ">
+        <h1 style="font-size: 24px; flex: 10;">Honda Civic Oriel 1.8 i-VTEC CVT 2021</h1>
+        <img style="flex: 1; max-width: 100px; height: auto;" src="https://wsa4.pakwheels.com/assets/auction-sheet-logo-ebf19d855fc7b2ff5ec2a081cc5b370c.svg" alt="" srcset="">
+      </div>
+
+      <div class="gallery" style="height: 500px; width: 100%; background-color: red;">
+
+      </div>
+
+      <div class="qck-ovw" style="display: flex; justify-content: space-between; background-color: rgb(36, 37, 38); border-radius: 10px; margin: 20px 0;">
+        <style>
+          .itm{
+            width: 100%;
+            padding: 15px 0px;
+            text-align: center;
+          }
+          
+          .qck-ovw hr{
+            margin: 30px 0;
+          }
+          .icon{
+            background: url(	https://wsa4.pakwheels.com/assets/engine-details-4572b0d4e20eacf4460db20eb72ee9b6.png) no-repeat;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+          }
+          .icon.mileage{
+            background-position: -30px -30px;
+          }
+
+        </style>
+
+        <div class="itm">
+          <span class="icon year"></span>
+          <p>2004</p>
+        </div>
+        <hr>
+        <div class="itm">
+          <span class="icon mileage"></span>
+          <p>204,000 km</p>
+        </div>
+        <hr>
+        <div class="itm">
+          <span class="icon year"></span>
+          <p>Automatic</p>
+        </div>
+        <hr>
+        <div class="itm">
+          <span class="icon year"></span>
+          <p>Lahore</p>
+        </div>
+
+      </div>
+      <br><br><br>
+      <div class="dtl-ovw">
+        <style>
+          .dtl-ovw{
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+          }
+          .dtl-ovw .dtl-itm{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          }
+          .dtl-ovw .dtl-itm .label{
+            opacity: 0.5;
+          }
+        </style>
+
+        <div class="dtl-ovw-row" style="width: 100%;">
+
+          <div class="dtl-itm">
+            <p class="label">Body</p>
+            <p>Sedan</p>
+          </div>
+          <div class="dtl-itm">
+            <p class="label">Color</p>
+            <p>Red</p>
+          </div>
+          <div class="dtl-itm">
+            <p class="label">Engine Capacity</p>
+            <p>2000cc</p>
+          </div>
+          <div class="dtl-itm">
+            <p class="label">Stock Id</p>
+            <p>#2302</p>
+          </div>
+
+        </div>
+
+        <div class="dtl-ovw-row"  style="width: 100%;"">
+
+          <div class="dtl-itm">
+            <p class="label">Drive</p>
+            <p>FWD</p>
+          </div>
+          <div class="dtl-itm">
+            <p class="label">Engine Type</p>
+            <p>Petrol</p>
+          </div>
+          <div class="dtl-itm">
+            <p class="label">Uploaded</p>
+            <p>12 mins ago</p>
+          </div>
+          
+
+        </div>
+
+        
+       
+        
+        
+      </div>
+      <br><br><br>
+      <div class="seller-remarks">
+        <h3>Seller Remarks</h3>
+        <p>Hello this is my car<br>fsfnlkofsaobuo</p>
+      </div>
+      <br><br><br>
+      <hr>
+      <br><br><br>
+
+    </section>
+    
+    <section class="sidebar" style="flex: 3; width: 100%; text-align: center;">
+      <style>
+        .box{
+          background-color: rgb(36, 37, 38); padding: 5px 25px ; border-radius: 10px; margin: 20px 10px;
+        }
+        .box h3{
+          display: block; margin: 15px 5px; text-decoration: none; color: white; background-color: rgb(63, 65, 67); padding: 10px 10px; border-radius: 5px;
+        }
+        hr{
+          opacity: 0.7;
+        }
+       
+        #seller-cont .label{
+          opacity: 0.7;
+          margin-right: 2px;
+        }
+       
+        
+      </style>
+      <div class="box">
+        <div class="price" style="text-align: center;">
+          <p style="margin: 5px; font-size: 25px; color: rgb(44, 188, 54);">PKR <span style="font-weight: 600;">40 lacs</span></p>
+          <p style="font-size: 12px; background-color: rgb(33, 166, 42); display: inline-block; padding: 2px 10px; border-radius: 5px;">Ghost Protocols Featured</p>
+          <a href="https://www.google.com" style="display: block; margin: 15px 5px; text-decoration: none; color: white; background-color: rgb(63, 65, 67); padding: 10px 10px; border-radius: 5px;">Seller Phone</a>
+          <a href="https://www.google.com" style="display: block; margin: 15px 5px; text-decoration: none; color: white; background-color: rgb(33, 166, 42); padding: 10px 10px; border-radius: 5px;">Buy it For Me</a>
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>Seller Info</h3>
+        <hr>
+        <div class="profile" style="height: 100px; width: 200px; margin: 20px auto; border-radius: 10px; background-color: rgb(63, 65, 67);">
+        
+        </div>
+        <hr style="margin: 10px 30px; opacity: 0.2;">
+        <div id="seller-cont" style="text-align: start; margin-left: 35%;">
+          <p style="text-indent: -4em;"><span class="label">Name:</span> Ghost Protocols</p>
+          <p style="text-indent: -4em;"><span class="label">Address:</span> Lahore Pakistan vvv long address Protocols</p>
+          <p style="text-indent: -4em;"><span class="label">Timings:</span> 2:00 - 4:00</p>
+        </div>
+      </div>
+      
+      <div class="box">
+        <h3>Instructions</h3>
+        <ul style="font-size: 14px; opacity: 0.8; text-align: start;">
+          <li><p>Use our WhatsApp Chatbot by clicking chat button to get instant replies</p></li>
+          <li><p>Meetings can be booked by Chatbot if our team isnt available on call.</p></li>
+          <li><p>Our prices are almost final, further negociations are done on location only.</p></li>
+          <li><p>GP is not responsible for B2B Deals in any way.</p></li>
+        </ul>
+      </div>
+    </section>
+    <!-- ? Content End -->
+
+  </section>
+  <br>
+  
+  <!-- Slider -->
+  <style>
+    .v-card {
+    height: 250px;
+    background-color: rgba(36, 37, 38, 1.000);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    text-align: start;
+    margin: 10px 5px;
+    border-radius: 10px;
+    /* scroll-snap-align: start; */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .05); /* Box shadow properties */
+
+}
+.imgSec {
+    flex: 3;
+    overflow: hidden;
+    /* background-color: rebeccapurple; */
+    position: relative; /* Add this to position the image correctly */
+}
+.imgSec img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center; /* Optional: To control the positioning of the image */
+}
+.imgSec .feat{
+    position: absolute;
+    background-color: rgb(44, 188, 54);
+    color: white;
+    padding: 3px 5px;
+    border-radius: 10px 0px 10px 0px;
+    font-size: 14px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .3)
+    
+}
+
+.count{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    height: 15px;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding:  2px 5px 5px 10px;
+    color: white;
+    display: inline-flex;
+}
+.count .c{
+    padding: 0px 5px;
+    display: inline-flex;
+}
+
+.d-sec {
+    flex: 3;
+    background-color: rgba(36, 37, 38, 1.000);
+    padding: 5px 10px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* line-height: ; */
+}
+.d-sec .title{
+    font-size: 14px;
+    font-weight: 500;
+   
+}
+
+.d-sec .price{
+    font-size: 1.2em;
+    font-weight: 700;
+    color: rgb(45, 207, 77);
+}
+.d-sec .price .pre{
+    font-size: 18px;
+    font-weight: 400;
+}
+.d-sec .location{
+    font-size: 0.9em;
+    font-weight: 500;
+}
+.d-sec .quick-ov{
+    font-size:0.9em;
+    font-weight: 600;
+}
+.d-sec .time{
+    font-size:0.75em;
+    font-weight: 300;
+    color: rgba(241, 241, 241, 0.753);
+}
+.d-sec .b-sec{
+    display: flex;
+    justify-content: space-between;
+}
+.rating{
+    border: 1px solid rgb(45, 207, 77);
+    padding: 1px 5px;
+    font-size: 11px;
+    border-radius: 15px ;
+    font-weight: 200;
+    background-color: rgba(45, 207, 77, 0.5);
+}
+.see-more {
+    font-size: 0.8em;
+    font-weight: 200;
+    cursor: pointer;
+}
+/* Horizontal end*/
+
+.wrapper{
+    max-width: 1300px;
+    width: 100%;
+    position: relative;
+    
+}
+.wrapper i{
+    color: green;
+    height: 50px;
+    width: 50px;
+    background-color: rgba(36, 37, 38, 1.000);
+    /* padding: 5px 10px; */
+    border-radius: 100%;
+    text-align: center;
+     line-height: 50px;
+    align-content: center;
+    cursor: pointer;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    z-index: 5;
+}
+.wrapper i:first-child{
+    left: -22px;
+  
+}
+
+.wrapper i:last-child{
+    right: -22px;
+}
+.wrapper .carousel {
+    padding: 0 15px;;
+    display: grid;
+   grid-auto-flow: column;
+   grid-auto-columns: calc((100% / 4) - 7.5px);
+   gap: 10px;
+   overflow-x: hidden;
+   scroll-snap-type: x mandatory;
+   scroll-behavior: smooth;
+   scrollbar-width:0px;
+
+  
+}
+
+.carousel.dragging .v-card{
+    cursor: grab;
+    user-select: none;
+
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+}
+.carousel.dragging{
+   scroll-behavior: auto;
+   scroll-snap-type: none;
+
+}
+
+
+
+  </style>
+  <!-- Slider -->
+
+
+  <!-- Similar Start -->
+  <div class="card-slider">
+    <h2 class="head-med">
+        Similar Cars
+    </h2>
+    <div class="wrapper">
+        <i id="left" class="start"><span class="icn arr-l" style="background-position: -60px -30px;"></span></i>
+        <ul class="carousel">
+  
+          <!-- Card Start -->
+          <li class="v-card slider-card">
+            <div class="imgSec">
+              <div class="feat">Featured</div>
+              <img  draggable="false" src="https://storage.prod.alpha-analytics.dev/resize/771b7ece-529d-4437-bae4-0c31a201bf6d?ts=1697340292&width=347&height=260&fit=inside&withoutEnlargement=false" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
+                <span class="c">6</span> 
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                Toyota Corolla Grande 2016 1.8 <span class="rating"> 6/10</span>
+              </div>
+              <div class="price"><span class="pre">PKR</span> 56 lacs</div>
+              <div class="location">
+                Lahore, Pakistan
+              </div>
+              <div class="overview">
+                <span class="quick-ov">2556</span> |
+                <span class="quick-ov">28,000 km</span> |
+                <span class="quick-ov">Automatic</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time">Updated 2 mins ago</div>
+                <a class="see-more">See More </a>
+              </div>
+            </div>
+          </li>
+          <!-- Card finish -->
+  
+          <!-- Card Start -->
+          <li class="v-card slider-card">
+            <div class="imgSec">
+              <div class="feat">Featured</div>
+              <img  draggable="false" src="https://storage.prod.alpha-analytics.dev/resize/771b7ece-529d-4437-bae4-0c31a201bf6d?ts=1697340292&width=347&height=260&fit=inside&withoutEnlargement=false" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
+                <span class="c">6</span> 
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                Toyota Corolla Grande 2016 1.8 <span class="rating"> 6/10</span>
+              </div>
+              <div class="price"><span class="pre">PKR</span> 56 lacs</div>
+              <div class="location">
+                Lahore, Pakistan
+              </div>
+              <div class="overview">
+                <span class="quick-ov">2556</span> |
+                <span class="quick-ov">28,000 km</span> |
+                <span class="quick-ov">Automatic</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time">Updated 2 mins ago</div>
+                <a class="see-more">See More </a>
+              </div>
+            </div>
+          </li>
+          <!-- Card finish -->
+  
+          <!-- Card Start -->
+          <li class="v-card slider-card">
+            <div class="imgSec">
+              <div class="feat">Featured</div>
+              <img  draggable="false" src="https://storage.prod.alpha-analytics.dev/resize/771b7ece-529d-4437-bae4-0c31a201bf6d?ts=1697340292&width=347&height=260&fit=inside&withoutEnlargement=false" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
+                <span class="c">6</span> 
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                Toyota Corolla Grande 2016 1.8 <span class="rating"> 6/10</span>
+              </div>
+              <div class="price"><span class="pre">PKR</span> 56 lacs</div>
+              <div class="location">
+                Lahore, Pakistan
+              </div>
+              <div class="overview">
+                <span class="quick-ov">2556</span> |
+                <span class="quick-ov">28,000 km</span> |
+                <span class="quick-ov">Automatic</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time">Updated 2 mins ago</div>
+                <a class="see-more">See More </a>
+              </div>
+            </div>
+          </li>
+          <!-- Card finish -->
+  
+          <!-- Card Start -->
+          <li class="v-card slider-card">
+            <div class="imgSec">
+              <div class="feat">Featured</div>
+              <img  draggable="false" src="https://storage.prod.alpha-analytics.dev/resize/771b7ece-529d-4437-bae4-0c31a201bf6d?ts=1697340292&width=347&height=260&fit=inside&withoutEnlargement=false" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
+                <span class="c">6</span> 
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                Toyota Corolla Grande 2016 1.8 <span class="rating"> 6/10</span>
+              </div>
+              <div class="price"><span class="pre">PKR</span> 56 lacs</div>
+              <div class="location">
+                Lahore, Pakistan
+              </div>
+              <div class="overview">
+                <span class="quick-ov">2006</span> |
+                <span class="quick-ov">28,000 km</span> |
+                <span class="quick-ov">Automatic</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time">Updated 2 mins ago</div>
+                <a class="see-more">See More </a>
+              </div>
+            </div>
+          </li>
+          <!-- Card finish -->
+  
+          <!-- Card Start -->
+          <li class="v-card slider-card">
+            <div class="imgSec">
+              <div class="feat">Featured</div>
+              <img  draggable="false" src="https://storage.prod.alpha-analytics.dev/resize/771b7ece-529d-4437-bae4-0c31a201bf6d?ts=1697340292&width=347&height=260&fit=inside&withoutEnlargement=false" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
+                <span class="c">6</span> 
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                Toyota Corolla Grande 2016 1.8 <span class="rating"> 6/10</span>
+              </div>
+              <div class="price"><span class="pre">PKR</span> 56 lacs</div>
+              <div class="location">
+                Lahore, Pakistan
+              </div>
+              <div class="overview">
+                <span class="quick-ov">2006</span> |
+                <span class="quick-ov">28,000 km</span> |
+                <span class="quick-ov">Automatic</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time">Updated 2 mins ago</div>
+                <a class="see-more">See More </a>
+              </div>
+            </div>
+          </li>
+          <!-- Card finish -->
+  
+          <!-- Card Start -->
+          <li class="v-card slider-card">
+            <div class="imgSec">
+              <div class="feat">Featured</div>
+              <img  draggable="false" src="https://storage.prod.alpha-analytics.dev/resize/771b7ece-529d-4437-bae4-0c31a201bf6d?ts=1697340292&width=347&height=260&fit=inside&withoutEnlargement=false" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
+                <span class="c">6</span> 
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                Toyota Corolla Grande 2016 1.8 <span class="rating"> 6/10</span>
+              </div>
+              <div class="price"><span class="pre">PKR</span> 56 lacs</div>
+              <div class="location">
+                Lahore, Pakistan
+              </div>
+              <div class="overview">
+                <span class="quick-ov">2006</span> |
+                <span class="quick-ov">28,000 km</span> |
+                <span class="quick-ov">Automatic</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time">Updated 2 mins ago</div>
+                <a class="see-more">See More </a>
+              </div>
+            </div>
+          </li>
+          <!-- Card finish -->
+  
+          <!-- Card Start -->
+          <li class="v-card slider-card">
+            <div class="imgSec">
+              <div class="feat">Featured</div>
+              <img  draggable="false" src="https://storage.prod.alpha-analytics.dev/resize/771b7ece-529d-4437-bae4-0c31a201bf6d?ts=1697340292&width=347&height=260&fit=inside&withoutEnlargement=false" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
+                <span class="c">6</span> 
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                Toyota Corolla Grande 2016 1.8 <span class="rating"> 6/10</span>
+              </div>
+              <div class="price"><span class="pre">PKR</span> 56 lacs</div>
+              <div class="location">
+                Lahore, Pakistan
+              </div>
+              <div class="overview">
+                <span class="quick-ov">1625</span> |
+                <span class="quick-ov">28,000 km</span> |
+                <span class="quick-ov">Automatic</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time">Updated 2 mins ago</div>
+                <a class="see-more">See More </a>
+              </div>
+            </div>
+          </li>
+          <!-- Card finish -->
+          <!-- Card Start -->
+          <li class="v-card slider-card">
+            <div class="imgSec">
+              <div class="feat">Featured</div>
+              <img  draggable="false" src="https://storage.prod.alpha-analytics.dev/resize/771b7ece-529d-4437-bae4-0c31a201bf6d?ts=1697340292&width=347&height=260&fit=inside&withoutEnlargement=false" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
+                <span class="c">6</span> 
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                Toyota Corolla Grande 2016 1.8 <span class="rating"> 6/10</span>
+              </div>
+              <div class="price"><span class="pre">PKR</span> 56 lacs</div>
+              <div class="location">
+                Lahore, Pakistan
+              </div>
+              <div class="overview">
+                <span class="quick-ov">2015</span> |
+                <span class="quick-ov">28,000 km</span> |
+                <span class="quick-ov">Automatic</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time">Updated 2 mins ago</div>
+                <a class="see-more">See More </a>
+              </div>
+            </div>
+          </li>
+          <!-- Card finish -->
+  
+        </ul> 
+        <i id="right" class="end"><span class="icn arr-r" style="background-position: -90px -30px;"></i>
+      </div>
+    </div>
+  <!-- Similar End -->
+
+  <br><br><br>
+
+  <div class="app-banner" style="display: flex; justify-content: space-between; background-color: rgb(36, 37, 38); height: 200px; padding: 25px; border-radius: 10px; ">
+    <div class="details">
+      <h2>Get the GhostProtocols App</h2>
+      <p>Buy & Sell Cars, Bikes and Auto Parts faster and better
+        using our App.</p>
+        <div class="bdg-row" style="display: flex; gap: 5px;">
+          <div class="badge">
+                
+            <span class="icn apple"></span>
+            <div class="details">
+              <div class="tt2">Download on the</div>
+              <div class="tt">App Store</div>
+            </div>  
+          </div>
+  
+          <div class="badge">
+            <span class="icn and"></span>
+              
+            <div class="details">
+              <div class="tt2">Get it on</div>
+              <div class="tt">Play Store</div>
+            </div>  
+          </div>
+        </div>
+      
+    </div>
+    <div class="img">
+      <img src="app-prev.png" alt="" srcset="" style="height: 250px; transform: translateY(-30%);">
+    </div>
+  </div>
+  <br><br>
+
+  <!-- ? Bottom Nav -->
+  <div class="btm-nav hide" style=" display: block; transition: opacity 0.3s; width: 100%; position: fixed; bottom: 0; left: 0; background-color: black; z-index: 5;">
+    <div class="cnt" style="display: flex; justify-content: space-between; align-items: center;  max-width: 1100px;   margin: 0 auto;">
+    
+
+      <div style="width: 100%; max-width: 700px;">
+        <p>Honda Civic Oriel 1.8 i-VTEC CVT 2021 <span style="font-size: 12px; background-color: rgb(33, 166, 42); display: inline-block; padding: 2px 10px; border-radius: 5px;">Managed by GP</span></p>
+        <div class="btns" style="display: flex; width: 100%; ">
+          <a href="http://" style="display: block; margin: 0px 5px 5px 5px; text-decoration: none; color: white; background-color: rgb(63, 65, 67); padding: 10px 50px; border-radius: 5px;">Buy it For Me</a>
+          <a href="http://" style="display: block; margin: 0px 5px 5px 5px; text-decoration: none; color: white; background-color: rgb(33, 166, 42); padding: 10px 50px; border-radius: 5px;">Seller Phone</a>
+        </div>
+      </div>
+      
+      <div class="seller" style="display: flex; gap: 15px; padding: 0 15px;">
+        <div class="img" style="align-self: center; width: 50px; height: 50px; background-color: #fff;"></div>
+        
+        <div>
+          <p>Ghost Protocols</p>
+          <p style="font-size: 14px;"> <span style="font-size: 12px;">Member Since:</span> 6 days</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <style>
+    .hide {
+    opacity: 0;
+    pointer-events: none;
+    }
+  </style>
+<script>
+  // JavaScript to toggle the class when scrolled to a specific range
+  window.addEventListener("scroll", function () {
+      var container = document.querySelector(".btm-nav");
+      var scrollPercentage = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+
+      if (scrollPercentage < 20 || scrollPercentage > 90) {
+          container.classList.add("hide"); // Add a CSS class to initiate the transition
+      } else {
+          container.classList.remove("hide"); // Remove the class to display the div
+      }
+  });
+</script>
+
+  <!-- ? Bottom Nav -->
+
+
+</section>
+
+  <footer style="background-color: black; padding: 50px 0;">
+    <style>
+      .f-head::after{
+        content: "";
+        display: block;
+        width: 50px;
+        margin: 10px 0;
+        border-bottom: 3px solid rgb(44, 188, 54);
+   
+      }
+      .f-menu{
+        text-decoration: none;
+        color: rgb(241, 241, 241);
+        font-size: 18px;
+        font-weight: 300px;
+        opacity: 0.7;
+      }
+
+      .icon-row a{
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        background-color: rgb(22, 22, 22);
+        margin:0 10px 10px 0;
+        text-align: center;
+        overflow: hidden;
+        line-height: 40px;
+        border-radius: 50%;
+        color: #ffffff;
+        transition: all 0.5s ease;
+      }
+      .icon-row a:hover{
+        transform: scale(1.2);
+      }
+      .icn{
+        background: url(icons.png);
+        /* background-color: red; */
+        margin-top: 4px;
+        display: inline-block;
+        height: 30px;
+        width: 30px;
+        transition: 0.2s ;
+      }
+      
+      .icn.email{
+        background-position: -30px 0px;
+      }
+      .icn.wtsapp{
+        background-position: -60px 0px;
+      }
+      .icn.pin{
+        background-position: -90px 0px;
+      }
+      .icn.ig{
+        background-position: -60px -60px;
+      }
+      .icn.tt{
+        background-position: 0px -60px;
+      }
+      .icn.yt{
+        background-position: -30px -60px;
+      }
+      .icn.ln{
+        background-position: -90px -60px;
+      }
+      .icn.apple{
+        background-position: -30px -30px;
+      }
+      .icn.and{
+        background-position: 0px -30px;
+      }
+   
+      </style>
+
+    <div class="content" style="width: 100%; max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between;">
+      
+      <div class="f-col" style="width: 100%; margin: 10px 20px;">
+        <img style="width: 60%; height: auto;" src="logo.png" alt="" srcset="">
+        <hr>
+        <p>Providing you the Ghostly experience with Ghost Protocols. Don't miss out, Get your Ghostly car now.</p>
+        <p>Powered by <a style="color: rgb(44, 188, 54);" href="https://tixy.pk">Tixy.pk</a></p>
+      </div>
+     
+      <div class="f-col" style="width: 100%; margin: 10px 20px;">
+      <h3 class="f-head">Menu</h3>
+      <ul>
+        <li>
+          <a class="f-menu" href="">Inventory</a>
+        </li>
+        <li>
+          <a class="f-menu" href="">Ghost Yard</a>
+        </li>
+        <li>
+          <a class="f-menu" href="">Demand List</a>    
+        </li>
+        <li>
+          <a class="f-menu" href="">Services</a>          
+        </li>
+        <li>
+          <a class="f-menu" href="">About Us</a>
+        </li>
+      </ul>
+    
+      </div>
+      
+      <div class="f-col" style="width: 100%; margin: 10px 20px;">
+        <h3 class="f-head">Contact Us</h3>
+        <div class="icon-row">
+          <a href="#"><span class="icn phone"></span></a>
+          <a href="#"><span class="icn email"></span></a>
+          <a href="#"><span class="icn wtsapp"></span></a>
+          <a href="#"><span class="icn pin"></span></a>
+        </div>
+
+        <h3 class="f-head">News Letter</h3>
+      </div>
+     
+      <div class="f-col" style="width: 100%; margin: 10px 20px;">
+        <h3 class="f-head">Socials</h3>
+        <div class="icon-row">
+          <a href="#"><i class="icn ig"></i></a>
+          <a href="#"><i class="icn tt"></i></a>
+          <a href="#"><i class="icn yt"></i></a>
+          <a href="#"><i class="icn ln"></i></a>
+        </div>
+
+        <h3 class="f-head">Ghost App</h3>
+
+        <div class="ft-app">
+          <!--  -->
+          <style>
+            .badge{
+              display: flex;
+              max-width: 160px;
+              border-radius: 10px;
+              padding: 10px;
+              gap: 25px;
+              margin: 10px;
+              background-color: rgb(22, 22, 22);
+            }
+            .tt2{
+              font-size: 12px;
+            }
+          </style>
+
+            <div class="badge">
+              
+              <span class="icn apple"></span>
+              <div class="details">
+                <div class="tt2">Download on the</div>
+                <div class="tt">App Store</div>
+              </div>  
+            </div>
+
+            <div class="badge">
+              <span class="icn and"></span>
+                
+              <div class="details">
+                <div class="tt2">Get it on</div>
+                <div class="tt">Play Store</div>
+              </div>  
+            </div>
+            
+          <!--  -->
+          
+        </div>
+
+      </div>
+    </div>
+    <p style="height: 20px; text-align: center; background-color: rgb(44, 188, 54);">Copyright © 2022 - 2023 Ghost Protocols</p>
+  </footer>
+
+  <script>
+    const wrappers = document.querySelectorAll(".wrapper");
+
+    wrappers.forEach( w => {
+    
+    const carousel = w.querySelector(".carousel");
+    const arrowBtns = w.querySelectorAll("i");
+    const firstCardWidth = carousel.querySelector(".slider-card").offsetWidth ;
+    let isDragging = false, startX, startScrollLeft;
+
+    arrowBtns.forEach(btn => {
+        btn.addEventListener("click", ()=>{
+            carousel.scrollLeft += btn.id === "left" ? -(firstCardWidth +20) : (firstCardWidth +20);
+            console.log(btn.id)
+        })
+    })
+    const dragStart = (e) =>{
+    isDragging = true;
+    carousel.classList.add("dragging");
+    startX = e.pageX;
+    startScrollLeft = carousel.scrollLeft;
+    
+    }
+    const dragStop = (e) =>{
+        isDragging = false;
+        carousel.classList.remove("dragging");
+    }
+    const dragging = (e) =>{
+    if(!isDragging) return;
+    carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+    }
+    
+    carousel.addEventListener("mousedown", dragStart);
+    carousel.addEventListener("mouseup", dragStop);
+    carousel.addEventListener("mousemove", dragging);
+
+    });
+
+
+
+  </script>
+
+ 
+</body>
+</html>

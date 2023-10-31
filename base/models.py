@@ -48,7 +48,7 @@ class Car(models.Model):
 class Gallery(models.Model):
     car = models.ForeignKey(
         Car, on_delete=models.CASCADE, null=False, to_field='stockid')
-    image = models.ImageField(upload_to='static/images')
+    image = models.ImageField(upload_to='images')
 
 
 class CarReports(models.Model):

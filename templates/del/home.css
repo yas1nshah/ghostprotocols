@@ -1,0 +1,569 @@
+:root {
+  font-family: "Outfit";
+  color: rgb(241, 241, 241);
+}
+body {
+  margin: 0;
+  background-color: rgb(22, 22, 22);
+}
+
+/* Header Start */
+header .top {
+  height: 60px;
+  background-color: black;
+  text-align: center;
+  margin: 0;
+}
+
+header .top img {
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+header .main-h {
+  background-color: rgb(44, 188, 54);
+  text-align: center;
+  height: 20px;
+  margin: 0;
+  font-size: 15px;
+  padding: 3px;
+}
+
+.main-h ul {
+  list-style-type: none;
+  /* padding-top: 5px; */
+  margin-top: 0;
+}
+
+.main-h ul li {
+  display: inline;
+  margin: 0 20px;
+  position: relative;
+}
+
+.main-h a {
+  text-decoration: none;
+  color: #fff;
+}
+.main-h a.active {
+  text-decoration: none;
+  color: #ffffff;
+  background: linear-gradient(
+    to bottom left,
+    rgba(36, 37, 38, 1),
+    rgba(36, 37, 38, 0.487)
+  );
+  padding: 1px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.inner-menu {
+  display: none;
+  position: absolute;
+  background-color: rgb(36, 37, 38);
+  border-radius: 10px;
+  min-width: 200px;
+  text-align: left;
+
+  left: 0;
+}
+
+.inner-menu a {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.inner-menu a:hover {
+  background-color: #555;
+  border-radius: 10px;
+}
+
+.main-h li:hover .inner-menu {
+  display: block;
+}
+/* Header End */
+
+.main-body {
+  display: flex;
+  /* background-color: red; */
+  justify-content: center;
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch;
+}
+
+.main {
+  /* flex: 3; */
+  width: 100%;
+  max-width: 1100px;
+  scrollbar-width: none;
+  /* background-color: blue; */
+  text-align: center;
+  padding: auto;
+}
+.head .title .pre {
+  display: block;
+  font-size: 25px;
+  color: rgb(241, 241, 241);
+}
+.head .title {
+  color: rgb(44, 188, 54);
+}
+
+.hero {
+  text-align: left;
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head {
+  width: 100%;
+  font-size: 36px; /* Adjust the font size for the heading as needed */
+  margin-bottom: 20px; /* Add some space below the heading */
+}
+.card-slider {
+  text-align: start;
+}
+#search {
+  display: flex;
+  gap: 5px;
+
+  width: 100%;
+}
+
+input[type="search"] {
+  flex: 4;
+  font-size: 20px;
+  padding: 10px 20px; /* Add some padding to the search input */
+  background-color: rgba(36, 37, 38, 1);
+  border: none;
+  border-radius: 10px;
+  color: rgb(241, 241, 241);
+}
+
+button[type="submit"] {
+  flex: 1;
+  font-size: 20px;
+  padding: 10px 20px; /* Add padding to the submit button */
+  background-color: rgb(44, 188, 54);
+  border: none;
+  border-radius: 10px;
+}
+
+#adv {
+  font-size: 14px;
+  padding: 10px 20px; /* Add padding to the submit button */
+  background-color: rgba(36, 37, 38, 1);
+  border: none;
+  border-radius: 10px;
+  color: rgb(241, 241, 241);
+}
+
+/* Your existing CSS styles */
+
+.prev-btn,
+.next-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.carousel-container {
+  position: relative;
+}
+
+.prev-btn {
+  position: absolute;
+  left: 0;
+}
+
+.next-btn {
+  position: absolute;
+  right: 0;
+}
+
+/* card */
+/* Horizontal start*/
+.v-card {
+  height: 250px;
+  background-color: rgba(36, 37, 38, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  text-align: start;
+  margin: 10px 5px;
+  border-radius: 10px;
+  /* scroll-snap-align: start; */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05); /* Box shadow properties */
+}
+.imgSec {
+  flex: 3;
+  overflow: hidden;
+  /* background-color: rebeccapurple; */
+  position: relative; /* Add this to position the image correctly */
+}
+.imgSec img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center; /* Optional: To control the positioning of the image */
+}
+.imgSec .feat {
+  position: absolute;
+  background-color: rgb(44, 188, 54);
+  color: white;
+  padding: 3px 5px;
+  border-radius: 10px 0px 10px 0px;
+  font-size: 14px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.count {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  height: 15px;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 2px 5px 5px 10px;
+  color: white;
+  display: inline-flex;
+}
+.count .c {
+  padding: 0px 5px;
+  display: inline-flex;
+}
+
+.d-sec {
+  flex: 3;
+  background-color: rgba(36, 37, 38, 1);
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* line-height: ; */
+}
+.d-sec .title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.d-sec .price {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: rgb(45, 207, 77);
+}
+.d-sec .price .pre {
+  font-size: 18px;
+  font-weight: 400;
+}
+.d-sec .location {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+.d-sec .quick-ov {
+  font-size: 0.9em;
+  font-weight: 600;
+}
+.d-sec .time {
+  font-size: 0.75em;
+  font-weight: 300;
+  color: rgba(241, 241, 241, 0.753);
+}
+.d-sec .b-sec {
+  display: flex;
+  justify-content: space-between;
+}
+.rating {
+  border: 1px solid rgb(45, 207, 77);
+  padding: 1px 5px;
+  font-size: 11px;
+  border-radius: 15px;
+  font-weight: 200;
+  background-color: rgba(45, 207, 77, 0.5);
+}
+.see-more {
+  font-size: 0.8em;
+  font-weight: 200;
+  cursor: pointer;
+}
+/* Horizontal end*/
+
+.wrapper {
+  max-width: 1300px;
+  width: 100%;
+  position: relative;
+}
+.wrapper i {
+  color: green;
+  height: 50px;
+  width: 50px;
+  background-color: rgba(36, 37, 38, 1);
+  /* padding: 5px 10px; */
+  border-radius: 100%;
+  text-align: center;
+  line-height: 50px;
+  align-content: center;
+  cursor: pointer;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  z-index: 5;
+}
+.wrapper i:first-child {
+  left: -22px;
+}
+
+.wrapper i:last-child {
+  right: -22px;
+}
+.wrapper .carousel {
+  padding: 0 15px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 4) - 7.5px);
+  gap: 10px;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: 0px;
+}
+
+.carousel.dragging .v-card {
+  cursor: grab;
+  user-select: none;
+
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+.carousel.dragging {
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+.services {
+  display: flex;
+  /* background-color: #007bff; */
+}
+.weSell {
+  display: flex;
+  max-height: 80px;
+  overflow: hidden;
+  background-color: rgba(36, 37, 38, 1);
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+}
+.weSell .details {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weSell .img img {
+  height: 100%;
+
+  /* max-height: auto; */
+}
+.checks {
+  display: flex;
+  justify-content: space-between;
+}
+.checks .t4::before {
+  content: "🔥";
+  margin-right: 5px;
+}
+
+.t1 {
+  font-size: 18px;
+}
+.t2 {
+  font-size: 14px;
+}
+.t3 {
+  font-size: 12px;
+  color: rgb(44, 188, 54);
+}
+.t4 {
+  font-size: 12px;
+  opacity: 1;
+  font-weight: 200;
+}
+
+/* APP CTA */
+.app-cta {
+  text-align: start;
+  background-color: rgba(36, 37, 38, 1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 200px;
+  max-width: 100%;
+  padding: 25px;
+  border-radius: 10px;
+}
+.app-cta .img {
+  object-fit: cover;
+  max-height: 100%;
+  /* background-color: #fff; */
+}
+.app-cta .img img {
+  height: 280px;
+  width: auto;
+  transform: translateY(-30px);
+}
+
+.badges-sec {
+  display: flex;
+}
+.badge {
+  display: flex;
+  width: 100%;
+  max-width: 80px;
+  justify-content: space-between;
+  background-color: black;
+  padding: 5px 10px;
+  max-height: 24px;
+  /* text-align: center; */
+  border-radius: 5px;
+  margin: 5px;
+}
+.badge .tt2 {
+  font-size: 8px;
+}
+.badge .tt {
+  font-size: 13px;
+}
+/* .imgg{
+    max-width: 100%;
+    max-height: 100%;
+} */
+
+/* footer */
+.container {
+  max-width: 1170px;
+  margin: auto;
+  text-align: start;
+}
+.row {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+ul {
+  list-style: none;
+}
+.footer {
+  background-color: #24262b;
+  padding: 70px 0;
+  margin-top: 50px;
+}
+.footer-col {
+  width: 24%;
+  padding: 0 15px;
+}
+.footer-col .logo {
+  width: 100%;
+  /* height: min-content; */
+}
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.logo::after {
+  content: "fs";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+}
+
+.footer-col .app-links {
+  display: flex;
+  max-width: 100%;
+  justify-content: start;
+}
+.footer-col .app-links img {
+  /* background-color: red; */
+  max-width: 50%;
+  max-width: 90px;
+}
+/*responsive*/
+@media (max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}

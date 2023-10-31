@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="search.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Outfit&display=swap"
+    />
+
+    <script>
+      window.onload = function () {
+        // Function to extract query parameters from the URL
+        function getQueryParameters() {
+          var queryParams = new URLSearchParams(window.location.search);
+          return {
+            keyword: queryParams.get("keyword") || "",
+            fromYear: queryParams.get("fromYear") || "",
+            toYear: queryParams.get("toYear") || "",
+            fromPrice: queryParams.get("fromPrice") || "",
+            toPrice: queryParams.get("toPrice") || "",
+            bodyType: queryParams.get("bodyType") || "",
+          };
+        }
+
+        // Function to pre-fill form fields based on query parameters
+        function fillFormFields() {
+          var queryParams = getQueryParameters();
+          document.getElementById("keyword").value = queryParams.keyword;
+          document.getElementById("fromYear").value = queryParams.fromYear;
+          document.getElementById("toYear").value = queryParams.toYear;
+          document.getElementById("fromPrice").value = queryParams.fromPrice;
+          document.getElementById("toPrice").value = queryParams.toPrice;
+          document.getElementById("bodyType").value = queryParams.bodyType;
+        }
+
+        // Call the fillFormFields function to pre-fill form fields
+        fillFormFields();
+      };
+    </script>
+  </head>
+
+  <style>
+    .button-container {
+      /* align-self: start; */
+      text-align: start;
+      white-space: nowrap;
+      overflow-x: auto; /* Use 'auto' to enable scrolling when needed */
+      padding: 5px;
+      -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+      scrollbar-width: none; /* Hide scrollbar in Firefox */
+    }
+
+    .button-container::-webkit-scrollbar {
+      width: 0; /* Hide scrollbar in Webkit (Chrome, Safari, etc.) */
+    }
+
+    .button {
+      display: inline-block;
+      font-size: 14px;
+      padding: 0px 5px;
+      margin: 5px;
+      background-color: rgba(45, 207, 77, 0.5);
+      border: 1px solid rgb(45, 207, 77);
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      /* background-color: rgb(45, 207, 77); */
+    }
+
+    .close-button {
+      display: inline-block;
+      padding: 5px;
+
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+
+  <body>
+    <section class="main-body">
+      <section class="sidebar">
+        <form id="carSearchForm" method="GET">
+          <label for="keyword">Keyword Search:</label>
+          <input type="text" id="keyword" name="keyword" />
+
+          <div class="group">
+            <div class="input-group">
+              <label for="fromYear">From Year:</label>
+              <input
+                type="number"
+                id="fromYear"
+                name="fromYear"
+                min="1950"
+                max="2023"
+              />
+            </div>
+            <div class="input-group">
+              <label for="toYear">To Year:</label>
+              <input
+                type="number"
+                id="toYear"
+                name="toYear"
+                min="1950"
+                max="2023"
+              />
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="input-group">
+              <label for="fromPrice">From Price:</label>
+              <input
+                type="number"
+                id="fromPrice"
+                name="fromPrice"
+                min="100000"
+                max="50000000"
+              />
+            </div>
+            <div class="input-group">
+              <label for="toPrice">To Price:</label>
+              <input
+                type="number"
+                id="toPrice"
+                name="toPrice"
+                min="100000"
+                max="50000000"
+              />
+            </div>
+          </div>
+
+          <label for="bodyType">Body Type:</label>
+          <select id="bodyType" name="bodyType">
+            <option value="">Select</option>
+            <option value="SUV">SUV</option>
+            <option value="Sedan">Sedan</option>
+            <option value="Hatchback">Hatchback</option>
+            <option value="Coupe">Coupe</option>
+          </select>
+
+          <input type="submit" value="Apply Filters" />
+        </form>
+      </section>
+      <section class="main">
+        <div class="button-container" id="button-container">
+          <!-- Buttons will be added here dynamically -->
+        </div>
+
+        <!-- Card Start -->
+        <div class="h-card">
+          <div class="img-sec">
+            <img
+              src="https://storage.prod.alpha-analytics.dev/resize/771b7ece-529d-4437-bae4-0c31a201bf6d?ts=1697340292&width=347&height=260&fit=inside&withoutEnlargement=false"
+              alt=""
+            />
+            <div class="count">
+              <svg
+                fill="#ffffff"
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 487 487"
+                xml:space="preserve"
+                stroke="#ffffff"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g>
+                    <g>
+                      <path
+                        d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <span class="c">6</span>
+            </div>
+          </div>
+          <div class="d-sec">
+            <div class="title">
+              Toyota Corolla Grande 2016 1.8 <span class="rating"> 6/10</span>
+            </div>
+            <div class="price"><span class="pre">PKR</span> 56 lacs</div>
+            <div class="location">Lahore, Pakistan</div>
+            <div class="overview">
+              <span class="quick-ov">2006</span> |
+              <span class="quick-ov">28,000 km</span> |
+              <span class="quick-ov">Automatic</span>
+            </div>
+            <div class="b-sec">
+              <div class="time">Updated 2 mins ago</div>
+              <a href="car_detail.html" class="see-more">See More </a>
+            </div>
+          </div>
+        </div>
+        <!-- Card finish -->
+      </section>
+    </section>
+
+    <script src="search.js"></script>
+    <script>
+      // Function to apply filters (you can customize this function to handle filtering on the client side)
+      function applyFilters() {
+        var keyword = document.getElementById("keyword").value;
+        var fromYear = document.getElementById("fromYear").value;
+        var toYear = document.getElementById("toYear").value;
+        var fromPrice = document.getElementById("fromPrice").value;
+        var toPrice = document.getElementById("toPrice").value;
+        var bodyType = document.getElementById("bodyType").value;
+
+        // You can use these filter values to filter your data on the client side
+        // You'll need to implement this part according to your data and needs.
+        console.log("Keyword: " + keyword);
+        console.log("From Year: " + fromYear);
+        console.log("To Year: " + toYear);
+        console.log("From Price: " + fromPrice);
+        console.log("To Price: " + toPrice);
+        console.log("Body Type: " + bodyType);
+      }
+    </script>
+  </body>
+  <script>
+    // Function to create a query button and add it to the button container
+    function createQueryButton(queryKey, queryValue) {
+      const buttonContainer = document.querySelector(".button-container");
+
+      // Create a button element
+      const button = document.createElement("div");
+      button.classList.add("button");
+      button.textContent = `${queryKey}: ${queryValue}`;
+
+      // Create a close button element within the query button
+      const closeButton = document.createElement("div");
+      closeButton.classList.add("close-button");
+      closeButton.textContent = "X";
+
+      // Add an event listener to the close button to remove the query from the URL and refresh the page
+      closeButton.addEventListener("click", function () {
+        removeQueryParameter(queryKey);
+        button.remove();
+        window.location.reload();
+      });
+
+      // Append the close button to the query button
+      button.appendChild(closeButton);
+
+      // Append the query button to the button container
+      buttonContainer.appendChild(button);
+    }
+
+    // Function to remove a query parameter from the URL
+    function removeQueryParameter(key) {
+      const urlParams = new URLSearchParams(window.location.search);
+      urlParams.delete(key);
+      const newURL = window.location.pathname + "?" + urlParams.toString();
+      window.history.replaceState({ path: newURL }, "", newURL);
+    }
+
+    // Function to extract active queries from the URL and create buttons for them
+    function extractAndDisplayActiveQueries() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const buttonContainer = document.querySelector(".button-container");
+
+      for (const [key, value] of urlParams.entries()) {
+        createQueryButton(key, value);
+      }
+    }
+
+    // Call the function to display active queries when the page loads
+    extractAndDisplayActiveQueries();
+  </script>
+</html>

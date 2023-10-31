@@ -14,6 +14,33 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
 from rest_framework_simplejwt.tokens import AccessToken
 
+from django.http import HttpResponse
+from django.views import View
+from django.conf import settings
+import os
+
+
+class ImageView(View):
+    def get(self, request, image_path):
+        # Define the base directory where your images are stored.
+        # You may adjust this path based on your project's structure.
+        image_base_dir = os.path.join(settings.BASE_DIR, 'images')
+
+        # Construct the full path to the requested image.
+        requested_image_path = os.path.join(image_base_dir, image_path)
+
+        # Check if the requested image exists.
+        if os.path.exists(requested_image_path) and os.path.isfile(requested_image_path):
+            # Open the image file and serve it as a response.
+            with open(requested_image_path, 'rb') as image_file:
+                # Adjust content_type as needed.
+                response = HttpResponse(
+                    image_file.read(), content_type='image/jpeg')
+            return response
+        else:
+            # Handle the case where the requested image does not exist.
+            return HttpResponse("Image not found", status=404)
+
 
 # ? Get Car by Stock ID
 @api_view(['GET'])
@@ -222,13 +249,13 @@ class FilterCarsView(APIView):
     def post(self, request):
         data = request.data
 
-        location = data.get('location', 'All')
-        print(location)
-        make = data.get('make', 'All')
-        model = data.get('model', 'All')
+        keyword = data.get('q', "Any")
+        location = data.get('location', 'All Cities')
+        make = data.get('make', 'All Makes')
+        model = data.get('model', 'All Models')
         year_range = data.get('year', 'All')
         price_range = data.get('price', 'All')
-        registration = data.get('registration', 'All')
+        registration = data.get('registration', 'All Registrations')
         transmission = data.get('transmission', 'All')
         page = int(data.get('page', 1))
 
@@ -257,7 +284,11 @@ class FilterCarsView(APIView):
             filter_conditions['price__gte'] = start_price
             filter_conditions['price__lte'] = end_price
 
-        # print(**filter_conditions)
+        # Add keyword search condition in the title field
+        if keyword != 'Any':
+            # Case-insensitive search
+            filter_conditions['title__icontains'] = keyword
+
         items_per_page = 15
         starting_index = (page - 1) * items_per_page
         ending_index = page * items_per_page
@@ -268,6 +299,7 @@ class FilterCarsView(APIView):
 
         # Serialize the queryset
         serializer = CarSerializer(cars, many=True)
+        print(serializer.data)
 
         return Response(serializer.data)
 
