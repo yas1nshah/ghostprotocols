@@ -121,217 +121,84 @@
         <img style="flex: 1; max-width: 100px; height: auto;" src="https://wsa4.pakwheels.com/assets/auction-sheet-logo-ebf19d855fc7b2ff5ec2a081cc5b370c.svg" alt="" srcset="">
       </div>
 
-      <div class="gallery" style="height: 500px; width: 100%; background-color: red;">
-
-        <style>
- .carousel {
-  overflow: hidden;
-  position: relative;
-  margin: 0 auto;
-  max-width: 1200px;
-  width: 100%;
-  display:none;
-  
-  .wrapper {
-    left: 0px;
-    display: block;
-    transform: translate3d(0, 0, 0);
-    transition: all 400ms ease;
-    
-    &:after {
-      content: '';
-      display: block;
-      clear: both;
-      visibility: hidden;
-      line-height: 0;
-      height: 0;
-    }
-    
-    .item {
-      float: left;
-      display: block;
-      height: auto;
-      backface-visibility: hidden;
-      transform: translate3d(0,0,0);
-    }
-  }
-  
-  .control {
-    .next, .prew {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 10%;
-      min-width: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      cursor: pointer;
-    }
-    
-    .prew {
-      left: 0;
-    }
-    
-    .next {
-      right: 0;
-    }
-    
-    .buletts {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      
-      li {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        border: 1px solid #fff;
-        margin: 15px 5px;
-        cursor: pointer;
-        
-        &.active {
-          background: #fff;
-        }
-      }
-    }
-  }
-}
-
-/* off - ez már csak a bemutatóoldalnak kell */
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:700|Roboto:300);
-
-
-.container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  background: #fff;
-  box-shadow: 0 0 100px 0 rgba(0,0,0,.5);
-}
-
-.desc {
-  padding: 30px;
-}
-
-pre, code {
-  font-family: mono;
-  background: #f2f2f2;
-  border-radius: 3px;
-  padding: 1em;
-  overflow: auto;
-}
-
-a {
-  color: #8eaa00;
-  text-decoration: none;
-}
-
-small {
-  font-size: 60%;
-  color: #666;
-}
-        </style>
-        <div class="gallery2">
-          <div class="carousel">
-            <img src="http://placehold.it/1200x600/040004/C8FF00?text=item1" class="item">
-            <img src="http://placehold.it/1200x600/C8FF00/040004?text=meow" class="item">
-            <img src="http://placehold.it/1200x600/FA023C/040004?text=item3" class="item">
-            <img src="http://placehold.it/1200x600/040004/FA023C?text=meow meow" class="item">
-            <img src="https://placekitten.com/g/1200/600" class="item">
+      <!-- ? Gallery -->
+      <div class="gallery" style="height: 400px; width: 100%; background-color: red;">
+        <div class="slider-container">
+          <style>
+              .slider-container {
+                width: 100%;
+                max-height: 400px;
+                overflow: hidden;
+                position: relative;
+              }
+              .slider {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+              }
+              .slider img {
+              object-fit: cover;
+                flex: 0 0 100%;
+                max-width: 100%;
+                height: 400px;
+              }
+              .slider-btn {
+                position: absolute;
+                top: 50%;
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                cursor: pointer;
+              }
+              .prev-btn {
+                left: 0;
+                /* transform: translateY(-50%); */
+              }
+              .next-btn {
+                right: 0;
+                top: 50%;
+                /* transform: translateY(50%); */
+              }
+            </style>
+          <div class="slider">
+            {% for img in gallery%}
+            <img src="http://127.0.0.1:8000/api/{{img.image}}" alt="Image 1">
+            {% endfor%}
+            <img src="https://cache3.pakwheels.com/ad_pictures/9177/peugeot-2008-allure-2022-91775856.webp" alt="Image 1">
+            <img src="https://cache1.pakwheels.com/ad_pictures/9177/peugeot-2008-allure-2022-91775879.webp" alt="Image 2">
+            <img src="https://cache2.pakwheels.com/ad_pictures/9177/peugeot-2008-allure-2022-91775850.webp" alt="Image 3">
           </div>
-          <div class="control">
-            <div class="prew">
-              <i class="material-icons">keyboard_arrow_left</i>
-            </div>
-            <div class="next">
-              <i class="material-icons">keyboard_arrow_right</i>
-            </div>
+          <button class="slider-btn prev-btn" onclick="prevSlide()">&#9664; Prev</button>
+          <button class="slider-btn next-btn" onclick="nextSlide()">Next &#9654;</button>
+          <script>
+              let slideIndex = 0;
+          
+              function showSlide(n) {
+                const slides = document.querySelectorAll('.slider img');
+                if (n < 0) {
+                  slideIndex = slides.length - 1;
+                } else if (n >= slides.length) {
+                  slideIndex = 0;
+                }
+                document.querySelector('.slider').style.transform = `translateX(-${slideIndex * 100}%)`;
+              }
+          
+              function nextSlide() {
+                slideIndex++;
+                showSlide(slideIndex);
+              }
+          
+              function prevSlide() {
+                slideIndex--;
+                showSlide(slideIndex);
+              }
+          
+              showSlide(slideIndex);
+            </script>
           </div>
-        </div>
-        <script>document.addEventListener("DOMContentLoaded", function () {
-          const gallery = document.querySelector(".gallery");
-          const carousel = gallery.querySelector(".carousel");
-          const items = carousel.querySelectorAll(".item");
-          const nextBtn = gallery.querySelector(".next");
-          const prewBtn = gallery.querySelector(".prew");
-        
-          let actualIndex = 0;
-        
-          nextBtn.addEventListener("click", function () {
-            step(1);
-          });
-        
-          prewBtn.addEventListener("click", function () {
-            step(-1);
-          });
-        
-          function step(dir) {
-            const nextIndex = (actualIndex - dir) % items.length;
-            const pixels = nextIndex * gallery.offsetWidth;
-            carousel.style.transform = `translate3d(${pixels}px, 0, 0)`;
-            actualIndex = nextIndex;
-          }
-        
-          // Additional code for autoplay
-          let timer = null;
-          const autoplay = true; // Set to true for autoplay
-          const autoplayTime = 4000; // Autoplay interval in milliseconds
-        
-          if (autoplay) {
-            startAutoplay();
-        
-            gallery.addEventListener("mouseenter", stopAutoplay);
-            gallery.addEventListener("mouseleave", startAutoplay);
-          }
-        
-          function startAutoplay() {
-            if (timer === null) {
-              timer = setInterval(function () {
-                step(1);
-              }, autoplayTime);
-            }
-          }
-        
-          function stopAutoplay() {
-            clearInterval(timer);
-            timer = null;
-          }
-        
-          // Additional code for keyboard arrows
-          const keyboardArrows = true; // Set to true to enable keyboard arrows
-        
-          if (keyboardArrows) {
-            gallery.addEventListener("mouseenter", function () {
-              document.addEventListener("keyup", handleKeypress);
-            });
-        
-            gallery.addEventListener("mouseleave", function () {
-              document.removeEventListener("keyup", handleKeypress);
-            });
-          }
-        
-          function handleKeypress(ev) {
-            switch (ev.keyCode) {
-              case 39:
-                step(1);
-                break;
-              case 37:
-                step(-1);
-                break;
-            }
-          }
-        });
-        </script>
-        
         
       </div>
-
+      <!-- ? Gallery -->
       <div class="qck-ovw" style="display: flex; justify-content: space-between; background-color: rgb(36, 37, 38); border-radius: 10px; margin: 20px 0;">
         <style>
           .itm{
@@ -487,8 +354,8 @@ small {
         <hr style="margin: 10px 30px; opacity: 0.2;">
         <div id="seller-cont" style="text-align: start; margin-left: 35%;">
           <p style="text-indent: -4em;"><span class="label">Name:</span> {{details.seller.f_name}}</p>
-          <p style="text-indent: -4em;"><span class="label">Address:</span> Lahore Pakistan vvv long address Protocols</p>
-          <p style="text-indent: -4em;"><span class="label">Timings:</span> 2:00 - 4:00</p>
+          <p style="text-indent: -4em;"><span class="label">Address:</span> {{details.seller.address}}</p>
+          <p style="text-indent: -4em;"><span class="label">Member Since:</span> {{details.seller.date_joined | timesince}}</p>
         </div>
       </div>
       
@@ -984,10 +851,10 @@ small {
     
 
       <div style="width: 100%; max-width: 700px;">
-        <p>Honda Civic Oriel 1.8 i-VTEC CVT 2021 <span style="font-size: 12px; background-color: rgb(33, 166, 42); display: inline-block; padding: 2px 10px; border-radius: 5px;">Managed by GP</span></p>
+        <p>{{details.title}} <span style="font-size: 12px; background-color: rgb(33, 166, 42); display: inline-block; padding: 2px 10px; border-radius: 5px;">Managed by GP</span></p>
         <div class="btns" style="display: flex; width: 100%; ">
-          <a href="http://" style="display: block; margin: 0px 5px 5px 5px; text-decoration: none; color: white; background-color: rgb(63, 65, 67); padding: 10px 50px; border-radius: 5px;">Buy it For Me</a>
-          <a href="http://" style="display: block; margin: 0px 5px 5px 5px; text-decoration: none; color: white; background-color: rgb(33, 166, 42); padding: 10px 50px; border-radius: 5px;">Seller Phone</a>
+          <a href="http://wa.me/92{{details.seller.phone}}" style="display: block; margin: 0px 5px 5px 5px; text-decoration: none; color: white; background-color: rgb(63, 65, 67); padding: 10px 50px; border-radius: 5px;">Seller Phone</a>
+          <a href="http://" style="display: block; margin: 0px 5px 5px 5px; text-decoration: none; color: white; background-color: rgb(33, 166, 42); padding: 10px 50px; border-radius: 5px;">Buy it For Me</a>
         </div>
       </div>
       
@@ -995,8 +862,8 @@ small {
         <div class="img" style="align-self: center; width: 50px; height: 50px; background-color: #fff;"></div>
         
         <div>
-          <p>Ghost Protocols</p>
-          <p style="font-size: 14px;"> <span style="font-size: 12px;">Member Since:</span> 6 days</p>
+          <p>{{details.seller.f_name}}</p>
+          <p style="font-size: 14px;"> <span style="font-size: 12px;">Member Since:</span> {{details.seller.date_joined | timesince}}</p>
         </div>
       </div>
 

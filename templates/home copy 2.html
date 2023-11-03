@@ -121,7 +121,11 @@
 
       )
     </script>
- 
+    <h1>  
+      {% for car in gpcars %}
+    <li>{{ car.id }} - {{ car.make }} - {{ car.model }} - {{ car.year }}</li>
+      {% endfor %}
+    </h1>
 
     <section class="canvas" style="max-width: 1100px; margin: 0 auto">
       <style>
@@ -339,6 +343,7 @@
   </style>
   <!-- Slider -->
 
+ 
 
   <!-- Similar Start -->
   <div class="card-slider">
@@ -348,6 +353,7 @@
     <div class="wrapper">
         <i id="left" class="start"><span class="icn arr-l" style="background-position: -60px -30px;"></span></i>
         <ul class="carousel">
+          
           {% for car in gpcars %}
           <!-- Content to display for each item -->
           <!-- Card Start -->
@@ -384,11 +390,10 @@
               </div>
             </div>
           </li>
-          
           <!-- Card finish -->
               
           {% endfor %}
-  
+ 
         </ul> 
         <i id="right" class="end"><span class="icn arr-r" style="background-position: -90px -30px;"></i>
       </div>
@@ -426,7 +431,6 @@
         /* max-height: auto; */
     }
     .checks{
-      
         display: flex;
         justify-content: space-between;
     }
@@ -441,7 +445,6 @@
     }
     .t2{
         font-size: 14px;
-       
     }
     .t3{
         font-size: 12px;
@@ -459,13 +462,13 @@
     <div class="weSell">
       
       <div class="details">
-        <div class="t3">ENCHANTING SALES SORCERY</div>
+        <div class="t3">GHOST PROTOCOLS</div>
       <div class="t1">We Sell, You Win</div>
-      <div class="t2">Experience the magic of hassle-free car sales.</div>
+      <div class="t2">Get our help to sell your car hastle free.</div>
       <div class="checks">
-        <div class="t4">Magical</div>
+        <div class="t4">Fast</div>
         <div class="t4">Reliable</div>
-        <div class="t4">Effortless</div>
+        <div class="t4">Easy</div>
       </div>
       </div>
       <div class="img">
@@ -475,13 +478,13 @@
     <div class="weSell">
       
       <div class="details">
-        <div class="t3">REVEALING VEHICLE INSIGHTS</div>
+        <div class="t3">GHOST PROTOCOLS</div>
       <div class="t1">Car Inspection</div>
-      <div class="t2">Discover your car's secrets with our inspections.</div>
+      <div class="t2">Get detailed Report for your Car.</div>
       <div class="checks">
-        <div class="t4">Visionary</div>
+        <div class="t4">Hastle Free</div>
         <div class="t4">Reliable</div>
-        <div class="t4">Effortless</div>
+        <div class="t4">Easy</div>
       </div>
       </div>
       <div class="img">
@@ -496,33 +499,33 @@
     <div class="weSell">
       
       <div class="details">
-        <div class="t3">ARTISTIC ELEGANCE RENEWED</div>
-      <div class="t1">Car Detailing</div>
-      <div class="t2">Transform your vehicle with artful elegance.</div>
+        <div class="t3">GHOST PROTOCOLS</div>
+      <div class="t1">We Sell, You Win</div>
+      <div class="t2">Get our help to sell your car hastle free.</div>
       <div class="checks">
-        <div class="t4">Artful</div>
-        <div class="t4">Trustworthy</div>
-        <div class="t4">Effortless</div>
+        <div class="t4">Fast</div>
+        <div class="t4">Reliable</div>
+        <div class="t4">Easy</div>
       </div>
       </div>
       <div class="img">
-        <img src="detailing.png" alt="" draggable="false" srcset="">
+        <img src="sell-now.png" alt="" draggable="false" srcset="">
       </div>
     </div>
     <div class="weSell">
       
       <div class="details">
-        <div class="t3">MASTERFUL PERFORMANCE</div>
-      <div class="t1">Car Tuning</div>
-      <div class="t2">Achieve ghostly performance with our tuning.</div>
+        <div class="t3">GHOST PROTOCOLS</div>
+      <div class="t1">Car Inspection</div>
+      <div class="t2">Get detailed Report for your Car.</div>
       <div class="checks">
         <div class="t4">Hastle Free</div>
         <div class="t4">Reliable</div>
-        <div class="t4">Alchemical</div>
+        <div class="t4">Easy</div>
       </div>
       </div>
       <div class="img">
-        <img src="tuning.png" alt="" srcset="">
+        <img src="inspection.png" alt="" srcset="">
       </div>
     </div>
 
@@ -533,31 +536,33 @@
     <div class="weSell">
       
       <div class="details">
-        <div class="t3"> AUTOMOTIVE DELIGHTS</div>
-      <div class="t1">Goodies Subscription</div>
-      <div class="t2">Uncover a world of bountiful automotive surprises.</div>
+        <div class="t3">GHOST PROTOCOLS</div>
+      <div class="t1">We Sell, You Win</div>
+      <div class="t2">Get our help to sell your car hastle free.</div>
       <div class="checks">
-        <div class="t4">Bountiful</div>
-        <div class="t4">Swagful</div>
-        <div class="t4">Ghostful</div>
+        <div class="t4">Fast</div>
+        <div class="t4">Reliable</div>
+        <div class="t4">Easy</div>
       </div>
       </div>
       <div class="img">
-        <img src="goodies.png" alt="" draggable="false" srcset="">
+        <img src="sell-now.png" alt="" draggable="false" srcset="">
       </div>
     </div>
     <div class="weSell">
       
       <div class="details">
-        <div class="t3">AUTOMOTIVE WONDER</div>
-      <div class="t1">See More</div>
-      <div class="t2">Check out more services offered by us.</div>
+        <div class="t3">GHOST PROTOCOLS</div>
+      <div class="t1">Car Inspection</div>
+      <div class="t2">Get detailed Report for your Car.</div>
       <div class="checks">
-      
+        <div class="t4">Hastle Free</div>
+        <div class="t4">Reliable</div>
+        <div class="t4">Easy</div>
       </div>
       </div>
       <div class="img">
-        <img src="services.png" alt="" srcset="">
+        <img src="inspection.png" alt="" srcset="">
       </div>
     </div>
 
@@ -577,45 +582,45 @@
           <i id="left" class="start"><span class="icn arr-l" style="background-position: -60px -30px;"></span></i>
           <ul class="carousel">
             {% for car in ftcars %}
-            <!-- Content to display for each item -->
-            <!-- Card Start -->
-            <li class="v-card slider-card">
-              <div class="imgSec">
-                {% if car.featured %}
-                <div class="feat">Featured</div>
-                  {% endif %}
-                
-                <img draggable="false" src="http://127.0.0.1:8000/api/{{ car.featImg.image }}" alt="">
-                <div class="count">
-                  <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
-                  <span class="c">{{car.car_gallery.all|length}}</span> 
-                </div>
+          <!-- Content to display for each item -->
+          <!-- Card Start -->
+          <li class="v-card slider-card">
+            <div class="imgSec">
+              {% if car.featured %}
+              <div class="feat">Featured</div>
+                {% endif %}
+              
+              <img draggable="false" src="http://127.0.0.1:8000/api/{{ car.featImg.image }}" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
+                <span class="c">{{car.car_gallery.all|length}}</span> 
               </div>
-              <div class="d-sec">
-                <div class="title">
-                  {{car.title}} {% if car.inspection %}
-                  <span class="rating"> {{car.inspection.rating}}/10</span>
-                  {% endif %}
-                </div>
-                <div class="price"><span class="pre">PKR</span> {{car.price}} lacs</div>
-                <div class="location">
-                  {{car.location}}
-                </div>
-                <div class="overview">
-                  <span class="quick-ov">{{car.year}}</span> |
-                  <span class="quick-ov">{{car.mileage}} km</span> |
-                  <span class="quick-ov">{{car.engine}}</span> 
-                </div>
-                <div class="b-sec">
-                  <div class="time">{{ car.date|timesince }} Ago</div>
-                  <a class="see-more">See More </a>
-                </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                {{car.title}} {% if car.inspection %}
+                <span class="rating"> {{car.inspection.rating}}/10</span>
+                {% endif %}
               </div>
-            </li>
-            
-            <!-- Card finish -->
-                
-            {% endfor %}
+              <div class="price"><span class="pre">PKR</span> {{car.price}} lacs</div>
+              <div class="location">
+                {{car.location}}
+              </div>
+              <div class="overview">
+                <span class="quick-ov">{{car.year}}</span> |
+                <span class="quick-ov">{{car.mileage}} km</span> |
+                <span class="quick-ov">{{car.engine}}</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time">{{ car.date|timesince }} Ago</div>
+                <a class="see-more">See More </a>
+              </div>
+            </div>
+          </li>
+          <!-- Card finish -->
+              
+          {% endfor %}
+        
           </ul> 
           <i id="right" class="end"><span class="icn arr-r" style="background-position: -90px -30px;"></i>
         </div>
@@ -670,6 +675,8 @@
           <!-- Card finish -->
               
           {% endfor %}
+        
+          
   
         </ul> 
         <i id="right" class="end"><span class="icn arr-r" style="background-position: -90px -30px;"></i>

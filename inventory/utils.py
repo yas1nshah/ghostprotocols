@@ -14,15 +14,12 @@ def format_mileage(mileage):
 
 def format_price(price):
     try:
+        if price < 10000000:
+            return "30 lacs"
 
         crores = price // 10000000
         lacs = (price % 10000000) // 100000
-
-        if crores == 0:
-            return f"{lacs} lacs"
-        elif lacs == 0:
-            return f"{crores} crore"
-        else:
-            return f"{crores} crore {lacs} lacs"
+        formatted_price = crores + lacs / 10.0
+        return f"{formatted_price:.1f} crores"
     except (ValueError, locale.Error):
         return price  # Return the original price if formatting fails

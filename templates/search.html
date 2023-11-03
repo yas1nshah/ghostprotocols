@@ -1,301 +1,450 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Outfit&display=swap">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{query}}</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Outfit&display=swap"
+    />
 
-  <script>
-    // Function to get URL parameters by name
-    function getParameterByName(name, url) {
-      if (!url) url = window.location.href;
-      name = name.replace(/[\[\]]/g, "\\$&");
-      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    <script>
+      // Function to get URL parameters by name
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
           results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-  
-    // Populate form fields from URL parameters
-    function populateFormFromURL() {
-      // Keyword input
-      var keywordParam = getParameterByName("keyword");
-      if (keywordParam !== null) {
-        document.getElementById("keyword").value = keywordParam;
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
       }
-  
-      // Year range
-      var yearFromParam = getParameterByName("yearFrom");
-      var yearToParam = getParameterByName("yearTo");
-      if (yearFromParam !== null) {
-        document.getElementById("yearFrom").value = yearFromParam;
-      }
-      if (yearToParam !== null) {
-        document.getElementById("yearTo").value = yearToParam;
-      }
-  
-      // Price range
-      var priceFromParam = getParameterByName("priceFrom");
-      var priceToParam = getParameterByName("priceTo");
-      if (priceFromParam !== null) {
-        document.getElementById("priceFrom").value = priceFromParam;
-      }
-      if (priceToParam !== null) {
-        document.getElementById("priceTo").value = priceToParam;
-      }
-  
-      // Color
-      var colorParam = getParameterByName("color");
-      if (colorParam !== null) {
-        document.getElementById("color").value = colorParam;
-      }
-  
-      // Body Type
-      var bodyTypeParam = getParameterByName("bodyType");
-      if (bodyTypeParam !== null) {
-        document.getElementById("bodyType").value = bodyTypeParam;
-      }
-  
-      // Ad Type
-      var adTypeParam = getParameterByName("adType");
-      if (adTypeParam !== null) {
-        if (adTypeParam === "new") {
-          document.getElementById("adTypeNew").checked = true;
-        } else if (adTypeParam === "used") {
-          document.getElementById("adTypeUsed").checked = true;
-        }
-      }
-    }
-  
-    // Call the function to populate form fields when the page loads
-    window.addEventListener("load", populateFormFromURL);
-  </script>
-  
 
-</head>
+      // Populate form fields from URL parameters
+      function populateFormFromURL() {
+        // Keyword input
+        var keywordParam = getParameterByName("keyword");
+        if (keywordParam !== null) {
+          document.getElementById("keyword").value = keywordParam;
+        }
 
-<body style=" background-color: rgb(22, 22, 22); margin: 0;font-family: 'Outfit'; color: rgb(241, 241, 241);">
-  
-  <header>
+        // Year range
+        var yearFromParam = getParameterByName("yearFrom");
+        var yearToParam = getParameterByName("yearTo");
+        if (yearFromParam !== null) {
+          document.getElementById("yearFrom").value = yearFromParam;
+        }
+        if (yearToParam !== null) {
+          document.getElementById("yearTo").value = yearToParam;
+        }
 
-    <div class="h-top" style="  height: 60px; background-color: black; text-align: center; margin: 0;">
-      <img src="logo.png" style="display: block; margin: 0 auto; height: 100%; width: auto;" alt="Centered Image">
-    </div>
+        // Price range
+        var priceFromParam = getParameterByName("priceFrom");
+        var priceToParam = getParameterByName("priceTo");
+        if (priceFromParam !== null) {
+          document.getElementById("priceFrom").value = priceFromParam;
+        }
+        if (priceToParam !== null) {
+          document.getElementById("priceTo").value = priceToParam;
+        }
 
+        // Color
+        var colorParam = getParameterByName("color");
+        if (colorParam !== null) {
+          document.getElementById("color").value = colorParam;
+        }
 
-    <div class="h-main" style="  background-color: rgb(44, 188, 54);text-align: center;height: 20px;margin: 0; font-size: 15px;padding: 3px;">
-      
-      <ul style="list-style-type: none; margin-top: 0;">
-        <style>
-        .h-main ul li {
-          display: inline;
-          margin: 0 20px;
-          position: relative;
+        // Body Type
+        var bodyTypeParam = getParameterByName("bodyType");
+        if (bodyTypeParam !== null) {
+          document.getElementById("bodyType").value = bodyTypeParam;
         }
-        
-        .h-main a {
-          text-decoration: none;
-          color: #fff;
+
+        // Ad Type
+        var adTypeParam = getParameterByName("adType");
+        if (adTypeParam !== null) {
+          if (adTypeParam === "new") {
+            document.getElementById("adTypeNew").checked = true;
+          } else if (adTypeParam === "used") {
+            document.getElementById("adTypeUsed").checked = true;
+          }
         }
-        .h-main a.h-active {
-            text-decoration: none;
-            color: #ffffff;
-            background: linear-gradient(to bottom left, rgba(36, 37, 38, 1.000), rgba(36, 37, 38, 0.487));
-            padding: 1px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-        
-        .inner-menu {
-          display: none;
-          position: absolute;
-          background-color: rgb(36, 37, 38);
-          border-radius: 10px;
-          min-width: 200px;
-          text-align: left;
-          
-          left: 0;
-        }
-        
-        .inner-menu a {
-          display: block;
-          padding: 10px;
-          color: #fff;
-          text-decoration: none;
-          border-radius: 10px;
-        }
-        
-        .inner-menu a:hover {
-          background-color: #555;
-          border-radius: 10px;
-        }
-        
-        .h-main li:hover .inner-menu {
-          display: block;
-        }
-        </style>
+      }
+
+      // Call the function to populate form fields when the page loads
+      window.addEventListener("load", populateFormFromURL);
+    </script>
+  </head>
+
+  <body
+    style="
+      background-color: rgb(22, 22, 22);
+      margin: 0;
+      font-family: 'Outfit';
+      color: rgb(241, 241, 241);
+    "
+  >
+    <header>
+      <div
+        class="h-top"
+        style="
+          height: 60px;
+          background-color: black;
+          text-align: center;
+          margin: 0;
+        "
+      >
+        <img
+          src="logo.png"
+          style="display: block; margin: 0 auto; height: 100%; width: auto"
+          alt="Centered Image"
+        />
+      </div>
+
+      <div
+        class="h-main"
+        style="
+          background-color: rgb(44, 188, 54);
+          text-align: center;
+          height: 20px;
+          margin: 0;
+          font-size: 15px;
+          padding: 3px;
+        "
+      >
+        <ul style="list-style-type: none; margin-top: 0">
+          <style>
+            .h-main ul li {
+              display: inline;
+              margin: 0 20px;
+              position: relative;
+            }
+
+            .h-main a {
+              text-decoration: none;
+              color: #fff;
+            }
+            .h-main a.h-active {
+              text-decoration: none;
+              color: #ffffff;
+              background: linear-gradient(
+                to bottom left,
+                rgba(36, 37, 38, 1),
+                rgba(36, 37, 38, 0.487)
+              );
+              padding: 1px 15px;
+              border-radius: 20px;
+              font-weight: bold;
+            }
+
+            .inner-menu {
+              z-index: 5;
+              display: none;
+              position: absolute;
+              background-color: rgb(36, 37, 38);
+              border-radius: 10px;
+              min-width: 200px;
+              text-align: left;
+
+              left: 0;
+            }
+
+            .inner-menu a {
+              display: block;
+              padding: 10px;
+              color: #fff;
+              text-decoration: none;
+              border-radius: 10px;
+            }
+
+            .inner-menu a:hover {
+              background-color: #555;
+              border-radius: 10px;
+            }
+
+            .h-main li:hover .inner-menu {
+              display: block;
+            }
+          </style>
           <li><a href="#">Home</a></li>
           <li><a class="h-active" href="#">Inventory</a></li>
           <li><a href="#">GP Cars</a></li>
           <li><a href="#">Add Car</a></li>
           <li>
-              <a href="#">Services</a>
-              <div class="inner-menu">
-                  <a href="#">Detailing</a>
-                  <a href="#">Insurance</a>
-              </div>
+            <a href="#">Services</a>
+            <div class="inner-menu">
+              <a href="#">Detailing</a>
+              <a href="#">Insurance</a>
+            </div>
           </li>
           <li><a href="#">Demand List</a></li>
           <li>
-              <a href="#">Account</a>
-              <div class="inner-menu">
-                  <a href="#">Login</a>
-                  <a href="#">Sign Up</a>
-              </div>
+            <a href="#">Account</a>
+            <div class="inner-menu">
+              <a href="#">Login</a>
+              <a href="#">Sign Up</a>
+            </div>
           </li>
-      </ul>
-    </div>
+        </ul>
+      </div>
+    </header>
 
-  </header>
-
-  <section class="canvas" style="max-width: 1100px; margin: 0 auto; ">
-
-    <style>
-      a{
-        color: #fff;
-        text-decoration: none;
-      }
-    </style>
-  <p style="color: rgb(241, 241, 241); text-decoration: none; opacity: 0.8; font-size: 14px;"> <a href="home.html">GhostProtocols</a> > <a href="">Inventory</a> > Search </p>
-  <hr>
-  <section class="content" style=" max-width: 1200px; overflow: hidden; max-width: 1100px; margin: 0 auto;">
-
-    <style>
-      .content{
-        display: flex;
-      }
-    </style>
-    <!-- ? Content Start -->
-
-    <section class="sidebar" style="flex: 3; width: 100%; text-align: center; max-width: 325px;">
+    <section class="canvas" style="max-width: 1100px; margin: 0 auto">
+      <style>
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+      </style>
+      <p
+        style="
+          color: rgb(241, 241, 241);
+          text-decoration: none;
+          opacity: 0.8;
+          font-size: 14px;
+        "
+      >
+        <a href="home.html">GhostProtocols</a> > <a href="">Inventory</a> >
+        Search
+      </p>
+      <hr />
+      <section
+        class="content"
+        style="
+          max-width: 1200px;
+          overflow: hidden;
+          max-width: 1100px;
+          margin: 0 auto;
+        "
+      >
         <style>
-          .box{
-            background-color: rgb(36, 37, 38);   border-radius: 10px; margin: 20px 10px;
-          }
-          .box h3{
-            display: block; margin: 15px 5px; text-decoration: none; color: white; background-color: rgb(63, 65, 67); padding: 10px 10px; border-radius: 5px;
-          }
-          hr{
-            opacity: 0.7;
-          }
-         
-          #seller-cont .label{
-            opacity: 0.7;
-            margin-right: 2px;
-          }
-         
-          .accordion {
-            background-color: rgb(49, 51, 52);
-            color: white;
-            border-radius: 5px;
-            margin: 5px 0px;
-            cursor: pointer;
-            padding: 5px;
-            width: 100%;
-            text-align: left;
-            border: none;
-            outline: none;
-            transition: 0.4s;
-        }
-
-        .accordion::before{
-            content: "+";
-            font-size: 20px;
-            border-radius: 10px;
-            margin: 10px;
-            min-height: 30px;
-            min-width: 30px;
-        }
-        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-        .active, .accordion:hover {
-            background-color: rgb(82, 85, 87);
-        }
-        .active::before{
-            content: "-";
-        }
-
-       
-        .panel {
-            padding: 0 18px;
-            /* background-color: white; */
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
-        }
-          
-        </style>
-
-        <!-- * form style -->
-        <style>
-          .pi{
-            padding: 15px 0px;
+          .content {
+            display: flex;
           }
         </style>
-        <!-- * form style -->
-        <div class="box">
-          <h3>Filters</h3>
-          <div class="filters" style="padding: 15px;">
-  
+        <!-- ? Content Start -->
+
+        <section
+          class="sidebar"
+          style="flex: 3; width: 100%; text-align: center; max-width: 325px"
+        >
+          <style>
+            .box {
+              background-color: rgb(36, 37, 38);
+              border-radius: 10px;
+              margin: 20px 10px;
+            }
+            .box h3 {
+              display: block;
+              margin: 15px 5px;
+              text-decoration: none;
+              color: white;
+              background-color: rgb(63, 65, 67);
+              padding: 10px 10px;
+              border-radius: 5px;
+            }
+            hr {
+              opacity: 0.7;
+            }
+
+            #seller-cont .label {
+              opacity: 0.7;
+              margin-right: 2px;
+            }
+
+            .accordion {
+              background-color: rgb(49, 51, 52);
+              color: white;
+              border-radius: 5px;
+              margin: 5px 0px;
+              cursor: pointer;
+              padding: 5px;
+              width: 100%;
+              text-align: left;
+              border: none;
+              outline: none;
+              transition: 0.4s;
+            }
+
+            .accordion::before {
+              content: "+";
+              font-size: 20px;
+              border-radius: 10px;
+              margin: 10px;
+              min-height: 30px;
+              min-width: 30px;
+            }
+            /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+            .active,
+            .accordion:hover {
+              background-color: rgb(82, 85, 87);
+            }
+            .active::before {
+              content: "-";
+            }
+
+            .panel {
+              padding: 0 18px;
+              /* background-color: white; */
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.2s ease-out;
+            }
+          </style>
+
+          <!-- * form style -->
+          <style>
+            .pi {
+              padding: 15px 0px;
+            }
+          </style>
+          <!-- * form style -->
+          <div class="box">
+            <h3>Filters</h3>
+            <div class="filters" style="padding: 15px">
               <button class="accordion dflt">Keyword</button>
               <div class="panel">
                 <div class="pi">
-                  <input type="text" id="keyword" placeholder="Enter keyword" style="width: 140px; padding: 5px; border-radius: 5px 5px 5px 5px; ">
-                  <button onclick="submitFilters()" class="f-btn" style="background-color: rgba(45, 207, 77, 0.5); color: #fff; padding: 6px 10px; border: none; cursor: pointer; border-radius: 5px;">Go</button>
+                  <input
+                    type="text"
+                    id="keyword"
+                    placeholder="Enter keyword"
+                    style="
+                      width: 140px;
+                      padding: 5px;
+                      border-radius: 5px 5px 5px 5px;
+                    "
+                  />
+                  <button
+                    onclick="submitFilters()"
+                    class="f-btn"
+                    style="
+                      background-color: rgba(45, 207, 77, 0.5);
+                      color: #fff;
+                      padding: 6px 10px;
+                      border: none;
+                      cursor: pointer;
+                      border-radius: 5px;
+                    "
+                  >
+                    Go
+                  </button>
                 </div>
               </div>
-  
+
               <button class="accordion">Year</button>
               <div class="panel">
                 <div class="pi">
-                  <input type="number" id="yearFrom" placeholder="From" style="width: 70px; padding: 5px; border-radius: 5px 0px 0px 5px; ">
-                  <input type="number" id="yearTo" placeholder="To" style="width: 70px; padding: 5px;  border-radius: 0px 5px 5px 0px">
-                  <button onclick="submitFilters()" class="f-btn" style="background-color: rgba(45, 207, 77, 0.5); color: #fff; padding: 6px 10px; border: none; cursor: pointer; border-radius: 5px;">Go</button>
+                  <input
+                    type="number"
+                    id="yearFrom"
+                    placeholder="From"
+                    style="
+                      width: 70px;
+                      padding: 5px;
+                      border-radius: 5px 0px 0px 5px;
+                    "
+                  />
+                  <input
+                    type="number"
+                    id="yearTo"
+                    placeholder="To"
+                    style="
+                      width: 70px;
+                      padding: 5px;
+                      border-radius: 0px 5px 5px 0px;
+                    "
+                  />
+                  <button
+                    onclick="submitFilters()"
+                    class="f-btn"
+                    style="
+                      background-color: rgba(45, 207, 77, 0.5);
+                      color: #fff;
+                      padding: 6px 10px;
+                      border: none;
+                      cursor: pointer;
+                      border-radius: 5px;
+                    "
+                  >
+                    Go
+                  </button>
                 </div>
               </div>
-              
-  
+
               <button class="accordion">Price</button>
               <div class="panel">
                 <div class="pi">
-                  <input type="number" id="priceFrom" placeholder="From" style="width: 70px; padding: 5px; border-radius: 5px 0px 0px 5px; ">
-                  <input type="number" id="priceTo" placeholder="To" style="width: 70px; padding: 5px;  border-radius: 0px 5px 5px 0px">
-                  <button onclick="submitFilters()" class="f-btn" style="background-color: rgba(45, 207, 77, 0.5); color: #fff; padding: 6px 10px; border: none; cursor: pointer; border-radius: 5px;">Go</button>
+                  <input
+                    type="number"
+                    id="priceFrom"
+                    placeholder="From"
+                    style="
+                      width: 70px;
+                      padding: 5px;
+                      border-radius: 5px 0px 0px 5px;
+                    "
+                  />
+                  <input
+                    type="number"
+                    id="priceTo"
+                    placeholder="To"
+                    style="
+                      width: 70px;
+                      padding: 5px;
+                      border-radius: 0px 5px 5px 0px;
+                    "
+                  />
+                  <button
+                    onclick="submitFilters()"
+                    class="f-btn"
+                    style="
+                      background-color: rgba(45, 207, 77, 0.5);
+                      color: #fff;
+                      padding: 6px 10px;
+                      border: none;
+                      cursor: pointer;
+                      border-radius: 5px;
+                    "
+                  >
+                    Go
+                  </button>
                 </div>
-                </div>
-  
+              </div>
+
               <button class="accordion">Color</button>
               <div class="panel">
-                                  <div class="pi">
-
-                    <select id="color" style="width: 140px; padding: 5px; border-radius: 5px 5px 5px 5px; ">
-                      <option value="">Select</option>
-                      <option value="white">White</option>
-                      <option value="red">Red</option>
-                      <option value="blue">Blue</option>
-                      <!-- Add more options as needed -->
-                    </select>
-                  </div>
+                <div class="pi">
+                  <select
+                    id="color"
+                    style="
+                      width: 140px;
+                      padding: 5px;
+                      border-radius: 5px 5px 5px 5px;
+                    "
+                  >
+                    <option value="">Select</option>
+                    <option value="white">White</option>
+                    <option value="red">Red</option>
+                    <option value="blue">Blue</option>
+                    <!-- Add more options as needed -->
+                  </select>
                 </div>
-  
+              </div>
+
               <button class="accordion">Body Type</button>
               <div class="panel">
                 <div class="pi">
-
-                  <select id="bodyType" style="width: 140px; padding: 5px; border-radius: 5px 5px 5px 5px; ">
-                    
+                  <select
+                    id="bodyType"
+                    style="
+                      width: 140px;
+                      padding: 5px;
+                      border-radius: 5px 5px 5px 5px;
+                    "
+                  >
                     <option value="sedan">Sedan</option>
                     <option value="suv">SUV</option>
                     <option value="truck">Truck</option>
@@ -303,33 +452,43 @@
                   </select>
                 </div>
               </div>
-  
+
               <button class="accordion">Ad Type</button>
               <div class="panel">
                 <div class="pi">
-
-                  <input type="radio" id="adTypeNew" name="adType" value="new">
+                  <input
+                    type="radio"
+                    id="adTypeNew"
+                    name="adType"
+                    value="new"
+                  />
                   <label for="adTypeNew">New</label>
-                  <div style="width: 50px; height: 10px; display: inline-block;"></div>
-                  <input type="radio" id="adTypeUsed" name="adType" value="used">
+                  <div
+                    style="width: 50px; height: 10px; display: inline-block"
+                  ></div>
+                  <input
+                    type="radio"
+                    id="adTypeUsed"
+                    name="adType"
+                    value="used"
+                  />
                   <label for="adTypeUsed">Used</label>
                 </div>
               </div>
-  
+
               <button onclick="submitFilters()">Submit</button>
-      
             </div>
             <script>
               function submitFilters() {
                 // Initialize an object to store the filter parameters
                 var filters = {};
-            
+
                 // Keyword input
                 var keyword = document.getElementById("keyword").value.trim();
                 if (keyword) {
                   filters.keyword = keyword;
                 }
-            
+
                 // Year range
                 var yearFrom = document.getElementById("yearFrom").value.trim();
                 var yearTo = document.getElementById("yearTo").value.trim();
@@ -339,9 +498,11 @@
                 if (yearTo) {
                   filters.yearTo = yearTo;
                 }
-            
+
                 // Price range
-                var priceFrom = document.getElementById("priceFrom").value.trim();
+                var priceFrom = document
+                  .getElementById("priceFrom")
+                  .value.trim();
                 var priceTo = document.getElementById("priceTo").value.trim();
                 if (priceFrom) {
                   filters.priceFrom = priceFrom;
@@ -349,19 +510,19 @@
                 if (priceTo) {
                   filters.priceTo = priceTo;
                 }
-            
+
                 // Color
                 var color = document.getElementById("color").value;
                 if (color) {
                   filters.color = color;
                 }
-            
+
                 // Body Type
                 var bodyType = document.getElementById("bodyType").value;
                 if (bodyType) {
                   filters.bodyType = bodyType;
                 }
-            
+
                 // Ad Type
                 var adTypeNew = document.getElementById("adTypeNew");
                 var adTypeUsed = document.getElementById("adTypeUsed");
@@ -370,53 +531,45 @@
                 } else if (adTypeUsed.checked) {
                   filters.adType = adTypeUsed.value;
                 }
-            
+
                 // Create a query string from the filters object
                 var queryString = Object.keys(filters)
-                  .map(key => key + "=" + encodeURIComponent(filters[key]))
+                  .map((key) => key + "=" + encodeURIComponent(filters[key]))
                   .join("&");
-            
+
                 // Construct the new URL with the query string and navigate to it
                 var newURL = window.location.pathname + "?" + queryString;
                 window.location.href = newURL;
               }
             </script>
-            
-            
-            
-        
-      </div>
+          </div>
 
+          <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
 
-  
-      <script>
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-        
-        for (i = 0; i < acc.length; i++) {
-          acc[i].addEventListener("click", function() {
-        
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-              panel.style.maxHeight = null;
-            } else {
-              panel.style.maxHeight = panel.scrollHeight + "px";
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function () {
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                  panel.style.maxHeight = null;
+                } else {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+              });
+
+              // Check if the accordion has the "df" class and expand it
+              if (acc[i].classList.contains("dflt")) {
+                var panel = acc[i].nextElementSibling;
+                panel.style.maxHeight = panel.scrollHeight + "px";
+              }
             }
-          });
-          
-          // Check if the accordion has the "df" class and expand it
-          if (acc[i].classList.contains("dflt")) {
-            var panel = acc[i].nextElementSibling;
-            panel.style.maxHeight = panel.scrollHeight + "px";
-          }
-        }
-      </script>
-      </section>
+          </script>
+        </section>
 
-    <section class="main" style="flex: 7;  width: 100%; padding: 10px;">
-        
-        <!-- ! buttons start-->
-        <style>
+        <section class="main" style="flex: 7; width: 100%; padding: 10px">
+          <!-- ! buttons start-->
+          <style>
             .button-container {
               /* align-self: start; */
               text-align: start;
@@ -426,11 +579,11 @@
               -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
               scrollbar-width: none; /* Hide scrollbar in Firefox */
             }
-        
+
             .button-container::-webkit-scrollbar {
               width: 0; /* Hide scrollbar in Webkit (Chrome, Safari, etc.) */
             }
-        
+
             .button {
               display: inline-block;
               font-size: 14px;
@@ -441,77 +594,74 @@
               border-radius: 5px;
               cursor: pointer;
             }
-        
+
             .button:hover {
               /* background-color: rgb(45, 207, 77); */
             }
-        
+
             .close-button {
               display: inline-block;
               padding: 5px;
-        
+
               border-radius: 50%;
               cursor: pointer;
             }
           </style>
-        <div class="button-container" id="button-container">
+          <div class="button-container" id="button-container">
             <!-- Buttons will be added here dynamically -->
-        </div>
-        <!-- ! Buttons end -->
+          </div>
+          <!-- ! Buttons end -->
 
+          <hr />
+          <style>
+            .h-card {
+              height: 150px;
+              background-color: rgba(36, 37, 38, 1);
+              overflow: hidden;
+              display: flex;
+              margin: 10px 5px;
+              border-radius: 10px;
+              width: 100%;
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05); /* Box shadow properties */
+            }
+            .img-sec {
+              flex: 1;
+              /* background-color: rebeccapurple; */
+              position: relative; /* Add this to position the image correctly */
+            }
+            .img-sec img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center top; /* Optional: To control the positioning of the image */
+            }
+            .img-sec .feat {
+              position: absolute;
+              background-color: rgb(44, 188, 54);
+              color: white;
+              padding: 3px 5px;
+              border-radius: 10px 0px 10px 0px;
+              font-size: 14px;
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            }
 
-        <hr>
-        <style>
-          .h-card {
-    height: 150px;
-    background-color: rgba(36, 37, 38, 1.000);
-    overflow: hidden;
-    display: flex;
-    margin: 10px 5px;
-    border-radius: 10px;
-    width: 100%;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, .05); /* Box shadow properties */
-
-}
-.img-sec {
-    flex: 1;
-    /* background-color: rebeccapurple; */
-    position: relative; /* Add this to position the image correctly */
-}
-.img-sec img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top; /* Optional: To control the positioning of the image */
-}
-.img-sec .feat{
-    position: absolute;
-    background-color: rgb(44, 188, 54);
-    color: white;
-    padding: 3px 5px;
-    border-radius: 10px 0px 10px 0px;
-    font-size: 14px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, .3)
-    
-}
-
-.count{
-    position: absolute;
-    right: 10px;
-    bottom: 5px;
-    height: 15px;
-    font-size: 14px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    padding:  2px 5px 5px 10px;
-    color: white;
-    display: inline-flex;
-}
-.count .c{
-    padding: 0px 5px;
-    display: inline-flex;
-}
-/* .count::before {
+            .count {
+              position: absolute;
+              right: 10px;
+              bottom: 5px;
+              height: 15px;
+              font-size: 14px;
+              background-color: rgba(0, 0, 0, 0.5);
+              border-radius: 10px;
+              padding: 2px 5px 5px 10px;
+              color: white;
+              display: inline-flex;
+            }
+            .count .c {
+              padding: 0px 5px;
+              display: inline-flex;
+            }
+            /* .count::before {
     content: "";
     background: url("data:image/svg+xml;utf8,<svg fill='%23ffffff'  version='1.1' id='Capa_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 487 487' xml:space='preserve' stroke='%23ffffff'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'><g><g><path d='M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z'></path></g></g></g></svg>") no-repeat;
     width: 12px;
@@ -521,369 +671,453 @@
     display: inline-block; 
 } */
 
-
-.d-sec {
-    flex: 4;
-    background-color: rgba(36, 37, 38, 1.000);
-    padding: 5px 10px ;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    /* line-height: ; */
-}
-.d-sec .title{
-    font-size: 18px;
-    font-weight: 600;
-   
-}
-
-.d-sec .price{
-    font-size: 20px;
-    font-weight: 700;
-    color: rgb(45, 207, 77);
-}
-.d-sec .price .pre{
-    font-size: 20px;
-    font-weight: 400;
-}
-.d-sec .location{
-    font-size: 16px;
-    font-weight: 500;
-}
-.d-sec .quick-ov{
-    font-size: 16px;
-    font-weight: 600;
-}
-.d-sec .time{
-    font-size: 14px;
-    font-weight: 300;
-    color: rgba(241, 241, 241, 0.753);
-}
-.d-sec .b-sec{
-    display: flex;
-    justify-content: space-between;
-}
-.rating{
-    border: 1px solid rgb(45, 207, 77);
-    padding: 2px 5px;
-    font-size: 14px;
-    border-radius: 15px ;
-    margin-left: 5px;
-    font-weight: 200;
-    background-color: rgba(45, 207, 77, 0.5);
-}
-.see-more {
-    font-size: 14px;
-    font-weight: 200;
-    cursor: pointer;
-}
-        </style>
-         <!-- Card Start -->
-         <div class="h-card">
-          <div class="img-sec">
-            <img
-              src="https://storage.prod.alpha-analytics.dev/resize/771b7ece-529d-4437-bae4-0c31a201bf6d?ts=1697340292&width=347&height=260&fit=inside&withoutEnlargement=false"
-              alt=""
-            />
-            <div class="count">
-              <span class="icn" style="transform:scale(0.8) translateY(-10px); height: 20px; width: 15px;"></span>
-              <span class="c">6</span>
-            </div>
-          </div>
-          <div class="d-sec">
-            <div class="title">
-              Toyota Corolla Grande 2016 1.8 <span class="rating"> 6/10</span>
-            </div>
-            <div class="price"><span class="pre">PKR</span> 56 lacs</div>
-            <div class="location">Lahore, Pakistan</div>
-            <div class="overview">
-              <span class="quick-ov">2006</span> |
-              <span class="quick-ov">28,000 km</span> |
-              <span class="quick-ov">Automatic</span>
-            </div>
-            <div class="b-sec">
-              <div class="time">Updated 2 mins ago</div>
-              <a href="car_detail.html" class="see-more">See More </a>
-            </div>
-          </div>
-        </div>
-        <!-- Card finish -->
-        <hr>
-        <div class="pagination">
-          <button class="f-btn">Previous</button>
-          <button class="f-btn">Next</button>
-          <span>Page: <span id="currentPage">1</span></span>
-        </div>
-            
-    </section>
-    <!-- ? Content End -->
-
-  </section>
-  <br>
- 
-
-  <br><br><br>
-
-  <div class="app-banner" style="display: flex; justify-content: space-between; background-color: rgb(36, 37, 38); height: 200px; padding: 25px; border-radius: 10px; ">
-    <div class="details">
-      <h2>Get the GhostProtocols App</h2>
-      <p>Buy & Sell Cars, Bikes and Auto Parts faster and better
-        using our App.</p>
-        <div class="bdg-row" style="display: flex; gap: 5px;">
-          <div class="badge">
-                
-            <span class="icn apple"></span>
-            <div class="details">
-              <div class="tt2">Download on the</div>
-              <div class="tt">App Store</div>
-            </div>  
-          </div>
-  
-          <div class="badge">
-            <span class="icn and"></span>
-              
-            <div class="details">
-              <div class="tt2">Get it on</div>
-              <div class="tt">Play Store</div>
-            </div>  
-          </div>
-        </div>
-      
-    </div>
-    <div class="img">
-      <img src="app-prev.png" alt="" srcset="" style="height: 250px; transform: translateY(-30%);">
-    </div>
-  </div>
-  <br><br>
-
- 
-
-
-</section>
-
-  <footer style="background-color: black; padding: 50px 0;">
-    <style>
-      .f-head::after{
-        content: "";
-        display: block;
-        width: 50px;
-        margin: 10px 0;
-        border-bottom: 3px solid rgb(44, 188, 54);
-   
-      }
-      .f-menu{
-        text-decoration: none;
-        color: rgb(241, 241, 241);
-        font-size: 18px;
-        font-weight: 300px;
-        opacity: 0.7;
-      }
-
-      .icon-row a{
-        display: inline-block;
-        height: 40px;
-        width: 40px;
-        background-color: rgb(22, 22, 22);
-        margin:0 10px 10px 0;
-        text-align: center;
-        overflow: hidden;
-        line-height: 40px;
-        border-radius: 50%;
-        color: #ffffff;
-        transition: all 0.5s ease;
-      }
-      .icon-row a:hover{
-        transform: scale(1.2);
-      }
-      .icn{
-        background: url(icons.png);
-        /* background-color: red; */
-        margin-top: 4px;
-        display: inline-block;
-        height: 30px;
-        width: 30px;
-        transition: 0.2s ;
-      }
-      
-      .icn.email{
-        background-position: -30px 0px;
-      }
-      .icn.wtsapp{
-        background-position: -60px 0px;
-      }
-      .icn.pin{
-        background-position: -90px 0px;
-      }
-      .icn.ig{
-        background-position: -60px -60px;
-      }
-      .icn.tt{
-        background-position: 0px -60px;
-      }
-      .icn.yt{
-        background-position: -30px -60px;
-      }
-      .icn.ln{
-        background-position: -90px -60px;
-      }
-      .icn.apple{
-        background-position: -30px -30px;
-      }
-      .icn.and{
-        background-position: 0px -30px;
-      }
-   
-      </style>
-
-    <div class="content" style="width: 100%; max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between;">
-      
-      <div class="f-col" style="width: 100%; margin: 10px 20px;">
-        <img style="width: 60%; height: auto;" src="logo.png" alt="" srcset="">
-        <hr>
-        <p>Providing you the Ghostly experience with Ghost Protocols. Don't miss out, Get your Ghostly car now.</p>
-        <p>Powered by <a style="color: rgb(44, 188, 54);" href="https://tixy.pk">Tixy.pk</a></p>
-      </div>
-     
-      <div class="f-col" style="width: 100%; margin: 10px 20px;">
-      <h3 class="f-head">Menu</h3>
-      <ul>
-        <li>
-          <a class="f-menu" href="">Inventory</a>
-        </li>
-        <li>
-          <a class="f-menu" href="">Ghost Yard</a>
-        </li>
-        <li>
-          <a class="f-menu" href="">Demand List</a>    
-        </li>
-        <li>
-          <a class="f-menu" href="">Services</a>          
-        </li>
-        <li>
-          <a class="f-menu" href="">About Us</a>
-        </li>
-      </ul>
-    
-      </div>
-      
-      <div class="f-col" style="width: 100%; margin: 10px 20px;">
-        <h3 class="f-head">Contact Us</h3>
-        <div class="icon-row">
-          <a href="#"><span class="icn phone"></span></a>
-          <a href="#"><span class="icn email"></span></a>
-          <a href="#"><span class="icn wtsapp"></span></a>
-          <a href="#"><span class="icn pin"></span></a>
-        </div>
-
-        <h3 class="f-head">News Letter</h3>
-      </div>
-     
-      <div class="f-col" style="width: 100%; margin: 10px 20px;">
-        <h3 class="f-head">Socials</h3>
-        <div class="icon-row">
-          <a href="#"><i class="icn ig"></i></a>
-          <a href="#"><i class="icn tt"></i></a>
-          <a href="#"><i class="icn yt"></i></a>
-          <a href="#"><i class="icn ln"></i></a>
-        </div>
-
-        <h3 class="f-head">Ghost App</h3>
-
-        <div class="ft-app">
-          <!--  -->
-          <style>
-            .badge{
+            .d-sec {
+              flex: 4;
+              background-color: rgba(36, 37, 38, 1);
+              padding: 5px 10px;
               display: flex;
-              max-width: 160px;
-              border-radius: 10px;
-              padding: 10px;
-              gap: 25px;
-              margin: 10px;
-              background-color: rgb(22, 22, 22);
+              flex-direction: column;
+              justify-content: space-evenly;
+              /* line-height: ; */
             }
-            .tt2{
-              font-size: 12px;
+            .d-sec .title {
+              font-size: 18px;
+              font-weight: 600;
+            }
+
+            .d-sec .price {
+              font-size: 20px;
+              font-weight: 700;
+              color: rgb(45, 207, 77);
+            }
+            .d-sec .price .pre {
+              font-size: 20px;
+              font-weight: 400;
+            }
+            .d-sec .location {
+              font-size: 16px;
+              font-weight: 500;
+            }
+            .d-sec .quick-ov {
+              font-size: 16px;
+              font-weight: 600;
+            }
+            .d-sec .time {
+              font-size: 14px;
+              font-weight: 300;
+              color: rgba(241, 241, 241, 0.753);
+            }
+            .d-sec .b-sec {
+              display: flex;
+              justify-content: space-between;
+            }
+            .rating {
+              border: 1px solid rgb(45, 207, 77);
+              padding: 2px 5px;
+              font-size: 14px;
+              border-radius: 15px;
+              margin-left: 5px;
+              font-weight: 200;
+              background-color: rgba(45, 207, 77, 0.5);
+            }
+            .see-more {
+              font-size: 14px;
+              font-weight: 200;
+              cursor: pointer;
             }
           </style>
+          {% for car in results %}
 
+          <!-- Card Start -->
+          <div class="h-card">
+            <div class="img-sec">
+              <img
+                src="http://127.0.0.1:8000/api/{{ car.featImg.image }}"
+                alt="{{ car.title }}"
+              />
+
+              <div class="count">
+                <span
+                  class="icn"
+                  style="
+                    transform: scale(0.8) translateY(-10px);
+                    height: 20px;
+                    width: 15px;
+                  "
+                ></span>
+                <span class="c">6</span>
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                {{car.title}} {% if car.inspection %}
+                <span class="rating"> {{car.inspection.rating}}/10</span>
+                {% endif %}
+              </div>
+              <div class="price">
+                <span class="pre">PKR</span> {{car.price}}
+              </div>
+              <div class="location">{{car.location}}, Pakistan</div>
+              <div class="overview">
+                <span class="quick-ov">{{car.year}}</span> |
+                <span class="quick-ov">{{car.mileage}} km</span> |
+                <span class="quick-ov">{{car.engine}}</span>
+              </div>
+              <div class="b-sec">
+                <div class="time">{{car.date}}</div>
+                <a
+                  href="/inventory/{{car.make}}/{{car.stockid}}"
+                  class="see-more"
+                  >See More
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card finish -->
+
+          {% endfor %}
+          <!-- Card Start -->
+          <div class="h-card">
+            <div class="img-sec">
+              <img
+                src="https://storage.prod.alpha-analytics.dev/resize/771b7ece-529d-4437-bae4-0c31a201bf6d?ts=1697340292&width=347&height=260&fit=inside&withoutEnlargement=false"
+                alt=""
+              />
+              <div class="count">
+                <span
+                  class="icn"
+                  style="
+                    transform: scale(0.8) translateY(-10px);
+                    height: 20px;
+                    width: 15px;
+                  "
+                ></span>
+                <span class="c">6</span>
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                Toyota Corolla Grande 2016 1.8 <span class="rating"> 6/10</span>
+              </div>
+              <div class="price"><span class="pre">PKR</span> 56 lacs</div>
+              <div class="location">Lahore, Pakistan</div>
+              <div class="overview">
+                <span class="quick-ov">2006</span> |
+                <span class="quick-ov">28,000 km</span> |
+                <span class="quick-ov">Automatic</span>
+              </div>
+              <div class="b-sec">
+                <div class="time">Updated 2 mins ago</div>
+                <a href="car_detail.html" class="see-more">See More </a>
+              </div>
+            </div>
+          </div>
+          <!-- Card finish -->
+          <hr />
+          <div class="pagination">
+            <button class="f-btn">Previous</button>
+            <button class="f-btn">Next</button>
+            <span>Page: <span id="currentPage">1</span></span>
+          </div>
+        </section>
+        <!-- ? Content End -->
+      </section>
+      <br />
+
+      <br /><br /><br />
+
+      <div
+        class="app-banner"
+        style="
+          display: flex;
+          justify-content: space-between;
+          background-color: rgb(36, 37, 38);
+          height: 200px;
+          padding: 25px;
+          border-radius: 10px;
+        "
+      >
+        <div class="details">
+          <h2>Get the GhostProtocols App</h2>
+          <p>
+            Buy & Sell Cars, Bikes and Auto Parts faster and better using our
+            App.
+          </p>
+          <div class="bdg-row" style="display: flex; gap: 5px">
             <div class="badge">
-              
               <span class="icn apple"></span>
               <div class="details">
                 <div class="tt2">Download on the</div>
                 <div class="tt">App Store</div>
-              </div>  
+              </div>
             </div>
 
             <div class="badge">
               <span class="icn and"></span>
-                
+
               <div class="details">
                 <div class="tt2">Get it on</div>
                 <div class="tt">Play Store</div>
-              </div>  
+              </div>
             </div>
-            
-          <!--  -->
-          
+          </div>
+        </div>
+        <div class="img">
+          <img
+            src="app-prev.png"
+            alt=""
+            srcset=""
+            style="height: 250px; transform: translateY(-30%)"
+          />
+        </div>
+      </div>
+      <br /><br />
+    </section>
+
+    <footer style="background-color: black; padding: 50px 0">
+      <style>
+        .f-head::after {
+          content: "";
+          display: block;
+          width: 50px;
+          margin: 10px 0;
+          border-bottom: 3px solid rgb(44, 188, 54);
+        }
+        .f-menu {
+          text-decoration: none;
+          color: rgb(241, 241, 241);
+          font-size: 18px;
+          font-weight: 300px;
+          opacity: 0.7;
+        }
+
+        .icon-row a {
+          display: inline-block;
+          height: 40px;
+          width: 40px;
+          background-color: rgb(22, 22, 22);
+          margin: 0 10px 10px 0;
+          text-align: center;
+          overflow: hidden;
+          line-height: 40px;
+          border-radius: 50%;
+          color: #ffffff;
+          transition: all 0.5s ease;
+        }
+        .icon-row a:hover {
+          transform: scale(1.2);
+        }
+        .icn {
+          background: url(icons.png);
+          /* background-color: red; */
+          margin-top: 4px;
+          display: inline-block;
+          height: 30px;
+          width: 30px;
+          transition: 0.2s;
+        }
+
+        .icn.email {
+          background-position: -30px 0px;
+        }
+        .icn.wtsapp {
+          background-position: -60px 0px;
+        }
+        .icn.pin {
+          background-position: -90px 0px;
+        }
+        .icn.ig {
+          background-position: -60px -60px;
+        }
+        .icn.tt {
+          background-position: 0px -60px;
+        }
+        .icn.yt {
+          background-position: -30px -60px;
+        }
+        .icn.ln {
+          background-position: -90px -60px;
+        }
+        .icn.apple {
+          background-position: -30px -30px;
+        }
+        .icn.and {
+          background-position: 0px -30px;
+        }
+      </style>
+
+      <div
+        class="content"
+        style="
+          width: 100%;
+          max-width: 1300px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+        "
+      >
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <img
+            style="width: 60%; height: auto"
+            src="logo.png"
+            alt=""
+            srcset=""
+          />
+          <hr />
+          <p>
+            Providing you the Ghostly experience with Ghost Protocols. Don't
+            miss out, Get your Ghostly car now.
+          </p>
+          <p>
+            Powered by
+            <a style="color: rgb(44, 188, 54)" href="https://tixy.pk"
+              >Tixy.pk</a
+            >
+          </p>
         </div>
 
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Menu</h3>
+          <ul>
+            <li>
+              <a class="f-menu" href="">Inventory</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Ghost Yard</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Demand List</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Services</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">About Us</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Contact Us</h3>
+          <div class="icon-row">
+            <a href="#"><span class="icn phone"></span></a>
+            <a href="#"><span class="icn email"></span></a>
+            <a href="#"><span class="icn wtsapp"></span></a>
+            <a href="#"><span class="icn pin"></span></a>
+          </div>
+
+          <h3 class="f-head">News Letter</h3>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Socials</h3>
+          <div class="icon-row">
+            <a href="#"><i class="icn ig"></i></a>
+            <a href="#"><i class="icn tt"></i></a>
+            <a href="#"><i class="icn yt"></i></a>
+            <a href="#"><i class="icn ln"></i></a>
+          </div>
+
+          <h3 class="f-head">Ghost App</h3>
+
+          <div class="ft-app">
+            <!--  -->
+            <style>
+              .badge {
+                display: flex;
+                max-width: 160px;
+                border-radius: 10px;
+                padding: 10px;
+                gap: 25px;
+                margin: 10px;
+                background-color: rgb(22, 22, 22);
+              }
+              .tt2 {
+                font-size: 12px;
+              }
+            </style>
+
+            <div class="badge">
+              <span class="icn apple"></span>
+              <div class="details">
+                <div class="tt2">Download on the</div>
+                <div class="tt">App Store</div>
+              </div>
+            </div>
+
+            <div class="badge">
+              <span class="icn and"></span>
+
+              <div class="details">
+                <div class="tt2">Get it on</div>
+                <div class="tt">Play Store</div>
+              </div>
+            </div>
+
+            <!--  -->
+          </div>
+        </div>
       </div>
-    </div>
-    <p style="height: 20px; text-align: center; background-color: rgb(44, 188, 54);">Copyright © 2022 - 2023 Ghost Protocols</p>
-  </footer>
+      <p
+        style="
+          height: 20px;
+          text-align: center;
+          background-color: rgb(44, 188, 54);
+        "
+      >
+        Copyright © 2022 - 2023 Ghost Protocols
+      </p>
+    </footer>
 
-  <script>
-    // Function to create a query button and add it to the button container
-    function createQueryButton(queryKey, queryValue) {
-      const buttonContainer = document.querySelector(".button-container");
+    <script>
+      // Function to create a query button and add it to the button container
+      function createQueryButton(queryKey, queryValue) {
+        const buttonContainer = document.querySelector(".button-container");
 
-      // Create a button element
-      const button = document.createElement("div");
-      button.classList.add("button");
-      button.textContent = `${queryKey}: ${queryValue}`;
+        // Create a button element
+        const button = document.createElement("div");
+        button.classList.add("button");
+        button.textContent = `${queryKey}: ${queryValue}`;
 
-      // Create a close button element within the query button
-      const closeButton = document.createElement("div");
-      closeButton.classList.add("close-button");
-      closeButton.textContent = "X";
+        // Create a close button element within the query button
+        const closeButton = document.createElement("div");
+        closeButton.classList.add("close-button");
+        closeButton.textContent = "X";
 
-      // Add an event listener to the close button to remove the query from the URL and refresh the page
-      closeButton.addEventListener("click", function () {
-        removeQueryParameter(queryKey);
-        button.remove();
-        window.location.reload();
-      });
+        // Add an event listener to the close button to remove the query from the URL and refresh the page
+        closeButton.addEventListener("click", function () {
+          removeQueryParameter(queryKey);
+          button.remove();
+          window.location.reload();
+        });
 
-      // Append the close button to the query button
-      button.appendChild(closeButton);
+        // Append the close button to the query button
+        button.appendChild(closeButton);
 
-      // Append the query button to the button container
-      buttonContainer.appendChild(button);
-    }
-
-    // Function to remove a query parameter from the URL
-    function removeQueryParameter(key) {
-      const urlParams = new URLSearchParams(window.location.search);
-      urlParams.delete(key);
-      const newURL = window.location.pathname + "?" + urlParams.toString();
-      window.history.replaceState({ path: newURL }, "", newURL);
-    }
-
-    // Function to extract active queries from the URL and create buttons for them
-    function extractAndDisplayActiveQueries() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const buttonContainer = document.querySelector(".button-container");
-
-      for (const [key, value] of urlParams.entries()) {
-        createQueryButton(key, value);
+        // Append the query button to the button container
+        buttonContainer.appendChild(button);
       }
-    }
 
-    // Call the function to display active queries when the page loads
-    extractAndDisplayActiveQueries();
-  </script>
+      // Function to remove a query parameter from the URL
+      function removeQueryParameter(key) {
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.delete(key);
+        const newURL = window.location.pathname + "?" + urlParams.toString();
+        window.history.replaceState({ path: newURL }, "", newURL);
+      }
 
- 
-</body>
+      // Function to extract active queries from the URL and create buttons for them
+      function extractAndDisplayActiveQueries() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const buttonContainer = document.querySelector(".button-container");
+
+        for (const [key, value] of urlParams.entries()) {
+          createQueryButton(key, value);
+        }
+      }
+
+      // Call the function to display active queries when the page loads
+      extractAndDisplayActiveQueries();
+    </script>
+  </body>
 </html>

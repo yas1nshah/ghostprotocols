@@ -5,6 +5,14 @@ from account.models import User
 # Create your models here.
 
 
+class Inspection(models.Model):
+    rating = models.IntegerField()
+    date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return '{} - {}'.format(self.pk, self.rating)
+
+
 class Car(models.Model):
     stockid = models.AutoField(primary_key=True)
     date = models.DateTimeField(default=timezone.now)
@@ -30,15 +38,19 @@ class Car(models.Model):
     body = models.CharField(max_length=200)
     color = models.CharField(max_length=200)
 
+    # Change the field type to OneToOneField
+    inspection = models.OneToOneField(
+        Inspection, on_delete=models.CASCADE, null=True, blank=True)
+
     seller = models.ForeignKey(
         User, on_delete=models.CASCADE, default=1)
     sellerComments = models.CharField(max_length=300)
 
     def save(self, *args, **kwargs):
-        # generate title field from other fields on each model creation/edit
+        # Generate title field from other fields on each model creation/edit
         self.title = f"{self.make} {self.model} {self.year}"
 
-        # run default Django implementation for save method
+        # Run default Django implementation for save method
         super().save(*args, **kwargs)
 
     def __str__(self):
