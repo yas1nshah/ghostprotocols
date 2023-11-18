@@ -117,7 +117,12 @@
       </div>
     </header>
 
-  
+    <script>
+      console.log(
+        {{gpcars}}
+
+      )
+    </script>
  
 
     <section class="canvas" style="max-width: 1100px; margin: 0 auto">
@@ -940,81 +945,8 @@
       </p>
     </footer>
 
-    <script>
-      const wrappers = document.querySelectorAll(".wrapper");
-  
-      wrappers.forEach( w => {
-      
-      const carousel = w.querySelector(".carousel");
-      const arrowBtns = w.querySelectorAll("i");
-      const firstCardWidth = carousel.querySelector(".slider-card").offsetWidth ;
-      let isDragging = false, startX, startScrollLeft;
-  
-      arrowBtns.forEach(btn => {
-          btn.addEventListener("click", ()=>{
-              carousel.scrollLeft += btn.id === "left" ? -(firstCardWidth +20) : (firstCardWidth +20);
-              console.log(btn.id)
-          })
-      })
-      const dragStart = (e) =>{
-      isDragging = true;
-      carousel.classList.add("dragging");
-      startX = e.pageX;
-      startScrollLeft = carousel.scrollLeft;
-      
-      }
-      const dragStop = (e) =>{
-          isDragging = false;
-          carousel.classList.remove("dragging");
-      }
-      const dragging = (e) =>{
-      if(!isDragging) return;
-      carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
-      }
-      
-      carousel.addEventListener("mousedown", dragStart);
-      carousel.addEventListener("mouseup", dragStop);
-      carousel.addEventListener("mousemove", dragging);
-  
-      });
-  
-  
-  
-    </script>
-<script>
-class LazyImageLoader {
-  constructor(imageElements) {
-    this.lazyImages = imageElements;
-    this.observer = new IntersectionObserver(this.loadImage.bind(this));
-  }
 
-  loadImage(entries, observer) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const lazyImage = entry.target;
-        const img = new Image();
-        img.src = lazyImage.getAttribute("data-src");
-        img.onload = () => {
-          lazyImage.src = img.src;
-          this.observer.unobserve(lazyImage);
-        };
-      }
-    });
-  }
 
-  observe() {
-    this.lazyImages.forEach((image) => {
-      this.observer.observe(image);
-    });
-  }
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  const lazyImageElements = document.querySelectorAll(".lazy-image");
-  const lazyLoader = new LazyImageLoader(lazyImageElements);
-  lazyLoader.observe();
-});
-</script>
 
 
   </body>

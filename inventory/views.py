@@ -7,8 +7,10 @@ from .utils import format_mileage, format_price
 # # Create your views here.
 from base.models import Car, Gallery
 from django.db.models import Q, Prefetch
+from django.template import loader
 from account.models import User
 from django.http import JsonResponse
+from user_agents import parse
 from django.template.loader import render_to_string  # Import render_to_string
 
 
@@ -43,6 +45,15 @@ def home(request):
         car.mileage = format_mileage(car.mileage)
         car.price = format_price(car.price)
 
+    # Parse the user agent using django-user-agents
+    user_agent = parse(request.META['HTTP_USER_AGENT'])
+
+    # Check if the request comes from a mobile device
+    is_mobile = user_agent.is_mobile
+
+    # Choose the template based on the device type
+    template_name = 'm.home.html' if is_mobile else 'home.html'
+
     context = {
         'gpcars': GpCars,
         'ftcars': FeaturedCars,
@@ -50,7 +61,9 @@ def home(request):
         'hello': "hi"
     }
 
-    return render(request, 'home.html', context)
+    # Use the loader to render the template
+    template = loader.get_template(template_name)
+    return HttpResponse(template.render(context, request))
 
 
 def carDetail(request, title, id):
@@ -65,11 +78,21 @@ def carDetail(request, title, id):
         result.mileage = format_mileage(result.mileage)
         result.price = format_price(result.price)
 
+    # Parse the user agent using django-user-agents
+    user_agent = parse(request.META['HTTP_USER_AGENT'])
+
+    # Check if the request comes from a mobile device
+    is_mobile = user_agent.is_mobile
+
+    # Choose the template based on the device type
+    template_name = 'm.car_detail.html' if is_mobile else 'car_detail.html'
+
     context = {
         "details": result,
         "gallery": gallery,
     }
-    return render(request, 'car_detail.html', context)
+
+    return render(request, template_name, context)
 
 
 def search_car(request):
@@ -116,6 +139,8 @@ def search_car(request):
     return render(request, 'search.html', context)
 
 
+def about_us(request):
+    return render(request, 'about_us.html')
 # def inventory(request):
 #     query = Car.objects.all()[:8]
 #     # return render(request, )

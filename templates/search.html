@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{query}}</title>
+    <title>Search result for {{query}} - Ghost Protocols</title>
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Outfit&display=swap"
@@ -97,7 +97,7 @@
         "
       >
         <img
-          src="logo.png"
+          src="{% static 'logo.png' %}"
           style="display: block; margin: 0 auto; height: 100%; width: auto"
           alt="Centered Image"
         />
@@ -168,25 +168,26 @@
               display: block;
             }
           </style>
-          <li><a href="#">Home</a></li>
-          <li><a class="h-active" href="#">Inventory</a></li>
-          <li><a href="#">GP Cars</a></li>
-          <li><a href="#">Add Car</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a class="h-active" href="/inventory/search">Inventory</a></li>
+          <li><a href="/inventory/gp-cars">GP Cars</a></li>
+          <li><a href="/inventory/add-car">Add Car</a></li>
           <li>
-            <a href="#">Services</a>
+            <a href="/services">Services</a>
             <div class="inner-menu">
               <a href="#">Detailing</a>
               <a href="#">Insurance</a>
             </div>
           </li>
-          <li><a href="#">Demand List</a></li>
+          <li><a href="/demand-list">Demand List</a></li>
           <li>
-            <a href="#">Account</a>
+            <a href="/account">Account</a>
             <div class="inner-menu">
               <a href="#">Login</a>
               <a href="#">Sign Up</a>
             </div>
           </li>
+          <li><a href="/about-us">About Us</a></li>
         </ul>
       </div>
     </header>
@@ -864,7 +865,7 @@
         </div>
         <div class="img">
           <img
-            src="app-prev.png"
+            src="{% static 'app-prev.png' %}"
             alt=""
             srcset=""
             style="height: 250px; transform: translateY(-30%)"
@@ -908,7 +909,7 @@
           transform: scale(1.2);
         }
         .icn {
-          background: url(icons.png);
+          background: url("{% static "icons.png" %}");
           /* background-color: red; */
           margin-top: 4px;
           display: inline-block;
@@ -959,7 +960,7 @@
         <div class="f-col" style="width: 100%; margin: 10px 20px">
           <img
             style="width: 60%; height: auto"
-            src="logo.png"
+            src="{% static 'logo.png' %}"
             alt=""
             srcset=""
           />

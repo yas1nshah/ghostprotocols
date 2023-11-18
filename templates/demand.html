@@ -1,0 +1,423 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghost Protocols - Find Your Next Ride</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit&display=swap"/>
+    <link rel="shortcut icon" href="{% static 'icon.webp'%}" type="image/x-icon">
+
+   </head>
+
+  <body style="background-color: rgb(22, 22, 22); margin: 0; font-family: 'Outfit'; color: rgb(241, 241, 241);">
+    <header>
+      <div
+        class="h-top"
+        style="
+          height: 60px;
+          background-color: black;
+          text-align: center;
+          margin: 0;
+        "
+      >
+        <img
+          src="{% static 'logo.webp' %}"
+          style="display: block; margin: 0 auto; height: 100%; width: auto"
+          alt="Centered Image"
+        />
+      </div>
+
+      <div
+        class="h-main"
+        style="
+          background-color: rgb(44, 188, 54);
+          text-align: center;
+          height: 20px;
+          margin: 0;
+          font-size: 15px;
+          padding: 3px;
+        "
+      >
+        <ul style="list-style-type: none; margin-top: 0">
+          <style>
+            .h-main ul li {
+              display: inline;
+              margin: 0 20px;
+              position: relative;
+            }
+
+            .h-main a {
+              text-decoration: none;
+              color: #fff;
+            }
+            .h-main a.h-active {
+              text-decoration: none;
+              color: #ffffff;
+              background: linear-gradient(
+                to bottom left,
+                rgba(36, 37, 38, 1),
+                rgba(36, 37, 38, 0.487)
+              );
+              padding: 1px 15px;
+              border-radius: 20px;
+              font-weight: bold;
+            }
+
+            .inner-menu {
+              z-index: 5;
+              display: none;
+              position: absolute;
+              background-color: rgb(36, 37, 38);
+              border-radius: 10px;
+              min-width: 200px;
+              text-align: left;
+
+              left: 0;
+            }
+
+            .inner-menu a {
+              display: block;
+              padding: 10px;
+              color: #fff;
+              text-decoration: none;
+              border-radius: 10px;
+            }
+
+            .inner-menu a:hover {
+              background-color: #555;
+              border-radius: 10px;
+            }
+
+            .h-main li:hover .inner-menu {
+              display: block;
+            }
+          </style>
+          <li><a class="h-active" href="/">Home</a></li>
+          <li><a href="inventory/search">Inventory</a></li>
+          <li><a href="inventory/gp-cars">GP Cars</a></li>
+          <li><a href="inventory/add-car">Add Car</a></li>
+          <li>
+            <a href="/services">Services</a>
+            <div class="inner-menu">
+              <a href="#">Detailing</a>
+              <a href="#">Insurance</a>
+            </div>
+          </li>
+          <li><a href="/demand-list">Demand List</a></li>
+          <li>
+            <a href="/account">Account</a>
+            <div class="inner-menu">
+              <a href="#">Login</a>
+              <a href="#">Sign Up</a>
+            </div>
+          </li>
+          <li><a href="/about-us">About Us</a></li>
+        </ul>
+      </div>
+    </header>
+
+   
+ 
+
+    <section class="canvas" style="max-width: 1100px; margin: 0 auto">
+    <br><br><br>
+    <h1>Demand List</h1>
+
+
+    <table style="width: 100%;">
+        <tr>
+            <td colspan="2" style="display: flex; justify-content: space-between;">
+                <h6 style="margin: 0;">Honda</h6>
+                <h6 style="margin: 0;">3 months Ago</h6>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="display: flex; justify-content: space-between;">
+                <h4 style="margin: 0;">City 2004</h4>
+                <h4 style="margin: 0;">50 lacs</h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr style="opacity: 0.3;">
+            </td>
+        </tr>
+        <!-- Additional Object 1 -->
+        <div>
+
+            <tr>
+                <td colspan="2" style="display: flex; justify-content: space-between;">
+                <h6 style="margin: 0;">Toyota</h6>
+                <h6 style="margin: 0;">2 months Ago</h6>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="display: flex; justify-content: space-between;">
+                <h4 style="margin: 0;">Camry 2010</h4>
+                <h4 style="margin: 0;">40 lacs</h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr style="opacity: 0.3;">
+            </td>
+        </tr>
+        </div>
+        <!-- Additional Object 2 -->
+        <tr>
+            <td colspan="2" style="display: flex; justify-content: space-between;">
+                <h6 style="margin: 0;">Ford</h6>
+                <h6 style="margin: 0;">1 month Ago</h6>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="display: flex; justify-content: space-between;">
+                <h4 style="margin: 0;">Fusion 2015</h4>
+                <h4 style="margin: 0;">35 lacs</h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr style="opacity: 0.3;">
+            </td>
+        </tr>
+    </table>
+    
+    
+    </section>
+
+    <footer style="background-color: black; padding: 50px 0">
+      <style>
+        .f-head::after {
+          content: "";
+          display: block;
+          width: 50px;
+          margin: 10px 0;
+          border-bottom: 3px solid rgb(44, 188, 54);
+        }
+        .f-menu {
+          text-decoration: none;
+          color: rgb(241, 241, 241);
+          font-size: 18px;
+          font-weight: 300px;
+          opacity: 0.7;
+        }
+
+        .icon-row a {
+          display: inline-block;
+          height: 40px;
+          width: 40px;
+          background-color: rgb(22, 22, 22);
+          margin: 0 10px 10px 0;
+          text-align: center;
+          overflow: hidden;
+          line-height: 40px;
+          border-radius: 50%;
+          color: #ffffff;
+          transition: all 0.5s ease;
+        }
+        .icon-row a:hover {
+          transform: scale(1.2);
+        }
+        .icn {
+          background: url({%static 'icons.webp'%});
+          /* background-color: red; */
+          margin-top: 4px;
+          display: inline-block;
+          height: 30px;
+          width: 30px;
+          transition: 0.2s;
+        }
+
+        .icn.email {
+          background-position: -30px 0px;
+        }
+        .icn.wtsapp {
+          background-position: -60px 0px;
+        }
+        .icn.pin {
+          background-position: -90px 0px;
+        }
+        .icn.ig {
+          background-position: -60px -60px;
+        }
+        .icn.tt {
+          background-position: 0px -60px;
+        }
+        .icn.yt {
+          background-position: -30px -60px;
+        }
+        .icn.ln {
+          background-position: -90px -60px;
+        }
+        .icn.apple {
+          background-position: -30px -30px;
+        }
+        .icn.and {
+          background-position: 0px -30px;
+        }
+      </style>
+
+      <div
+        class="content"
+        style="
+          width: 100%;
+          max-width: 1300px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+        "
+      >
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <img
+            style="width: 60%; height: auto"
+            src="{%static 'logo.webp'%}"
+            alt=""
+            srcset=""
+          />
+          <hr />
+          <p>
+            Providing you the Ghostly experience with Ghost Protocols. Don't
+            miss out, Get your Ghostly car now.
+          </p>
+          <p>
+            Powered by
+            <a style="color: rgb(44, 188, 54)" href="https://tixy.pk"
+              >Tixy.pk</a
+            >
+          </p>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Menu</h3>
+          <ul>
+            <li>
+              <a class="f-menu" href="">Inventory</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Ghost Yard</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Demand List</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Services</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">About Us</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Contact Us</h3>
+          <div class="icon-row">
+            <a href="#"><span class="icn phone"></span></a>
+            <a href="#"><span class="icn email"></span></a>
+            <a href="#"><span class="icn wtsapp"></span></a>
+            <a href="#"><span class="icn pin"></span></a>
+          </div>
+
+          <h3 class="f-head">News Letter</h3>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Socials</h3>
+          <div class="icon-row">
+            <a href="#"><i class="icn ig"></i></a>
+            <a href="#"><i class="icn tt"></i></a>
+            <a href="#"><i class="icn yt"></i></a>
+            <a href="#"><i class="icn ln"></i></a>
+          </div>
+
+          <h3 class="f-head">Ghost App</h3>
+
+          <div class="ft-app">
+            <!--  -->
+            <style>
+              .badge {
+                display: flex;
+                max-width: 160px;
+                border-radius: 10px;
+                padding: 10px;
+                gap: 25px;
+                margin: 10px;
+                background-color: rgb(22, 22, 22);
+              }
+              .tt2 {
+                font-size: 12px;
+              }
+            </style>
+
+            <div class="badge">
+              <span class="icn apple"></span>
+              <div class="details">
+                <div class="tt2">Download on the</div>
+                <div class="tt">App Store</div>
+              </div>
+            </div>
+
+            <div class="badge">
+              <span class="icn and"></span>
+
+              <div class="details">
+                <div class="tt2">Get it on</div>
+                <div class="tt">Play Store</div>
+              </div>
+            </div>
+
+            <!--  -->
+          </div>
+        </div>
+      </div>
+      <p
+        style="
+          height: 20px;
+          text-align: center;
+          background-color: rgb(44, 188, 54);
+        "
+      >
+        Copyright Â© 2022 - 2023 Ghost Protocols
+      </p>
+    </footer>
+
+ 
+<script>
+class LazyImageLoader {
+  constructor(imageElements) {
+    this.lazyImages = imageElements;
+    this.observer = new IntersectionObserver(this.loadImage.bind(this));
+  }
+
+  loadImage(entries, observer) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const lazyImage = entry.target;
+        const img = new Image();
+        img.src = lazyImage.getAttribute("data-src");
+        img.onload = () => {
+          lazyImage.src = img.src;
+          this.observer.unobserve(lazyImage);
+        };
+      }
+    });
+  }
+
+  observe() {
+    this.lazyImages.forEach((image) => {
+      this.observer.observe(image);
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  const lazyImageElements = document.querySelectorAll(".lazy-image");
+  const lazyLoader = new LazyImageLoader(lazyImageElements);
+  lazyLoader.observe();
+});
+</script>
+
+
+  </body>
+</html>

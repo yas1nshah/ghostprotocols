@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path("", views.home, name="CarDetail"),
+    path("about-us/", views.about_us, name="About Us"),
     path("<str:title>/<int:id>", views.carDetail, name="CarDetail"),
     path('search/', views.search_car, name='search'),
     # path('', views.inventory, name= "AllInventory"),

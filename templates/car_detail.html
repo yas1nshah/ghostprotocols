@@ -15,85 +15,109 @@
 <body style=" background-color: rgb(22, 22, 22); margin: 0;font-family: 'Outfit'; color: rgb(241, 241, 241);">
   
   <header>
-
-    <div class="h-top" style="  height: 60px; background-color: black; text-align: center; margin: 0;">
-      <img src="{% static 'icon.png' %}" style="display: block; margin: 0 auto; height: 100%; width: auto;" alt="Centered Image">
+    <div
+      class="h-top"
+      style="
+        height: 60px;
+        background-color: black;
+        text-align: center;
+        margin: 0;
+      "
+    >
+      <img
+        src="{% static 'logo.png' %}"
+        style="display: block; margin: 0 auto; height: 100%; width: auto"
+        alt="Centered Image"
+      />
     </div>
 
-
-    <div class="h-main" style="  background-color: rgb(44, 188, 54);text-align: center;height: 20px;margin: 0; font-size: 15px;padding: 3px;">
-      
-      <ul style="list-style-type: none; margin-top: 0;">
+    <div
+      class="h-main"
+      style="
+        background-color: rgb(44, 188, 54);
+        text-align: center;
+        height: 20px;
+        margin: 0;
+        font-size: 15px;
+        padding: 3px;
+      "
+    >
+      <ul style="list-style-type: none; margin-top: 0">
         <style>
-        .h-main ul li {
-          display: inline;
-          margin: 0 20px;
-          position: relative;
-        }
-        
-        .h-main a {
-          text-decoration: none;
-          color: #fff;
-        }
-        .h-main a.active {
+          .h-main ul li {
+            display: inline;
+            margin: 0 20px;
+            position: relative;
+          }
+
+          .h-main a {
+            text-decoration: none;
+            color: #fff;
+          }
+          .h-main a.h-active {
             text-decoration: none;
             color: #ffffff;
-            background: linear-gradient(to bottom left, rgba(36, 37, 38, 1.000), rgba(36, 37, 38, 0.487));
+            background: linear-gradient(
+              to bottom left,
+              rgba(36, 37, 38, 1),
+              rgba(36, 37, 38, 0.487)
+            );
             padding: 1px 15px;
             border-radius: 20px;
             font-weight: bold;
-        }
-        
-        .inner-menu {
-          display: none;
-          position: absolute;
-          background-color: rgb(36, 37, 38);
-          border-radius: 10px;
-          min-width: 200px;
-          text-align: left;
-          
-          left: 0;
-        }
-        
-        .inner-menu a {
-          display: block;
-          padding: 10px;
-          color: #fff;
-          text-decoration: none;
-          border-radius: 10px;
-        }
-        
-        .inner-menu a:hover {
-          background-color: #555;
-          border-radius: 10px;
-        }
-        
-        .h-main li:hover .inner-menu {
-          display: block;
-        }
+          }
+
+          .inner-menu {
+            z-index: 5;
+            display: none;
+            position: absolute;
+            background-color: rgb(36, 37, 38);
+            border-radius: 10px;
+            min-width: 200px;
+            text-align: left;
+
+            left: 0;
+          }
+
+          .inner-menu a {
+            display: block;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+          }
+
+          .inner-menu a:hover {
+            background-color: #555;
+            border-radius: 10px;
+          }
+
+          .h-main li:hover .inner-menu {
+            display: block;
+          }
         </style>
-          <li><a href="#">Home</a></li>
-          <li><a class="active" href="#">Inventory</a></li>
-          <li><a href="#2">GP Cars</a></li>
-          <li><a href="#">Add Car</a></li>
-          <li>
-              <a href="#">Services</a>
-              <div class="inner-menu">
-                  <a href="#">Detailing</a>
-                  <a href="#">Insurance</a>
-              </div>
-          </li>
-          <li><a href="#">Demand List</a></li>
-          <li>
-              <a href="#">Account</a>
-              <div class="inner-menu">
-                  <a href="#">Login</a>
-                  <a href="#">Sign Up</a>
-              </div>
-          </li>
+        <li><a href="/">Home</a></li>
+        <li><a  class="h-active" href="inventory/search">Inventory</a></li>
+        <li><a href="inventory/gp-cars">GP Cars</a></li>
+        <li><a href="inventory/add-car">Add Car</a></li>
+        <li>
+          <a href="/services">Services</a>
+          <div class="inner-menu">
+            <a href="#">Detailing</a>
+            <a href="#">Insurance</a>
+          </div>
+        </li>
+        <li><a href="/demand-list">Demand List</a></li>
+        <li>
+          <a href="/account">Account</a>
+          <div class="inner-menu">
+            <a href="#">Login</a>
+            <a href="#">Sign Up</a>
+          </div>
+        </li>
+        <li><a href="/about-us">About Us</a></li>
       </ul>
     </div>
-
   </header>
 
   <section class="canvas" style="max-width: 1100px; margin: 0 auto; ">

@@ -1,0 +1,912 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghost Protocols - Find Your Next Ride</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit&display=swap"/>
+    <link rel="shortcut icon" href="{% static 'icon.webp'%}" type="image/x-icon">
+
+   </head>
+
+  <body
+    style="
+      background-color: rgb(22, 22, 22);
+      margin: 0;
+      font-family: 'Outfit';
+      color: rgb(241, 241, 241);
+      overflow-x: hidden;
+    "
+  >
+   
+    <!-- The overlay -->
+    
+      
+  
+
+    <div id="blc" onclick="closeNav()" style="display: none; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.591); position: fixed; transition: 0.5s ease-in-out; z-index: 5;"></div>
+    <header style="height: 30px; background-color: black; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+        <img src="{% static 'logo.webp' %}"  style="height: 40px; width: auto;" alt="Centered Image"/> 
+        <i class="icn" onclick="openNav()" style="width: 30px; height: 30px; background-color: red;"></i>
+      <div id="mySidenav" class="sidenav" style="z-index: 6;">
+        
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul style="list-style-type: none; margin-top: 0">
+          
+            <li><a href="#">Home</a></li>
+            <li><a class="active" href="#">Inventory</a></li>
+            <li><a href="#">GP Cars</a></li>
+            <li><a href="#">Add Car</a></li>
+            <li>
+              <a href="#">Services</a>
+              <div class="inner-menu">
+                <a href="#">Detailing</a>
+                <a href="#">Insurance</a>
+              </div>
+            </li>
+            <li><a href="#">Demand List</a></li>
+            <li>
+              <a href="#">Account</a>
+              <div class="inner-menu">
+                <a href="#">Login</a>
+                <a href="#">Sign Up</a>
+              </div>
+            </li>
+          </ul>
+
+          <div style=" padding: 10px; display: flex;">
+            <a href="" style="font-size: 18px; margin: 0 5px;">Sign Up</a>
+            <hr>
+            <a href="" style="font-size: 18px; margin: 0 5px; text-align: start;">Login</a>
+            </div>
+      </div>
+    </header>
+
+
+
+
+    
+    <style>
+            /* The side navigation menu */
+            .sidenav {
+              z-index: 10;
+    height: 100%; /* 100% Full-height */
+    width: 0px; /* Set the width to 250px */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    right: 0; /* Change the right property to 0 to move it to the right */
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+
+
+        /* The navigation menu links */
+        .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover {
+        color: #f1f1f1;
+        }
+
+        /* Position and style the close button (top right corner) */
+        .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-size: 36px;
+        margin-left: 50px;
+        }
+
+        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+        #main {
+        transition: margin-left .5s;
+        padding: 20px;
+        }
+
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+        }
+    </style>
+
+    <script>
+    /* Set the width of the side navigation to 250px */
+    function openNav() {
+    document.getElementById("blc").style.display = "block";
+    document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("blc").style.display = "none";
+  }
+  </script>
+      <!-- ! CONTENT -->
+    <section class="content" style="padding: 15px;" >
+        <!-- <div style="height: 100px;"></div> -->
+        <section class="main" >
+          <div class="hero">
+            <h1 style="display: block;  font-size: 35px; color:  rgb(44, 188, 54);" ><span style="display: block;  font-size: 20px; color: rgb(241, 241, 241);">Find your Next Car at</span> Ghost Protocols</h1>
+            <form id="search" action="inventory/search" method="get" style="display: flex; gap: 5px; width: 100%; height: 40px;">
+              <input type="search" name="keyword" id="" style="flex: 6 0 auto; font-size: 20px; padding: 10px 20px; background-color: rgba(36, 37, 38, 1.000); border: none; border-radius: 10px; color: rgb(241, 241, 241)">
+              <button type="submit" style="flex: 1 0 auto; font-size: 20px; background-color: rgb(44, 188, 54); border: none; border-radius: 10px;"><span class="icn"></span></button>
+            </form>
+            <br>
+            <button id="adv" style="font-size: 11px; padding: 10px 20px; background-color: rgba(36, 37, 38, 1.000);  border: none; border-radius: 10px; color: rgb(241, 241, 241)" >Advanced Search</button>
+
+          </div>
+        
+        
+        </section>
+        <br><br><br>
+
+
+        <!-- Slider -->
+  <style>
+    .v-card {
+      text-decoration: none;
+    color: inherit;
+    height: 160px;
+    background-color: rgba(36, 37, 38, 1.000);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    text-align: start;
+    margin: 10px 5px;
+    border-radius: 10px;
+    /* scroll-snap-align: start; */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .05); /* Box shadow properties */
+
+}
+.imgSec {
+    flex: 3;
+    overflow: hidden;
+    /* background-color: rebeccapurple; */
+    position: relative; /* Add this to position the image correctly */
+}
+.imgSec img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center; /* Optional: To control the positioning of the image */
+}
+.imgSec .feat{
+    position: absolute;
+    background-color: rgb(44, 188, 54);
+    color: white;
+    padding: 3px 5px;
+    border-radius: 10px 0px 10px 0px;
+    font-size: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .3)
+    
+}
+
+.count{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    height: 15px;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding:  2px 5px 5px 10px;
+    color: white;
+    display: inline-flex;
+}
+.count .c{
+    padding: 0px 5px;
+    display: inline-flex;
+}
+
+.d-sec {
+    flex: 3;
+    background-color: rgba(36, 37, 38, 1.000);
+    padding: 5px 5px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* line-height: ; */
+}
+.d-sec .title{
+    font-size: 12px;
+    font-weight: 500;
+   
+}
+
+.d-sec .price{
+    font-size: 1em;
+    font-weight: 700;
+    color: rgb(45, 207, 77);
+}
+.d-sec .price .pre{
+    font-size: 1em;
+    font-weight: 400;
+}
+.d-sec .location{
+    font-size: 0.5em;
+    font-weight: 500;
+}
+.d-sec .quick-ov{
+    font-size:0.6em;
+    font-weight: 500;
+    color: #ffffff;
+}
+.overview{
+  color: #818181;
+}
+.d-sec .time{
+    font-size:0.75em;
+    font-weight: 300;
+    color: rgba(241, 241, 241, 0.753);
+}
+.d-sec .b-sec{
+    display: flex;
+    justify-content: space-between;
+}
+.rating{
+    border: 1px solid rgb(45, 207, 77);
+    padding: 1px 5px;
+    font-size: 9px;
+    border-radius: 15px ;
+    font-weight: 200;
+    background-color: rgba(45, 207, 77, 0.5);
+}
+.see-more {
+    font-size: 0.8em;
+    font-weight: 200;
+    cursor: pointer;
+}
+/* Horizontal end*/
+
+.wrapper{
+    max-width: 1300px;
+    width: 100%;
+    position: relative;
+    
+}
+.wrapper i{
+    height: 50px;
+    width: 50px;
+    background-color: rgb(45, 46, 46);
+
+    /* padding: 5px 10px; */
+    border-radius: 100%;
+    text-align: center;
+     line-height: 50px;
+    align-content: center;
+    cursor: pointer;
+    position: absolute;
+    /* transform: translateY(-50%); */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transform: scale(0.7);
+    top: 50%;
+    z-index: 3;
+}
+.wrapper i:first-child{
+    left: -22px;
+    top: 40%;
+  
+}
+
+.wrapper i:last-child{
+    right: -22px;
+     top: 40%;
+}
+.wrapper .carousel {
+    padding: 0 15px;;
+    display: grid;
+   grid-auto-flow: column;
+   grid-auto-columns: calc((100% / 2)  );
+   gap: 10px;
+   overflow-x: hidden;
+   scroll-snap-type: x mandatory;
+   scroll-behavior: smooth;
+   scrollbar-width:0px;
+
+  
+}
+
+.carousel.dragging .v-card{
+    cursor: grab;
+    user-select: none;
+
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+}
+.carousel.dragging{
+   scroll-behavior: auto;
+   scroll-snap-type: none;
+
+}
+
+h2{
+  font-size: 18px;
+}
+
+  </style>
+  <!-- Slider -->
+
+
+  <!-- Similar Start -->
+  <div class="card-slider" style="overflow: hidden;">
+    <h2 class="head-med">
+        Similar Cars
+    </h2>
+    <div class="wrapper">
+        <i id="left" class="start"><span class="icn arr-l" style="background-position: -60px -30px;"></span></i>
+        <ul class="carousel">
+          {% for car in gpcars %}
+
+          <!-- Card Start -->
+          <li class="v-card slider-card">
+            <div class="imgSec">
+              {% if car.featured %}
+              <div class="feat">Featured</div>
+                {% endif %}
+              <img  draggable="false" src="https://v2.ghostprotocols.pk/api/{{ car.featImg.image }}" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
+                <span class="c">{{car.car_gallery.all.count}}</span> 
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                {{car.title}} {% if car.inspection %}
+                <span class="rating"> {{car.inspection.rating}}/10</span>
+                {% endif %}
+              </div>
+              <div class="price"><span class="pre">PKR</span> {{car.price}}</div>
+              <div class="location">
+                {{car.location}}
+              </div>
+              <div class="overview">
+                <span class="quick-ov">{{car.year}}</span> |
+                <span class="quick-ov">{{car.mileage}} km</span> |
+                <span class="quick-ov">{{car.engine}}</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time" style="font-size:8px;">{{ car.date|timesince }} Ago</div>
+                <!-- <a class="see-more">See More </a> -->
+              </div>
+            </div>
+          </li>
+          <!-- Card finish -->
+          {% endfor %}
+          
+        </ul> 
+        <i id="right" class="end"><span class="icn arr-r" style="background-position: -90px -30px;"></i>
+      </div>
+    </div>
+  <!-- Similar End -->
+
+
+  <br><br><br>
+
+  <!-- Services Start -->
+  <h2 style="text-align: start;">GP Services</h2>
+
+  <style>
+ 
+  .service-m {
+    display: flex;
+    max-height: 80px;
+    overflow: hidden;
+    background-color: rgba(36, 37, 38, 1.000);
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .05);
+    transition: all 0.3s ease;
+  }
+  .service-c{
+    display: flex;
+  }
+  .service{
+    flex-grow: 1;
+    display: flex;
+    align-items: end;
+   height: 80px;
+    overflow: hidden;
+    background-color: rgba(36, 37, 38, 1.000);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .05);
+    position: relative;
+   
+  }
+</style>
+
+<div class="service-m">
+  <div class="dtls" style="flex: 2;">
+    <h3 style="font-size: 16px; margin: 5px;">We Sell, You Win</h3>
+    <p style="margin: 5px; font-size: 13px;">Experience the magic of hassle-free car sales.</p>
+  </div>
+  <div class="img" style="flex: 1;">
+    <img style="  width: 100%; height: auto;" src="sell-now.png" alt="">
+  </div>
+</div>
+
+<div class="service-c">
+  <div class="service">
+    <div class="img" style=" position: absolute; top: 5px; right: 10%; height: 60px; text-align: end;">
+      <img style="height: 100%; width: auto;" src="inspection.png" alt="" srcset="">
+    </div>
+    <div class="dtls" style="text-align: start;">
+      <h3 style="font-size: 16px; margin: 5px;"><span style="display: block;">CAR</span> INSPECTION</h3>
+    </div>
+  </div>
+  <div class="service">
+    <div class="img" style=" position: absolute; top: 5px; right: 10%; height: 60px; text-align: end;">
+      <img style="height: 100%; width: auto;" src="inspection.png" alt="" srcset="">
+    </div>
+    <div class="dtls" style="text-align: start;">
+      <h3 style="font-size: 16px; margin: 5px;"><span style="display: block;">CAR</span> INSPECTION</h3>
+    </div>
+  </div>
+ 
+</div>
+
+<div class="service-m">
+  <div class="dtls" style="flex: 2;">
+    <h3 style="font-size: 16px; margin: 5px;">We Sell, You Win</h3>
+    <p style="margin: 5px; font-size: 13px;">Experience the magic of hassle-free car sales.</p>
+  </div>
+  <div class="img" style="flex: 1;">
+    <img style="  width: 100%; height: auto;" src="sell-now.png" alt="">
+  </div>
+</div>
+
+<div class="service-c">
+  <div class="service">
+    <div class="img" style=" position: absolute; top: 5px; right: 10%; height: 60px; text-align: end;">
+      <img style="height: 100%; width: auto;" src="inspection.png" alt="" srcset="">
+    </div>
+    <div class="dtls" style="text-align: start;">
+      <h3 style="font-size: 16px; margin: 5px;"><span style="display: block;">CAR</span> INSPECTION</h3>
+    </div>
+  </div>
+  <div class="service">
+    <div class="img" style=" position: absolute; top: 5px; right: 10%; height: 60px; text-align: end;">
+      <img style="height: 100%; width: auto;" src="inspection.png" alt="" srcset="">
+    </div>
+    <div class="dtls" style="text-align: start;">
+      <h3 style="font-size: 16px; margin: 5px;"><span style="display: block;">CAR</span> INSPECTION</h3>
+    </div>
+  </div>
+ 
+</div>
+
+<br><br><br>
+
+  <!-- Similar Start -->
+  <div class="card-slider" style="overflow: hidden;">
+    <h2 class="head-med">
+        Featured Cars
+    </h2>
+    <div class="wrapper">
+        <i id="left" class="start"><span class="icn arr-l" style="background-position: -60px -30px;"></span></i>
+        <ul class="carousel">
+          {% for car in ftcars %}
+
+          <!-- Card Start -->
+          <a href="http://127.0.0.1:8000/inventory/{{car.make}}-{{car.model}}-{{car.year}}/{{car.stockid}}" class="v-card slider-card">
+            <div class="imgSec">
+              {% if car.featured %}
+                <div class="feat">Featured</div>
+              {% endif %}
+              <img draggable="false" src="https://v2.ghostprotocols.pk/api/{{ car.featImg.image }}" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff">
+                  <!-- SVG path code -->
+                </svg>
+                <span class="c">{{car.car_gallery.all.count}}</span> 
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                {{car.title}} 
+                {% if car.inspection %}
+                  <span class="rating"> {{car.inspection.rating}}/10</span>
+                {% endif %}
+              </div>
+              <div class="price"><span class="pre">PKR</span> {{car.price}}</div>
+              <div class="location">
+                {{car.location}}
+              </div>
+              <div class="overview">
+                <span class="quick-ov">{{car.year}}</span> |
+                <span class="quick-ov">{{car.mileage}} km</span> |
+                <span class="quick-ov">{{car.engine}}</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time" style="font-size:8px;">{{ car.date|timesince }} Ago</div>
+                <!-- <a class="see-more">See More </a> -->
+              </div>
+            </div>
+          </a>
+          <!-- Card finish -->
+
+          {% endfor %}  
+        </ul> 
+        <i id="right" class="end"><span class="icn arr-r" style="background-position: -90px -30px;"></i>
+      </div>
+    </div>
+  <!-- Similar End -->
+
+
+  <br><br><br>
+
+    <!-- Similar Start -->
+  <div class="card-slider" style="overflow: hidden;">
+    <h2 class="head-med">
+        Recent Cars
+    </h2>
+    <div class="wrapper">
+        <i id="left" class="start"><span class="icn arr-l" style="background-position: -60px -30px;"></span></i>
+        <ul class="carousel">
+          {% for car in rcntcars %}
+
+          <!-- Card Start -->
+          <li class="v-card slider-card">
+            <div class="imgSec">
+              {% if car.featured %}
+              <div class="feat">Featured</div>
+                {% endif %}
+              <img  draggable="false" src="https://v2.ghostprotocols.pk/api/{{ car.featImg.image }}" alt="">
+              <div class="count">
+                <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487 487" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M308.1,277.95c0,35.7-28.9,64.6-64.6,64.6s-64.6-28.9-64.6-64.6s28.9-64.6,64.6-64.6S308.1,242.25,308.1,277.95z M440.3,116.05c25.8,0,46.7,20.9,46.7,46.7v122.4v103.8c0,27.5-22.3,49.8-49.8,49.8H49.8c-27.5,0-49.8-22.3-49.8-49.8v-103.9 v-122.3l0,0c0-25.8,20.9-46.7,46.7-46.7h93.4l4.4-18.6c6.7-28.8,32.4-49.2,62-49.2h74.1c29.6,0,55.3,20.4,62,49.2l4.3,18.6H440.3z M97.4,183.45c0-12.9-10.5-23.4-23.4-23.4c-13,0-23.5,10.5-23.5,23.4s10.5,23.4,23.4,23.4C86.9,206.95,97.4,196.45,97.4,183.45z M358.7,277.95c0-63.6-51.6-115.2-115.2-115.2s-115.2,51.6-115.2,115.2s51.6,115.2,115.2,115.2S358.7,341.55,358.7,277.95z"></path> </g> </g> </g></svg>
+                <span class="c">{{car.car_gallery.all.count}}</span> 
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="title">
+                {{car.title}} {% if car.inspection %}
+                <span class="rating"> {{car.inspection.rating}}/10</span>
+                {% endif %}
+              </div>
+              <div class="price"><span class="pre">PKR</span> {{car.price}}</div>
+              <div class="location">
+                {{car.location}}
+              </div>
+              <div class="overview">
+                <span class="quick-ov">{{car.year}}</span> |
+                <span class="quick-ov">{{car.mileage}} km</span> |
+                <span class="quick-ov">{{car.engine}}</span> 
+              </div>
+              <div class="b-sec">
+                <div class="time" style="font-size:8px;">{{ car.date|timesince }} Ago</div>
+                <!-- <a class="see-more">See More </a> -->
+              </div>
+            </div>
+          </li>
+          <!-- Card finish -->
+          {% endfor %}   
+        </ul> 
+        <i id="right" class="end"><span class="icn arr-r" style="background-position: -90px -30px;"></i>
+      </div>
+    </div>
+  <!-- Similar End -->
+
+
+  <br><br><br>
+  
+  <style>
+    .banner{
+    display: flex;
+    height: 100px;
+    overflow: hidden;
+    background-color: rgba(36, 37, 38, 1.000);
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .05);
+    transition: all 0.3s ease;
+    }
+  </style>
+
+  <div class="banner"  onclick="scrollToApp()">
+    <div class="dtls">
+      <h2 style="font-size: 16px;">Get the GhostProtocols App</h2>
+      <p style="font-size: 12px;">
+            Buy & Sell Cars, Bikes and Auto Parts faster and better using our
+            App.
+      </p>
+    </div>
+    <div class="img" >
+      <img style="height: 100%; width: auto;" src="app-prev.png" alt="" srcset="">
+    </div>
+  </div>
+  <script>
+  function scrollToApp() {
+    // Scroll to the element with the id "app"
+    const appElement = document.getElementById('app');
+    if (appElement) {
+      appElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
+
+    </section>
+
+    <!-- ! CONTENT -->
+
+
+
+
+
+
+
+
+
+
+
+   <script>
+    const wrappers = document.querySelectorAll(".wrapper");
+
+wrappers.forEach(w => {
+
+  const carousel = w.querySelector(".carousel");
+  const arrowBtns = w.querySelectorAll("i");
+  const firstCardWidth = carousel.querySelector(".slider-card").offsetWidth;
+  let isDragging = false, startX, startScrollLeft;
+
+  arrowBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      carousel.scrollLeft += btn.id === "left" ? -(firstCardWidth + 20) : (firstCardWidth + 20);
+      console.log(btn.id);
+    });
+  });
+
+  const dragStart = (e) => {
+    isDragging = true;
+    carousel.classList.add("dragging");
+    startX = e.type === "touchstart" ? e.touches[0].pageX : e.pageX;
+    startScrollLeft = carousel.scrollLeft;
+
+  };
+
+  const dragStop = () => {
+    isDragging = false;
+    carousel.classList.remove("dragging");
+  };
+
+  const dragging = (e) => {
+    if (!isDragging) return;
+    const currentX = e.type === "touchmove" ? e.touches[0].pageX : e.pageX;
+    carousel.scrollLeft = startScrollLeft - (currentX - startX);
+  };
+
+  carousel.addEventListener("mousedown", dragStart);
+  carousel.addEventListener("mouseup", dragStop);
+  carousel.addEventListener("mousemove", dragging);
+
+  // Touch events
+  carousel.addEventListener("touchstart", dragStart);
+  carousel.addEventListener("touchend", dragStop);
+  carousel.addEventListener("touchmove", dragging);
+
+});
+
+   </script>
+
+
+
+
+
+    <footer style="background-color: black; overflow: hidden;">
+      <style>
+        .f-head::after {
+          content: "";
+          display: block;
+          width: 50px;
+          margin: 10px 0;
+          border-bottom: 3px solid rgb(44, 188, 54);
+        }
+        .f-menu {
+          text-decoration: none;
+          color: rgb(241, 241, 241);
+          font-size: 18px;
+          font-weight: 300px;
+          opacity: 0.7;
+        }
+
+        .icon-row a {
+          display: inline-block;
+          height: 40px;
+          width: 40px;
+          background-color: rgb(22, 22, 22);
+          margin: 0 10px 10px 0;
+          text-align: center;
+          overflow: hidden;
+          line-height: 40px;
+          border-radius: 50%;
+          color: #ffffff;
+          transition: all 0.5s ease;
+        }
+        .icon-row a:hover {
+          transform: scale(1.2);
+        }
+        .icn {
+          background: url(icons.png);
+          /* background-color: red; */
+          margin-top: 4px;
+          display: inline-block;
+          height: 30px;
+          width: 30px;
+          transition: 0.2s;
+        }
+
+        .icn.email {
+          background-position: -30px 0px;
+        }
+        .icn.wtsapp {
+          background-position: -60px 0px;
+        }
+        .icn.pin {
+          background-position: -90px 0px;
+        }
+        .icn.ig {
+          background-position: -60px -60px;
+        }
+        .icn.tt {
+          background-position: 0px -60px;
+        }
+        .icn.yt {
+          background-position: -30px -60px;
+        }
+        .icn.ln {
+          background-position: -90px -60px;
+        }
+        .icn.apple {
+          background-position: -30px -30px;
+        }
+        .icn.and {
+          background-position: 0px -30px;
+        }
+      </style>
+
+      <div
+        class="content"
+        style="
+          
+        
+          width: 100%;
+          max-width: 1300px;
+          margin: 0 auto;
+          /* display: flex; */
+          justify-content: space-between;
+        "
+      >
+        <div class="f-col" style="margin: 10px 20px">
+          <img
+            style="width: 40%; height: auto"
+            src="logo.png"
+            alt=""
+            srcset=""
+          />
+          <hr />
+          <p>
+            Providing you the Ghostly experience with Ghost Protocols. Don't
+            miss out, Get your Ghostly car now.
+          </p>
+          <p>
+            Powered by
+            <a style="color: rgb(44, 188, 54)" href="https://tixy.pk"
+              >Tixy.pk</a
+            >
+          </p>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Menu</h3>
+          <ul>
+            <li>
+              <a class="f-menu" href="">Inventory</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Ghost Yard</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Demand List</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Services</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">About Us</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Contact Us</h3>
+          <div class="icon-row">
+            <a href="#"><span class="icn phone"></span></a>
+            <a href="#"><span class="icn email"></span></a>
+            <a href="#"><span class="icn wtsapp"></span></a>
+            <a href="#"><span class="icn pin"></span></a>
+          </div>
+
+          <h3 class="f-head">News Letter</h3>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Socials</h3>
+          <div class="icon-row">
+            <a href="#"><i class="icn ig"></i></a>
+            <a href="#"><i class="icn tt"></i></a>
+            <a href="#"><i class="icn yt"></i></a>
+            <a href="#"><i class="icn ln"></i></a>
+          </div>
+
+          <h3 class="f-head">Ghost App</h3>
+
+          <div class="ft-app" id="app">
+            <!--  -->
+            <style>
+              .badge {
+                display: flex;
+                max-width: 160px;
+                border-radius: 10px;
+                padding: 10px;
+                gap: 25px;
+                margin: 10px;
+                background-color: rgb(22, 22, 22);
+              }
+              .tt2 {
+                font-size: 12px;
+              }
+            </style>
+
+            <div class="badge">
+              <span class="icn apple"></span>
+              <div class="details">
+                <div class="tt2">Download on the</div>
+                <div class="tt">App Store</div>
+              </div>
+            </div>
+
+            <div class="badge">
+              <span class="icn and"></span>
+
+              <div class="details">
+                <div class="tt2">Get it on</div>
+                <div class="tt">Play Store</div>
+              </div>
+            </div>
+
+            <!--  -->
+          </div>
+        </div>
+      </div>
+      <p
+        style="
+          height: 20px;
+          text-align: center;
+          background-color: rgb(44, 188, 54);
+        "
+      >
+        Copyright © 2022 - 2023 Ghost Protocols
+      </p>
+    </footer>
+  </body>
+</html>

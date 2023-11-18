@@ -1,0 +1,633 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Ghost Protocols</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Outfit&display=swap"
+    />
+  </head>
+
+  <body
+    style="
+      background-color: rgb(22, 22, 22);
+      margin: 0;
+      font-family: 'Outfit';
+      color: rgb(241, 241, 241);
+    "
+  >
+    <header>
+      <div
+        class="h-top"
+        style="
+          height: 60px;
+          background-color: black;
+          text-align: center;
+          margin: 0;
+        "
+      >
+        <img
+          src="{% static 'logo.png' %}"
+          style="display: block; margin: 0 auto; height: 100%; width: auto"
+          alt="Centered Image"
+        />
+      </div>
+
+      <div
+        class="h-main"
+        style="
+          background-color: rgb(44, 188, 54);
+          text-align: center;
+          height: 20px;
+          margin: 0;
+          font-size: 15px;
+          padding: 3px;
+        "
+      >
+        <ul style="list-style-type: none; margin-top: 0">
+          <style>
+            .h-main ul li {
+              display: inline;
+              margin: 0 20px;
+              position: relative;
+            }
+
+            .h-main a {
+              text-decoration: none;
+              color: #fff;
+            }
+            .h-main a.h-active {
+              text-decoration: none;
+              color: #ffffff;
+              background: linear-gradient(
+                to bottom left,
+                rgba(36, 37, 38, 1),
+                rgba(36, 37, 38, 0.487)
+              );
+              padding: 1px 15px;
+              border-radius: 20px;
+              font-weight: bold;
+            }
+
+            .inner-menu {
+              z-index: 5;
+              display: none;
+              position: absolute;
+              background-color: rgb(36, 37, 38);
+              border-radius: 10px;
+              min-width: 200px;
+              text-align: left;
+
+              left: 0;
+            }
+
+            .inner-menu a {
+              display: block;
+              padding: 10px;
+              color: #fff;
+              text-decoration: none;
+              border-radius: 10px;
+            }
+
+            .inner-menu a:hover {
+              background-color: #555;
+              border-radius: 10px;
+            }
+
+            .h-main li:hover .inner-menu {
+              display: block;
+            }
+          </style>
+          <li><a href="/">Home</a></li>
+          <li><a href="/inventory/search">Inventory</a></li>
+          <li><a href="/inventory/gp-cars">GP Cars</a></li>
+          <li><a href="/inventory/add-car">Add Car</a></li>
+          <li>
+            <a href="/services">Services</a>
+            <div class="inner-menu">
+              <a href="#">Detailing</a>
+              <a href="#">Insurance</a>
+            </div>
+          </li>
+          <li><a href="/demand-list">Demand List</a></li>
+          <li>
+            <a href="/account">Account</a>
+            <div class="inner-menu">
+              <a href="#">Login</a>
+              <a href="#">Sign Up</a>
+            </div>
+          </li>
+          <li><a class="h-active" href="/about-us">About Us</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section
+      class="content"
+      style="
+        max-width: 1200px;
+        overflow: hidden;
+        max-width: 1200px;
+        margin: 0 auto;
+      "
+    >
+      <h1>About Us</h1>
+      <hr />
+      <br />
+      <p style="font-size: 16px; line-height: 1.5; color: #f1f1f1">
+        Welcome to GhostProtocols, where luxury meets innovation. Our journey
+        started with a simple vision: to redefine the automotive experience for
+        our customers.
+      </p>
+
+      <div
+        class="about"
+        style="
+          background-color: #333;
+          border-radius: 10px;
+          padding: 20px;
+          margin-top: 20px;
+        "
+      >
+        <h2 style="font-size: 28px; color: #f1f1f1; margin: 0 0 20px">
+          Our Story
+        </h2>
+        <p
+          style="
+            font-size: 16px;
+            line-height: 1.5;
+            color: #f1f1f1;
+            margin: 0 0 20px;
+          "
+        >
+          At GhostProtocols, we are more than just a dealership; we are a
+          gateway to a world of automotive excellence. Our story is one of
+          passion, commitment, and a relentless pursuit of automotive
+          perfection.
+        </p>
+        <p style="font-size: 16px; line-height: 1.5; color: #f1f1f1; margin: 0">
+          Founded by a group of enthusiasts, we understand the deep connection
+          between drivers and their vehicles. Our mission is to offer you not
+          just cars, but an experience that transcends the ordinary. We've
+          curated a collection of the finest vehicles, each with a unique story
+          waiting to be told.
+        </p>
+      </div>
+
+      <br /><br />
+      <h2 style="font-size: 28px; color: #f1f1f1; margin: 20px 0 20px">
+        Our Core Values
+      </h2>
+      <div
+        class="core-values"
+        style="
+          display: flex;
+          flex-direction: column;
+          margin: 0 auto;
+          text-align: center;
+        "
+      >
+        <div style="display: flex">
+          <div
+            class="value-card"
+            style="
+              flex: 1;
+              background-color: #333;
+              border: 1px solid #444;
+              border-radius: 10px;
+              padding: 20px;
+              margin: 10px;
+              width: calc(33.3333% - 20px);
+              text-align: center;
+            "
+          >
+            <h3 style="font-size: 20px; color: #f1f1f1; margin: 0 0 10px">
+              Passion for Performance
+            </h3>
+            <p
+              style="
+                font-size: 16px;
+                line-height: 1.5;
+                color: #f1f1f1;
+                margin: 0;
+              "
+            >
+              At GhostProtocols, we share your passion for performance. We offer
+              a range of high-performance vehicles to satisfy even the most
+              demanding enthusiasts. When you choose GhostProtocols, you're
+              choosing the thrill of the open road.
+            </p>
+          </div>
+          <div
+            class="value-card"
+            style="
+              background-color: #333;
+              border: 1px solid #444;
+              border-radius: 10px;
+              padding: 20px;
+              margin: 10px;
+              width: calc(33.3333% - 20px);
+              text-align: center;
+            "
+          >
+            <h3 style="font-size: 20px; color: #f1f1f1; margin: 0 0 10px">
+              Customer-Centric Excellence
+            </h3>
+            <p
+              style="
+                font-size: 16px;
+                line-height: 1.5;
+                color: #f1f1f1;
+                margin: 0;
+              "
+            >
+              Our commitment to excellence extends to every aspect of our
+              service. Your satisfaction is at the heart of everything we do.
+            </p>
+          </div>
+        </div>
+        <div style="display: flex">
+          <div
+            class="value-card"
+            style="
+              background-color: #333;
+              border: 1px solid #444;
+              border-radius: 10px;
+              padding: 20px;
+              margin: 10px;
+              width: calc(33.3333% - 20px);
+              text-align: center;
+            "
+          >
+            <h3 style="font-size: 20px; color: #f1f1f1; margin: 0 0 10px">
+              Innovation and Technology
+            </h3>
+            <p
+              style="
+                font-size: 16px;
+                line-height: 1.5;
+                color: #f1f1f1;
+                margin: 0;
+              "
+            >
+              We embrace innovation and cutting-edge technology to ensure you
+              have access to the latest advancements in the automotive world.
+            </p>
+          </div>
+          <div
+            class="value-card"
+            style="
+              flex: 2;
+              background-color: #333;
+              border: 1px solid #444;
+              border-radius: 10px;
+              padding: 20px;
+              margin: 10px;
+              width: calc(33.3333% - 20px);
+              text-align: center;
+            "
+          >
+            <h3 style="font-size: 20px; color: #f1f1f1; margin: 0 0 10px">
+              Sustainability and Responsibility
+            </h3>
+            <p
+              style="
+                font-size: 16px;
+                line-height: 1.5;
+                color: #f1f1f1;
+                margin: 0;
+              "
+            >
+              We are dedicated to environmental responsibility. We offer
+              eco-friendly options and implement green practices throughout our
+              operations. When you choose GhostProtocols, you're choosing a more
+              responsible automotive future.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <br /><br />
+      <style>
+        .team {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-content: space-between;
+        }
+
+        .team-member {
+          flex: 1;
+          background-color: #333;
+          border: 1px solid #444;
+          border-radius: 10px;
+          padding: 20px;
+          text-align: center;
+          width: calc(33.3333% - 20px);
+          margin: 10px;
+          transition: transform 0.3s;
+          position: relative;
+        }
+
+        .team-member img {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-bottom: 10px;
+        }
+
+        .team-member h3 {
+          font-size: 20px;
+          color: #f1f1f1;
+          margin: 0 0 10px;
+        }
+
+        .team-member p {
+          font-size: 16px;
+          color: #f1f1f1;
+          margin: 0;
+        }
+
+        .social-links {
+          position: absolute;
+          bottom: -20px;
+          left: 0;
+          width: 100%;
+          background-color: #333;
+          display: flex;
+          justify-content: center;
+          padding: 10px 0;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+
+        .team-member:hover {
+          transform: scale(1.05);
+        }
+
+        .team-member:hover .social-links {
+          opacity: 1;
+          background-color: black;
+          border-radius: 10px;
+          z-index: 3;
+        }
+
+        .social-link {
+          color: #f1f1f1;
+          font-size: 20px;
+          margin: 0 10px;
+          transition: color 0.3s;
+        }
+
+        .social-link:hover {
+          color: #44bc36;
+        }
+      </style>
+
+      <h2 style="font-size: 28px; color: #f1f1f1; margin: 20px 0 20px">
+        Meet Our Team
+      </h2>
+      <div class="team">
+        <div class="team-member">
+          <img
+            src="https://media.licdn.com/dms/image/D4D22AQEiX5SQptghhQ/feedshare-shrink_2048_1536/0/1698435808570?e=1701907200&v=beta&t=9Q19JS9rLY9o2iOEDwwutwgYnfX-jh3HNsrs3B324sk"
+            alt="Alice Johnson"
+          />
+          <h3>Alice Johnson</h3>
+          <p>Founder & CEO</p>
+          <div class="social-links">
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">LinkedIn</a>
+          </div>
+        </div>
+        <div class="team-member">
+          <img
+            src="https://media.licdn.com/dms/image/D4D03AQH_P4FwKgITZg/profile-displayphoto-shrink_200_200/0/1697911667903?e=1704326400&v=beta&t=eccmCJXe2HAVmf6Vnhpwo9Pt4orXbhSZ6hfIvbpJgMg"
+            alt="Michael Clark"
+          />
+          <h3>Michael Clark</h3>
+          <p>Head of Sales</p>
+          <div class="social-links">
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">LinkedIn</a>
+          </div>
+        </div>
+        <div class="team-member">
+          <img
+            src="https://media.licdn.com/dms/image/D4D03AQH_P4FwKgITZg/profile-displayphoto-shrink_200_200/0/1697911667903?e=1704326400&v=beta&t=eccmCJXe2HAVmf6Vnhpwo9Pt4orXbhSZ6hfIvbpJgMg"
+            alt="Linda Turner"
+          />
+          <h3>Linda Turner</h3>
+          <p>Marketing Director</p>
+          <div class="social-links">
+            <a href="#" class="social-link">Facebook</a>
+            <a href="#" class="social-link">Twitter</a>
+            <a href="#" class="social-link">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+    </section>
+
+    <footer style="background-color: black; padding: 50px 0">
+      <style>
+        .f-head::after {
+          content: "";
+          display: block;
+          width: 50px;
+          margin: 10px 0;
+          border-bottom: 3px solid rgb(44, 188, 54);
+        }
+        .f-menu {
+          text-decoration: none;
+          color: rgb(241, 241, 241);
+          font-size: 18px;
+          font-weight: 300px;
+          opacity: 0.7;
+        }
+
+        .icon-row a {
+          display: inline-block;
+          height: 40px;
+          width: 40px;
+          background-color: rgb(22, 22, 22);
+          margin: 0 10px 10px 0;
+          text-align: center;
+          overflow: hidden;
+          line-height: 40px;
+          border-radius: 50%;
+          color: #ffffff;
+          transition: all 0.5s ease;
+        }
+        .icon-row a:hover {
+          transform: scale(1.2);
+        }
+        .icn {
+          background: url("{% static "icons.png" %}");
+          /* background-color: red; */
+          margin-top: 4px;
+          display: inline-block;
+          height: 30px;
+          width: 30px;
+          transition: 0.2s;
+        }
+
+        .icn.email {
+          background-position: -30px 0px;
+        }
+        .icn.wtsapp {
+          background-position: -60px 0px;
+        }
+        .icn.pin {
+          background-position: -90px 0px;
+        }
+        .icn.ig {
+          background-position: -60px -60px;
+        }
+        .icn.tt {
+          background-position: 0px -60px;
+        }
+        .icn.yt {
+          background-position: -30px -60px;
+        }
+        .icn.ln {
+          background-position: -90px -60px;
+        }
+        .icn.apple {
+          background-position: -30px -30px;
+        }
+        .icn.and {
+          background-position: 0px -30px;
+        }
+      </style>
+
+      <div
+        class="content"
+        style="
+          width: 100%;
+          max-width: 1300px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+        "
+      >
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <img
+            style="width: 60%; height: auto"
+            src="{% static 'logo.png' %}"
+            alt=""
+            srcset=""
+          />
+          <hr />
+          <p>
+            Providing you the Ghostly experience with Ghost Protocols. Don't
+            miss out, Get your Ghostly car now.
+          </p>
+          <p>
+            Powered by
+            <a style="color: rgb(44, 188, 54)" href="https://tixy.pk"
+              >Tixy.pk</a
+            >
+          </p>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Menu</h3>
+          <ul>
+            <li>
+              <a class="f-menu" href="">Inventory</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Ghost Yard</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Demand List</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">Services</a>
+            </li>
+            <li>
+              <a class="f-menu" href="">About Us</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Contact Us</h3>
+          <div class="icon-row">
+            <a href="#"><span class="icn phone"></span></a>
+            <a href="#"><span class="icn email"></span></a>
+            <a href="#"><span class="icn wtsapp"></span></a>
+            <a href="#"><span class="icn pin"></span></a>
+          </div>
+
+          <h3 class="f-head">News Letter</h3>
+        </div>
+
+        <div class="f-col" style="width: 100%; margin: 10px 20px">
+          <h3 class="f-head">Socials</h3>
+          <div class="icon-row">
+            <a href="#"><i class="icn ig"></i></a>
+            <a href="#"><i class="icn tt"></i></a>
+            <a href="#"><i class="icn yt"></i></a>
+            <a href="#"><i class="icn ln"></i></a>
+          </div>
+
+          <h3 class="f-head">Ghost App</h3>
+
+          <div class="ft-app">
+            <!--  -->
+            <style>
+              .badge {
+                display: flex;
+                max-width: 160px;
+                border-radius: 10px;
+                padding: 10px;
+                gap: 25px;
+                margin: 10px;
+                background-color: rgb(22, 22, 22);
+              }
+              .tt2 {
+                font-size: 12px;
+              }
+            </style>
+
+            <div class="badge">
+              <span class="icn apple"></span>
+              <div class="details">
+                <div class="tt2">Download on the</div>
+                <div class="tt">App Store</div>
+              </div>
+            </div>
+
+            <div class="badge">
+              <span class="icn and"></span>
+
+              <div class="details">
+                <div class="tt2">Get it on</div>
+                <div class="tt">Play Store</div>
+              </div>
+            </div>
+
+            <!--  -->
+          </div>
+        </div>
+      </div>
+      <p
+        style="
+          height: 20px;
+          text-align: center;
+          background-color: rgb(44, 188, 54);
+        "
+      >
+        Copyright © 2022 - 2023 Ghost Protocols
+      </p>
+    </footer>
+  </body>
+</html>
