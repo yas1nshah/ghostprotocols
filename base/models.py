@@ -1,3 +1,4 @@
+import os
 from django.utils import timezone
 from django.db import models
 from account.models import User
@@ -6,7 +7,7 @@ from account.models import User
 
 
 class Car(models.Model):
-    stockid = models.AutoField(primary_key=True)
+    stockid = models.AutoField(primary_key=True, db_index=True)
     date = models.DateTimeField(default=timezone.now)
 
     featured = models.BooleanField(default=False)
@@ -15,10 +16,10 @@ class Car(models.Model):
     galleryIndex = models.IntegerField()
     title = models.CharField(max_length=256, default='None')
 
-    make = models.CharField(max_length=50)
-    model = models.CharField(max_length=200)
-    year = models.IntegerField()
-    price = models.IntegerField()
+    make = models.CharField(max_length=50, db_index=True)
+    model = models.CharField(max_length=200, db_index=True)
+    year = models.IntegerField( db_index=True)
+    price = models.IntegerField( db_index=True)
 
     location = models.CharField(max_length=50)
     mileage = models.IntegerField()
@@ -32,7 +33,7 @@ class Car(models.Model):
 
     seller = models.ForeignKey(
         User, on_delete=models.CASCADE, default=1)
-    sellerComments = models.CharField(max_length=300)
+    sellerComments = models.TextField(max_length=300)
 
     def save(self, *args, **kwargs):
         # generate title field from other fields on each model creation/edit
@@ -48,7 +49,14 @@ class Car(models.Model):
 class Gallery(models.Model):
     car = models.ForeignKey(
         Car, on_delete=models.CASCADE, null=False, to_field='stockid')
-    image = models.ImageField(upload_to='static/images')
+    image = models.ImageField(upload_to='static/inventory/images')
+
+    def delete(self, *args, **kwargs):
+        # Delete the image file when the gallery record is deleted
+        if self.image:
+            if os.path.isfile(self.image.path):
+                os.remove(self.image.path)
+        super().delete(*args, **kwargs)
 
 
 class CarReports(models.Model):

@@ -56,7 +56,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     f_name = models.CharField(max_length=20, blank=True, default='')
     l_name = models.CharField(max_length=35, blank=True, default='')
     phone = models.CharField(max_length=11, unique=True, blank=True, default=0)
-
+    profile_pic = models.ImageField(upload_to='static/account/profile',blank=True)
     # True for Dealer || False for Individual
     acc_type = models.BooleanField(default=False)
     ad_limit = models.IntegerField(default=1)

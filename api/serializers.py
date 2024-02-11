@@ -16,7 +16,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 class SellerSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["f_name", "phone", "address", "date_joined"]
+        fields = ["id","f_name", "phone", "address", "date_joined"]
 
 
 class UserRegistrationSerializer(serializers.ModelSerializer):

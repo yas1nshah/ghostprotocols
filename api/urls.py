@@ -3,7 +3,7 @@ from .import views
 
 urlpatterns = [
     #  ? get by stock ID
-    path('cardetails/<int:stockid>', views.carDetils),
+    path('cardetails/<int:stockid>', views.car_details),
     # path('login', views.login),
     # ? User
     path('register', views.UserRegistrationView.as_view(), name='register'),
@@ -20,6 +20,9 @@ urlpatterns = [
     path('add-car', views.PostCarView.as_view(), name='add-car'),
     path('add-car/gallery', views.GalleryUploadView.as_view(),
          name='add-car/gallery'),
+    path('delete-gallery', views.DeleteGallery.as_view(),
+         name='delete-gallery'),
+     path('edit-car/<int:stockid>', views.EditCarView.as_view(), name='edit-car'),
     path('report', views.ReportCarView.as_view(), name='report'),
     # ? Manage!
     path('wesellyouwin', views.WeSellYouWinCreateView.as_view(), name='weSellYouWin'),
