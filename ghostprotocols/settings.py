@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-c0u3o7462c233c+vlp3n6^hn33mhf&5$xlea0_*d0@-mf-efvp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["api.ghostprotocols.pk","127.0.0.1","http://127.0.0.1:8000"]
 CORS_ALLOWED_ORIGINS = [
@@ -122,9 +122,13 @@ WSGI_APPLICATION = 'ghostprotocols.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+   'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ghostpro_ghostprotocols',
+        'USER': 'ghostpro_ghostprotocols',
+        'PASSWORD': 'Idontknow@1611',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
